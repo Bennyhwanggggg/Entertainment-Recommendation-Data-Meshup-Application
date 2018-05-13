@@ -19,7 +19,7 @@ class Anime(Document):
         super().__init__(*args, **values)
         self.name = name
         self.genre = genre
-        self.type = type
+        self.type = types
         self.rating = rating
 
 
