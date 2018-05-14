@@ -1,1 +1,7 @@
+# .gitignore
+
+# virtual environment
 venv/
+
+# PyCharm environment
+.idea
