@@ -15,12 +15,14 @@ def get_animes():
     parser.add_argument('title', type=str)
     parser.add_argument('rate_start', type=float)
     parser.add_argument('rate_end', type=float)
+    parser.add_argument('count', type=int)
     args = parser.parse_args()
     order = args.get('order')
     genre = args.get('genre')
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
     title = args.get('title')
+    count = args.get('count') # number of results to show
     results = get_anime_data()
     # if getting by genre
     if genre:
@@ -38,7 +40,8 @@ def get_animes():
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
-
+    if results and count and len(results) > count:
+        results = results[:count]
     return jsonify(results), 200
 
 
@@ -53,6 +56,7 @@ def get_movies():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('revenue_start', type=float)
     parser.add_argument('revenue_end', type=float)
+    parser.add_argument('count', type=int)
     args = parser.parse_args()
     order = args.get('order')
     genre = args.get('genre')
@@ -62,6 +66,7 @@ def get_movies():
     title = args.get('title')
     revenue_start = args.get('revenue_start')
     revenue_end = args.get('revenue_end')
+    count = args.get('count')  # number of results to show
     results = get_movie_data()
     # if getting by genre
     if genre:
@@ -84,6 +89,8 @@ def get_movies():
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
+    if results and count and len(results) > count:
+        results = results[:count]
     return jsonify(results), 200
 
 
@@ -95,12 +102,14 @@ def get_books():
     parser.add_argument('author', type=str)
     parser.add_argument('rate_start', type=float)
     parser.add_argument('rate_end', type=float)
+    parser.add_argument('count', type=int)
     args = parser.parse_args()
     order = args.get('order')
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
     title = args.get('title')
     author = args.get('author')
+    count = args.get('count')  # number of results to show
     results = get_book_data()
     # if getting by rating
     if rate_start is not None and rate_end is not None:
@@ -117,6 +126,8 @@ def get_books():
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
+    if results and count and len(results) > count:
+        results = results[:count]
     return jsonify(results), 200
 
 
@@ -176,12 +187,14 @@ def get_combined():
     parser.add_argument('genre', type=str)
     parser.add_argument('rate_start', type=float)
     parser.add_argument('rate_end', type=float)
+    parser.add_argument('count', type=int)
     args = parser.parse_args()
     order = args.get('order')
     type1 = args.get('type1')
     type2 = args.get('type2')
     type3 = args.get('type3')
     genre = args.get('genre')
+    count = args.get('count')  # number of results to show
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
     if not type1 and not type2 and not type3:
@@ -228,6 +241,8 @@ def get_combined():
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
+    if results and count and len(results) > count:
+        results = results[:count]
     return jsonify(results), 200
 
 if __name__ == "__main__":
