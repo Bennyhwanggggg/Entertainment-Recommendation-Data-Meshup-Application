@@ -70,7 +70,7 @@ def dataimport():
     moviedata = data_extraction.get_movie_data()
     for data in moviedata:
         Movies(data['Title'], data['Genre'], data['Description'], data['Director'], data['Actors'], data['Year'],
-               data['Rating'] ,data['Runtime (Minutes)'], data['Revenue (Millions)'], data['Metascore']).save()
+               data['Runtime (Minutes)'], data['Rating'], data['Revenue (Millions)'], data['Metascore']).save()
     print('done!')
     print('importing anime data....', end='')
     connect(host='mongodb://comp9321:comp9321@ds225010.mlab.com:25010/animes')
@@ -78,4 +78,3 @@ def dataimport():
     for data in animedata:
         Animes(data['name'], data['genre'], data['type'], data['episodes'], data['rating']).save()
     print('done!')
-
