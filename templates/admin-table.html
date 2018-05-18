@@ -1,0 +1,440 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="This is the page for table">
+  <meta name="keywords" content="table">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename="assets/i/favicon.png")}}">
+  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename="assets/i/app-icon72x72@2x.png")}}">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="{{ url_for('static', filename="assets/css/amazeui.min.css")}}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename="assets/css/admin.css")}}">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename="dist/pagination.css")}}">
+</head>
+<body>
+
+<header class="am-topbar am-topbar-inverse admin-header">
+  <div class="am-topbar-brand">
+    <strong>HeavyWeight</strong> <small>Showing</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> Emails </a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> Admin <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> profile</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> settings</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> logout</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">Full Screen</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="javascript:;"><span class="am-icon-home"></span> Home</a></li>
+        <li><a href="javascript:;" class="book"><span class="am-icon-table"></span> Animes</a></li>
+        <li><a href="javascript:;" class="movie"><span class="am-icon-table "></span> Movies</a></li>
+        <li><a href="javascript:;" class="IMDB"><span class="am-icon-table"></span> Books</a></li>
+        <li><a href="javascript:;" class="Combination"><span class="am-icon-table"></span> Combination</a></li>
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> Notice Board</p>
+          <p>balallalaalala.—— HeavyWeight</p>
+        </div>
+      </div>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-tag"></span> wiki</p>
+          <p>Welcome to HeavyWeight!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content1 start -->
+  <div class="admin-content content1">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table1</small></div>
+      </div>
+      <hr>
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}">
+              <option value="option1">all genres</option>
+              <option value="option2">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+            </select>
+          </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">Search</button>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" /></th><th class="table-id">name</th><th class="table-title">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-date am-hide-sm-only">episodes</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td><a href="#">Business management</a></td>
+                <td>default</td>
+                <td class="am-hide-sm-only">XXXXXX</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="am-cf">
+
+              <div class="am-fr">
+
+                <div style="width: 700px;margin: 100px auto;">
+                  <ul class="data-list">
+                  </ul>
+                  <div id="pagination" class="pagination"></div>
+                </div>
+
+                <!--<ul class="am-pagination">-->
+                  <!--<li class="am-disabled"><a href="#">«</a></li>-->
+                  <!--<li class="am-active"><a href="#">1</a></li>-->
+                  <!--<li><a href="#">2</a></li>-->
+                  <!--<li><a href="#">3</a></li>-->
+                  <!--<li><a href="#">4</a></li>-->
+                  <!--<li><a href="#">5</a></li>-->
+                  <!--<li><a href="#">»</a></li>-->
+                <!--</ul>-->
+              </div>
+            </div>
+            <hr />
+            <p>comments：.....</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
+    </footer>
+
+  </div>
+  <!-- content1 end -->
+
+  <!-- content2 start -->
+  <div class="admin-content content2">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table2</small></div>
+      </div>
+
+      <hr>
+
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}">
+              <option value="option1">all genres</option>
+              <option value="option2">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+            </select>
+          </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">Search</button>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" /></th><th class="table-id">title</th><th class="table-title">genre</th><th class="table-type">description</th><th class="table-author am-hide-sm-only">director</th><th class="table-date am-hide-sm-only">actors</th><th class="table-set">years</th><th class="table-set">runtime</th><th class="table-set">rating</th><th class="table-set">revenue</th><th class="table-set">metascore</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td><a href="#">Bus management</a></td>
+                <td>default</td>
+                <td class="am-hide-sm-only">XXXXXX</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="am-cf">
+
+              <div class="am-fr">
+
+                <div style="width: 700px;margin: 100px auto;">
+                  <ul class="data-list1">
+                  </ul>
+                  <div id="pagination1" class="pagination"></div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <p>comments：.....</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
+    </footer>
+
+  </div>
+  <!-- content2 end -->
+
+  <!-- content3 start -->
+  <div class="admin-content content3">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table3</small></div>
+      </div>
+      <hr>
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}">
+              <option value="option1">all genres</option>
+              <option value="option2">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+            </select>
+          </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">Search</button>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" /></th><th class="table-id">title</th><th class="table-title">author</th><th class="table-type">rating</th><th class="table-author am-hide-sm-only">review</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td><a href="#">Business management</a></td>
+                <td>default</td>
+                <td class="am-hide-sm-only">XXXXXX</td>
+                <td>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="am-cf">
+
+              <div class="am-fr">
+                <div style="width: 700px;margin: 100px auto;">
+                  <ul class="data-list2">
+                  </ul>
+                  <div id="pagination2" class="pagination"></div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <p>comments：.....</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
+    </footer>
+
+  </div>
+  <!-- content3 end -->
+
+  <!-- content4 start -->
+  <div class="admin-content content4">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table4</small></div>
+      </div>
+      <hr>
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}">
+              <option value="option1">all genres</option>
+              <option value="option2">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+              <option value="option3">****</option>
+            </select>
+          </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">Search</button>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                <th class="table-check"><input type="checkbox" /></th><th class="table-id">ID</th><th class="table-title">Title</th><th class="table-type">genres</th><th class="table-author am-hide-sm-only">author</th><th class="table-date am-hide-sm-only">Date</th><th class="table-set">settings</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td><a href="#">Business management</a></td>
+                <td>default</td>
+                <td class="am-hide-sm-only">XXXXXX</td>
+                <td class="am-hide-sm-only">12.5.2018</td>
+                <td>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="am-cf">
+
+              <div class="am-fr">
+                <ul class="am-pagination">
+                  <li class="am-disabled"><a href="#">«</a></li>
+                  <li class="am-active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr />
+            <p>comments：.....</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
+    </footer>
+
+  </div>
+  <!-- content4 end -->
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<script src="js.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{{ url_for('static', filename="assets/js/jquery.min.js")}}"></script>
+<!--<![endif]-->
+<script src="{{ url_for('static', filename="assets/js/amazeui.min.js")}}"></script>
+<script src="{{ url_for('static', filename="assets/js/app.js")}}"></script>
+<script src="{{ url_for('static', filename="assets/js/js.js")}}"></script>
+
+<script src="{{ url_for('static', filename="js/data.js")}}"></script>
+<script src="{{ url_for('static', filename="dist/pagination.js")}}"></script>
+<script src="{{ url_for('static', filename="js/index.js")}}"></script>
+</body>
+</html>
