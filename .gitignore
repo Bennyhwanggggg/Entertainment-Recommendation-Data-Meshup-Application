@@ -6,8 +6,8 @@ venv/
 # PyCharm environment
 .idea
 
-# Cache
+# cache
 __pycache__/
 
-# data files
-raw_data
+# data
+raw_data/

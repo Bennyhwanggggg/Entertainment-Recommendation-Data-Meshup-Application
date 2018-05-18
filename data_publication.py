@@ -17,6 +17,7 @@ def get_animes():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('count', type=int)
     args = parser.parse_args()
+
     order = args.get('order')
     genre = args.get('genre')
     rate_start = args.get('rate_start')
@@ -24,6 +25,7 @@ def get_animes():
     title = args.get('title')
     count = args.get('count') # number of results to show
     results = get_anime_data()
+
     # if getting by genre
     if genre:
         results = [d for d in results if genre in d.get('genre')]
@@ -43,7 +45,6 @@ def get_animes():
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
-
 
 @app.route('/movies', methods=['GET'])
 def get_movies():
@@ -93,7 +94,6 @@ def get_movies():
         results = results[:count]
     return jsonify(results), 200
 
-
 @app.route('/books', methods=['GET'])
 def get_books():
     parser = reqparse.RequestParser()
@@ -130,7 +130,6 @@ def get_books():
         results = results[:count]
     return jsonify(results), 200
 
-
 def get_anime_data():
     anime_data = [anime for anime in Animes.objects]
     results = []
@@ -142,8 +141,7 @@ def get_anime_data():
         result['rating'] = data.rating
         result['episodes'] = data.episodes
         results.append(result)
-    return  results
-
+    return results
 
 def get_movie_data():
     movie_data = [movie for movie in Movies.objects]
@@ -163,7 +161,6 @@ def get_movie_data():
         results.append(result)
     return results
 
-
 def get_book_data():
     book_data = [book for book in Books.objects]
     results = []
@@ -175,7 +172,6 @@ def get_book_data():
         result['rating'] = data.rating
         results.append(result)
     return results
-
 
 @app.route('/combined', methods=['GET'])
 def get_combined():
