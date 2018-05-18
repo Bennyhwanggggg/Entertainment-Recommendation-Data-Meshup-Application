@@ -55,10 +55,53 @@ class Books(Document):
         self.rating = rating
         self.review = review
 
+def get_anime_data():
+    anime_data = [anime for anime in Animes.objects]
+    results = []
+    for data in anime_data:
+        result = dict()
+        result['title'] = data.name
+        result['genre'] = data.genre.split(', ')
+        result['type'] = data.type
+        result['rating'] = data.rating
+        result['episodes'] = data.episodes
+        results.append(result)
+    return results
+
+def get_movie_data():
+    movie_data = [movie for movie in Movies.objects]
+    results = []
+    for data in movie_data:
+        result = dict()
+        result['title'] = data.title
+        result['genre'] = data.genre.split(',')
+        result['rating'] = data.rating
+        result['revenue'] = data.revenue
+        result['runtime'] = data.runtime
+        result['metascore'] = data.metascore
+        result['description'] = data.description
+        result['director'] = data.director
+        result['year'] = data.years
+        result['actors'] = data.actors.split(', ')
+        results.append(result)
+    return results
+
+def get_book_data():
+    book_data = [book for book in Books.objects]
+    results = []
+    for data in book_data:
+        result = dict()
+        result['title'] = data.title
+        result['author'] = data.author
+        result['review'] = data.review
+        result['rating'] = data.rating
+        results.append(result)
+    return results
+
 def dataimport():
     print('importing book data....', end='')
     connect(host='mongodb://comp9321:comp9321@ds225010.mlab.com:25010/books')
-    bookdata = data_extraction.get_book_data()
+    bookdata = data_extraction.extract_book_data()
     for data in bookdata:
         Books(data['title'], data['author'], data['rating'],\
                 data['review']).save()
@@ -66,7 +109,7 @@ def dataimport():
 
     print('importing movie data....', end='')
     connect(host='mongodb://comp9321:comp9321@ds225010.mlab.com:25010/movies')
-    moviedata = data_extraction.get_movie_data()
+    moviedata = data_extraction.extract_movie_data()
     for data in moviedata:
         Movies(data['Title'], data['Genre'], data['Description'],\
                 data['Director'], data['Actors'], data['Year'],\
@@ -76,7 +119,7 @@ def dataimport():
 
     print('importing anime data....', end='')
     connect(host='mongodb://comp9321:comp9321@ds225010.mlab.com:25010/animes')
-    animedata = data_extraction.get_anime_data()
+    animedata = data_extraction.extract_anime_data()
     for data in animedata:
         Animes(data['name'], data['genre'], data['type'], data['episodes'].\
                 data['rating']).save()

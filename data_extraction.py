@@ -13,7 +13,7 @@ for row in data:
 '''
 
 # extract anime data
-def get_anime_data(file='anime.csv'):
+def extract_anime_data(file='anime.csv'):
     raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
     raw_data = raw_data.drop('anime_id', 1)
     raw_data = raw_data.drop('members', 1)
@@ -21,7 +21,7 @@ def get_anime_data(file='anime.csv'):
     data = raw_data.to_dict(orient='records')
     return data
 
-def get_movie_data(file='IMDB-Movie-Data.csv'):
+def extract_movie_data(file='IMDB-Movie-Data.csv'):
     raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
     raw_data = raw_data.drop('Votes', 1)
     raw_data = raw_data.drop('Rank', 1)
@@ -31,7 +31,7 @@ def get_movie_data(file='IMDB-Movie-Data.csv'):
 
 # Use xlsx. For some reason the csv file has data loss.
 # Maybe delete some data as well to make the size smaller
-def get_book_data(file='br.xlsx'):
+def extract_book_data(file='br.xlsx'):
     # raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
     raw_data = pd.read_excel(os.path.join(RAW_DATA_PATH, file))
     raw_data = raw_data.drop('reviewsCount', 1)

@@ -1,13 +1,13 @@
-from database import Animes, Movies, Books
-from flask import Flask, jsonify, render_template, request, url_for
+from database import Animes, Movies, Books, get_anime_data, get_movie_data, get_book_data
+from flask import Flask, Blueprint, jsonify, render_template, request, url_for
 from flask_restful import reqparse
 from mongoengine import connect
 
-app = Flask(__name__)
+publication = Blueprint("publication", __name__, url_prefix="/")
 
 connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
 
-@app.route('/animes', methods=['GET'])
+@publication.route('/animes', methods=['GET'])
 def get_animes():
     parser = reqparse.RequestParser()
     parser.add_argument('order', type=str)
@@ -46,7 +46,7 @@ def get_animes():
         results = results[:count]
     return jsonify(results), 200
 
-@app.route('/movies', methods=['GET'])
+@publication.route('/movies', methods=['GET'])
 def get_movies():
     parser = reqparse.RequestParser()
     parser.add_argument('order', type=str)
@@ -94,7 +94,7 @@ def get_movies():
         results = results[:count]
     return jsonify(results), 200
 
-@app.route('/books', methods=['GET'])
+@publication.route('/books', methods=['GET'])
 def get_books():
     parser = reqparse.RequestParser()
     parser.add_argument('order', type=str)
@@ -130,50 +130,7 @@ def get_books():
         results = results[:count]
     return jsonify(results), 200
 
-def get_anime_data():
-    anime_data = [anime for anime in Animes.objects]
-    results = []
-    for data in anime_data:
-        result = dict()
-        result['title'] = data.name
-        result['genre'] = data.genre.split(', ')
-        result['type'] = data.type
-        result['rating'] = data.rating
-        result['episodes'] = data.episodes
-        results.append(result)
-    return results
-
-def get_movie_data():
-    movie_data = [movie for movie in Movies.objects]
-    results = []
-    for data in movie_data:
-        result = dict()
-        result['title'] = data.title
-        result['genre'] = data.genre.split(',')
-        result['rating'] = data.rating
-        result['revenue'] = data.revenue
-        result['runtime'] = data.runtime
-        result['metascore'] = data.metascore
-        result['description'] = data.description
-        result['director'] = data.director
-        result['year'] = data.years
-        result['actors'] = data.actors.split(', ')
-        results.append(result)
-    return results
-
-def get_book_data():
-    book_data = [book for book in Books.objects]
-    results = []
-    for data in book_data:
-        result = dict()
-        result['title'] = data.title
-        result['author'] = data.author
-        result['review'] = data.review
-        result['rating'] = data.rating
-        results.append(result)
-    return results
-
-@app.route('/combined', methods=['GET'])
+@publication.route('/combined', methods=['GET'])
 def get_combined():
     parser = reqparse.RequestParser()
     parser.add_argument('order', type=str)
@@ -242,4 +199,6 @@ def get_combined():
     return jsonify(results), 200
 
 if __name__ == "__main__":
-    app.run()
+    app = Flask(__name__)
+    app.register_blueprint(publication)
+    app.run(debug=True)
