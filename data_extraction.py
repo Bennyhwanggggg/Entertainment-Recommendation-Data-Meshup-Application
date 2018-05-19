@@ -41,3 +41,29 @@ def extract_book_data(file='br.xlsx'):
     raw_data = raw_data.fillna('None')
     data = raw_data.to_dict(orient='records')
     return data
+
+
+def extract_book_data2(file='oldgoodbooks.csv'):
+    # raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
+    raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
+    raw_data = raw_data.drop('book_id', 1)
+    raw_data = raw_data.drop('work_id', 1)
+    raw_data = raw_data.drop('goodreads_book_id', 1)
+    raw_data = raw_data.drop('best_book_id', 1)
+    raw_data = raw_data.drop('books_count', 1)
+    raw_data = raw_data.drop('original_title', 1)
+    raw_data = raw_data.drop('language_code', 1)
+    raw_data = raw_data.drop('ratings_count', 1)
+    raw_data = raw_data.drop('work_ratings_count', 1)
+    raw_data = raw_data.drop('work_text_reviews_count', 1)
+    raw_data = raw_data.drop('ratings_1', 1)
+    raw_data = raw_data.drop('ratings_2', 1)
+    raw_data = raw_data.drop('ratings_3', 1)
+    raw_data = raw_data.drop('ratings_4', 1)
+    raw_data = raw_data.drop('ratings_5', 1)
+    raw_data['average_rating'] = raw_data['average_rating'].apply(lambda x: x*2)
+    raw_data = raw_data.fillna('None')
+    data = raw_data.to_dict(orient='records')
+    return data
+
+extract_book_data2()

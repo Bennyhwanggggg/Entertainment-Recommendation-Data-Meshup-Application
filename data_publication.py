@@ -100,10 +100,14 @@ def get_books():
     parser.add_argument('order', type=str)
     parser.add_argument('title', type=str)
     parser.add_argument('author', type=str)
+    parser.add_argument('genre', type=str)
     parser.add_argument('rate_start', type=float)
     parser.add_argument('rate_end', type=float)
+    parser.add_argument('year', type=int)
     parser.add_argument('count', type=int)
     args = parser.parse_args()
+    genre = args.get('genre')
+    year = args.get('year')
     order = args.get('order')
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
@@ -117,9 +121,15 @@ def get_books():
     # if getting by title
     if title:
         results = [d for d in results if title in d.get('title')]
+    # get by genre
+    if genre:
+        results = [d for d in results if genre in d.get('genre')]
     # filter by revenue
     if author:
         results = [d for d in results if author in d.get('author')]
+    # filter by year
+    if year:
+        results = [d for d in results if year == d.get('year')]
     # if sort from high to low
     if order:
         if order == 'high_to_low':
@@ -141,12 +151,14 @@ def get_combined():
     parser.add_argument('rate_start', type=float)
     parser.add_argument('rate_end', type=float)
     parser.add_argument('count', type=int)
+    parser.add_argument('year', type=int)
     args = parser.parse_args()
     order = args.get('order')
     type1 = args.get('type1')
     type2 = args.get('type2')
     type3 = args.get('type3')
     genre = args.get('genre')
+    year = args.get('year')
     count = args.get('count')  # number of results to show
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
@@ -164,6 +176,8 @@ def get_combined():
                 results = [d for d in results if genre in d.get('genre')]
         elif type1 == 'Books':
             results.extend(get_book_data())
+            if genre:
+                results = [d for d in results if genre in d.get('genre')]
     if type1 != type2 and type2:
         if type2 == 'Movies':
             results.extend(get_movie_data())
@@ -175,6 +189,8 @@ def get_combined():
                 results = [d for d in results if genre in d.get('genre')]
         elif type2 == 'Books':
             results.extend(get_book_data())
+            if genre:
+                results = [d for d in results if genre in d.get('genre')]
     if type1 != type2 and type2 != type3 and type3:
         if type3 == 'Movies':
             results.extend(get_movie_data())
@@ -186,6 +202,8 @@ def get_combined():
                 results = [d for d in results if genre in d.get('genre')]
         elif type3 == 'Books':
             results.extend(get_book_data())
+            if genre:
+                results = [d for d in results if genre in d.get('genre')]
     if results and rate_start and rate_end:
         results = [d for d in results if rate_start <= d.get('rating') <= rate_end]
     # if sort from high to low
@@ -194,6 +212,8 @@ def get_combined():
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
+    if year:
+        results = [d for d in results if year == d.get('year')]
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
