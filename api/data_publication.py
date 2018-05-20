@@ -217,12 +217,6 @@ def get_combined():
         results = results[:count]
     return jsonify(results), 200
 
-
-@publication.route('/', methods=['GET'])
-def get_root():
-    return render_template('admin-table.html')
-
-
 if __name__ == "__main__":
     app = Flask(__name__)
     app.register_blueprint(publication)
