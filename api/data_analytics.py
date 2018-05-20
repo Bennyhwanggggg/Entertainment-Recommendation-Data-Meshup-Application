@@ -12,17 +12,19 @@ def average_rating_genres():
     anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()]
     movie_data = [(movie['genre'], movie['rating']) for movie in get_movie_data()]
 
+    # book_data = []
+    # for book in get_book_data():
+    #     if book['genre'] == "Undefined":
+    #         continue
+    #     if "Nyt:" in ''.join(book['genre']):
+    #         continue
+    #     book_data.append((map(str.capitalize, book['genre']), book['rating']))
+
     ratings = {}
     averages = {}
 
-    for data in anime_data:
-        for genre in data[0]:
-            if genre not in ratings:
-                ratings[genre] = [data[1]]
-            else:
-                ratings[genre].append(data[1])
-
-    for data in movie_data:
+    # for data in anime_data + movie_data + book_data:
+    for data in anime_data + movie_data:
         for genre in data[0]:
             if genre not in ratings:
                 ratings[genre] = [data[1]]
