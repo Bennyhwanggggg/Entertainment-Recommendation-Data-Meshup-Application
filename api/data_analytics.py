@@ -1,8 +1,9 @@
-from database import Animes, Movies, Books, get_anime_data, get_movie_data, get_book_data
 from flask import abort, Flask, Blueprint, jsonify, render_template, request, url_for
 from flask_restful import reqparse
 from mongoengine import connect
 from statistics import mean
+
+from .database import *
 
 analytics = Blueprint("analytics", __name__, url_prefix="/analytics")
 

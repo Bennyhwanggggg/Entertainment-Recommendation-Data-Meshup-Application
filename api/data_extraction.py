@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import chardet
 
+connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
+
 PATH = os.path.dirname(os.path.realpath(__file__))
 RAW_DATA_PATH = os.path.join(PATH, 'raw_data')
 
@@ -62,3 +64,54 @@ def extract_book_data2(file='oldgoodbooks.csv'):
     raw_data = raw_data.fillna('None')
     data = raw_data.to_dict(orient='records')
     return data
+
+def dataimport():
+    print('importing book data....', end='')
+    bookdata = extract_book_data2()
+    for data in bookdata:
+        response = requests.get('https://openlibrary.org/api/books?bibkeys=ISBN:{}&jscmd=data&format=json'.format(data['isbn']))
+        json_data = json.loads(response.text)
+        header = 'ISBN:{}'.format(data['isbn'])
+        try:
+            subjects = json_data[header]['subjects']
+            genres = []
+            for subject in subjects:
+                genres.append(subject['name'])
+            genres = ', '.join(genres)
+        except:
+            genres = 'Undefined'
+        data['genre'] = genres
+        try:
+            data['isbn'] = float(data['isbn'])
+            print(data)
+            Books(data['title'], data['authors'], data['average_rating'],
+                data['isbn'], data['isbn13'], data['original_publication_year'], data['image_url'], data['small_image_url'], data['genre']).save()
+        except:
+            continue
+    print('done!')
+    
+    print('importing movie data....', end='')
+    moviedata = extract_movie_data()
+    for data in moviedata:
+        try:
+            Movies(data['Title'], data['Genre'], data['Description'],
+                data['Director'], data['Actors'], data['Year'],
+                data['Runtime (Minutes)'], data['Rating'],
+                data['Revenue (Millions)'], data['Metascore']).save()
+        except:
+            continue
+    print('done!')
+
+    print('importing anime data....', end='')
+    animedata = extract_anime_data()
+    count = 0
+    for data in animedata:
+        if count == 3000:
+            break
+        try:
+            Animes(data['name'], data['genre'], data['type'], data['episodes'],
+                    data['rating'], data['start_date'], data['end_date']).save()
+            count += 1
+        except:
+            continue
+    print('done!')
