@@ -13,10 +13,8 @@ for row in data:
 '''
 
 # extract anime data
-def extract_anime_data(file='anime.csv'):
+def extract_anime_data(file='anime_updated.csv'):
     raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
-    raw_data = raw_data.drop('anime_id', 1)
-    raw_data = raw_data.drop('members', 1)
     raw_data = raw_data.fillna(0)
     data = raw_data.to_dict(orient='records')
     return data
@@ -42,7 +40,6 @@ def extract_book_data(file='br.xlsx'):
     data = raw_data.to_dict(orient='records')
     return data
 
-
 def extract_book_data2(file='oldgoodbooks.csv'):
     # raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
     raw_data = pd.read_csv(os.path.join(RAW_DATA_PATH, file))
@@ -65,5 +62,3 @@ def extract_book_data2(file='oldgoodbooks.csv'):
     raw_data = raw_data.fillna('None')
     data = raw_data.to_dict(orient='records')
     return data
-
-extract_book_data2()

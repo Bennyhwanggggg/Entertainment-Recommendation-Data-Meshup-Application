@@ -5,8 +5,6 @@ from mongoengine import connect
 
 publication = Blueprint("publication", __name__, url_prefix="/")
 
-connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
-
 @publication.route('/animes', methods=['GET'])
 def get_animes():
     parser = reqparse.RequestParser()

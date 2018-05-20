@@ -6,8 +6,6 @@ from statistics import mean
 
 analytics = Blueprint("analytics", __name__, url_prefix="/analytics")
 
-connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
-
 @analytics.route("/rating/average/genre", methods=["GET"])
 def average_rating_genres():
     anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()]

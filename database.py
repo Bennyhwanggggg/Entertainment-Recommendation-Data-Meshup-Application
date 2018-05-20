@@ -1,7 +1,10 @@
-from mongoengine import StringField, IntField, Document, FloatField, connect
 import data_extraction
 import requests
 import json
+
+from datetime import datetime
+from mongoengine import StringField, IntField, Document, FloatField,\
+        DateTimeField, connect
 
 connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
 
@@ -11,14 +14,19 @@ class Animes(Document):
     type = StringField(required=True)
     rating = FloatField(required=True)
     episodes = IntField(required=True)
+    start_date = DateTimeField(required=True)
+    end_date = DateTimeField(required=True)
 
-    def __init__(self, name, genre, type, episodes, rating, *args, **values):
+    def __init__(self, name, genre, type, episodes, rating, start_date,\
+            end_date, *args, **values):
         super().__init__(*args, **values)
         self.name = name
         self.genre = genre
         self.type = type
         self.rating = rating
         self.episodes = episodes
+        self.start_date = start_date
+        self.end_date = end_date
 
 class Movies(Document):
     title = StringField(required=True, primary_key=True)
@@ -79,6 +87,8 @@ def get_anime_data():
         result['type'] = data.type
         result['rating'] = data.rating
         result['episodes'] = data.episodes
+        result['start_date'] = data.start_date
+        result['end_date'] = data.end_date
         results.append(result)
     return results
 
@@ -144,7 +154,7 @@ def dataimport():
         except:
             continue
     print('done!')
-
+    
     print('importing movie data....', end='')
     moviedata = data_extraction.extract_movie_data()
     for data in moviedata:
@@ -159,11 +169,14 @@ def dataimport():
 
     print('importing anime data....', end='')
     animedata = data_extraction.extract_anime_data()
+    count = 0
     for data in animedata:
+        if count == 3000:
+            break
         try:
             Animes(data['name'], data['genre'], data['type'], data['episodes'],
-                    data['rating']).save()
+                    data['rating'], data['start_date'], data['end_date']).save()
+            count += 1
         except:
             continue
     print('done!')
-
