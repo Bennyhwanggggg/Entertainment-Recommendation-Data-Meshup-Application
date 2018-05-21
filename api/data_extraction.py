@@ -3,6 +3,8 @@ import pandas as pd
 from mongoengine import connect
 from database import Animes, Books, Movies
 import chardet
+import requests
+import json
 
 connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
 
