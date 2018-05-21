@@ -24,6 +24,8 @@ def get_animes():
     title = args.get('title')
     count = args.get('count') # number of results to show
     results = get_anime_data()
+    
+    print(order)
 
     # if getting by genre
     if genre:

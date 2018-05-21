@@ -14,3 +14,6 @@ app.url_map.strict_slashes = False
 app.register_blueprint(publication)
 app.register_blueprint(analytics)
 app.after_request(cors)
+
+
+
