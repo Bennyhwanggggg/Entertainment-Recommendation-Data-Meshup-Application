@@ -53,13 +53,14 @@ def average_rating_genres():
 def average_rating_genre(genre):
     anime_data = Animes.objects(genre__contains=genre.capitalize())
     movie_data = Movies.objects(genre__contains=genre.capitalize())
-
-    if not anime_data and not movie_data:
+    book_data = Books.objects(genre__contains=genre.capitalize())
+    if not anime_data and not movie_data and not book_data:
         abort(404, "Invalid genre")
 
-    anime_ratings = [anime.rating for anime in anime_data]
-    movie_ratings = [movie.rating for movie in movie_data]
-    average = mean(anime_ratings + movie_ratings)
+    anime_ratings = [anime.rating for anime in anime_data] if anime_data else []
+    movie_ratings = [movie.rating for movie in movie_data] if movie_data else []
+    book_rating = [book.rating for book in book_data] if book_data else []
+    average = mean(anime_ratings + movie_ratings + book_rating)
 
     return jsonify({genre:{"average":average}}), 200
 
