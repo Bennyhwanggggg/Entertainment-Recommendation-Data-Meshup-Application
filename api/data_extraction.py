@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from mongoengine import connect
-from database import Animes, Books, Movies
+from .database import Animes, Books, Movies
 import chardet
 import requests
 import json
