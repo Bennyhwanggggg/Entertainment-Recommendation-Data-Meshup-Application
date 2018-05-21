@@ -9,8 +9,19 @@ analytics = Blueprint("analytics", __name__, url_prefix="/analytics")
 
 @analytics.route("/rating/average/genre", methods=["GET"])
 def average_rating_genres():
-    anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()]
-    movie_data = [(movie['genre'], movie['rating']) for movie in get_movie_data()]
+    parser = reqparse.RequestParser()
+    parser.add_argument("year", type=int)
+    args = parser.parse_args()
+    year = args.get("year")
+
+    if year:
+        anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()\
+                if anime['start_date'].year == year ]
+        movie_data = [(movie['genre'], movie['rating']) for movie in get_movie_data()\
+                if movie['year'] == year]
+    else:
+        anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()]
+        movie_data = [(movie['genre'], movie['rating']) for movie in get_movie_data()]
 
     # book_data = []
     # for book in get_book_data():
