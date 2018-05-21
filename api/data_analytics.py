@@ -29,6 +29,8 @@ def average_rating_genres():
             continue
         if "Nyt:" in ''.join(book['genre']):
             continue
+        if year and book['year'] != year:
+            continue
         book_data.append((map(str.capitalize, book['genre']), book['rating']))
 
     ratings = {}
