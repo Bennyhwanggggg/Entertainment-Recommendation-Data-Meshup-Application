@@ -6,7 +6,7 @@ from .database import *
 
 publication = Blueprint("publication", __name__, url_prefix="/")
 
-@publication.route('/animes', methods=['GET'])
+@publication.route('/animes', methods=['POST'])
 def get_animes():
     parser = reqparse.RequestParser()
     parser.add_argument('order', type=str)

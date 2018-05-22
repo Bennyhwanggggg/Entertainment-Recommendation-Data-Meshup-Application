@@ -11,11 +11,11 @@ connect(host='mongodb://comp9321:comp9321@ds225840.mlab.com:25840/data')
 PATH = os.path.dirname(os.path.realpath(__file__))
 RAW_DATA_PATH = os.path.join(PATH, 'raw_data')
 
-template_dir = os.path.abspath('../client/templates')
-static_dir = '../client/static'
-app = Flask(__name__,template_folder=template_dir,static_folder=static_dir)
-app.config["APPLICATION_ROOT"] = "/abc/123"
-CORS(app)
+# template_dir = os.path.abspath('../client/templates')
+# static_dir = '../client/static'
+# app = Flask(__name__,template_folder=template_dir,static_folder=static_dir)
+# app.config["APPLICATION_ROOT"] = "/abc/123"
+# CORS(app)
 
 '''
 Get data like this?? Or is there another O(1) method
