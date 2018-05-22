@@ -121,6 +121,20 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes">
+              <option>numnber_of_result</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="500">500</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}">
               <option value="option1">all title</option>
               <option value="option2">Movie</option>
@@ -183,23 +197,21 @@
       <div class="am-g">
         <div class="am-u-sm-12">
           <form class="am-form">
-            <table class="am-table am-table-striped am-table-hover table-main">
+            <table class="am-table am-table-striped am-table-hover table-main" id="table1">
               <thead>
               <tr>
-                <th class="table-check"><input type="checkbox" /></th><th class="table-id">name</th><th class="table-title">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-date am-hide-sm-only">episodes</th>
+                <th class="table-id">name</th><th class="table-title">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-date am-hide-sm-only">episodes</th><th class="table-date am-hide-sm-only">year</th>
               </tr>
               </thead>
-              <tbody>
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>1</td>
-                <td><a href="#">Business management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only">XXXXXX</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td>
-                </td>
-              </tr>
+              <tbody id="table1_tbody">
+              <!--<tr>-->
+                <!--<td><a href="#">Business management</a></td>-->
+                <!--<td>default</td>-->
+                <!--<td class="am-hide-sm-only">XXXXXX</td>-->
+                <!--<td class="am-hide-sm-only">12.5.2018</td>-->
+                <!--<td>-->
+                <!--</td>-->
+              <!--</tr>-->
               </tbody>
             </table>
             <div class="am-cf">

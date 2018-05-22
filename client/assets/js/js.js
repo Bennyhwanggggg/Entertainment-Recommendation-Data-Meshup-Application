@@ -10,24 +10,43 @@ $(".animes").click(function(){
     // console.log(a)
 
     console.log("1");
-    const url = 'http://127.0.0.1:5000/animes';
+
+    // var numtoshow = $(this).find('#number_of_animes').attr('data-id')
+    // var numtoshow = $(this).find('#number_of_animes').data('id')
+
+    // var e = document.getElementById("number_of_animes").value;
+    // var numtoshow = e.options[e.selectedIndex].value;
+
+
+    // $("#number_of_animes :selected").text(); // The text content of the selected option
+    var numtoshow =$("#number_of_animes").val();
+    console.log(numtoshow);
+    const url = 'http://127.0.0.1:5000/show/animes?count='+numtoshow;
     fetch(url, {
-        method: 'post',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({
-            order: document.getElementById('11').value
-        })
-    }).then(function(response){
-        return response.json()
-    }).then(function(data){
+        method: 'get'
+    }).then((response)=> response.json())
+      .then(function(data){
         console.log(data)
-        // loading.style.display = "none";
-        // if (data.lgname == "The LGA name you inputed doesn't exist.") {
-        //     let div = document.createElement('div');
-        //     div.setAttribute('id', "666");
-        //     div.innerHTML = 'https://mlab.com/databases/my-database/collections/crime/' + data.lgname;
-        //     return parent_tag.appendChild(div);
-        // }
+
+        var i;
+        for (i = 0; i < data.length; i++) {
+            text += data[i] + "<br>";
+        }
+
+        console.log(text)
+
+        // animes_tr = document.createElement('tr');
+        // animes_tr = document.createElement('td');
+        //
+        // var table = document.getElementById("table1");
+        // var row = table.insertRow(0);
+        // var cell1 = row.insertCell(0);
+        // var cell2 = row.insertCell(1);
+        // cell1.innerHTML = "NEW CELL1";
+        // cell2.innerHTML = "NEW CELL2";
+
+
+
     });
 
     $(".content1").show();

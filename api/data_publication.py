@@ -4,9 +4,9 @@ from mongoengine import connect
 
 from .database import *
 
-publication = Blueprint("publication", __name__, url_prefix="/")
+publication = Blueprint("publication", __name__, url_prefix="/show")
 
-@publication.route('/animes', methods=['POST'])
+@publication.route('/animes', methods=['GET'])
 def get_animes():
     parser = reqparse.RequestParser()
     parser.add_argument('order', type=str)
@@ -24,8 +24,8 @@ def get_animes():
     title = args.get('title')
     count = args.get('count') # number of results to show
     results = get_anime_data()
-    
-    print(order)
+
+    print(count)
 
     # if getting by genre
     if genre:
