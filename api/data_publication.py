@@ -16,7 +16,7 @@ def get_animes():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('count', type=int)
     args = parser.parse_args()
-
+    ##### NEED to add Anime revenue ############
     order = args.get('order')
     genre = args.get('genre')
     rate_start = args.get('rate_start')
@@ -57,6 +57,7 @@ def get_movies():
     parser.add_argument('revenue_start', type=float)
     parser.add_argument('revenue_end', type=float)
     parser.add_argument('count', type=int)
+    parser.add_argument('earning', type=str)
     args = parser.parse_args()
     order = args.get('order')
     genre = args.get('genre')
@@ -66,6 +67,7 @@ def get_movies():
     title = args.get('title')
     revenue_start = args.get('revenue_start')
     revenue_end = args.get('revenue_end')
+    earning = args.get('earning')
     count = args.get('count')  # number of results to show
     results = get_movie_data()
     # if getting by genre
@@ -78,7 +80,7 @@ def get_movies():
     if title:
         results = [d for d in results if title in d.get('title')]
     # filter by revenue
-    if revenue_start is not None and revenue_end is not None and not year:
+    if revenue_start is not None and revenue_end is not None:
         results = [d for d in results if revenue_start <= d.get('revenue') <= revenue_end]
     if year:
         results = [d for d in results if year == d.get('year')]
@@ -89,6 +91,11 @@ def get_movies():
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
+    if earning:
+        if earning == 'highest':
+            results = sorted(results, key=lambda k: k['revenue'], reverse=True)
+        elif earning == 'lowest':
+            results = sorted(results, key=lambda k: k['revenue'])
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
@@ -104,6 +111,9 @@ def get_books():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('year', type=int)
     parser.add_argument('count', type=int)
+    parser.add_argument('earning', type=str)
+    parser.add_argument('revenue_start', type=float)
+    parser.add_argument('revenue_end', type=float)
     args = parser.parse_args()
     genre = args.get('genre')
     year = args.get('year')
@@ -113,6 +123,9 @@ def get_books():
     title = args.get('title')
     author = args.get('author')
     count = args.get('count')  # number of results to show
+    earning = args.get('earning')
+    revenue_start = args.get('revenue_start')
+    revenue_end = args.get('revenue_end')
     results = get_book_data()
     # if getting by rating
     if rate_start is not None and rate_end is not None:
@@ -129,12 +142,20 @@ def get_books():
     # filter by year
     if year:
         results = [d for d in results if year == d.get('year')]
+    if revenue_start is not None and revenue_end is not None:
+        results = [d for d in results if revenue_start <= d.get('revenue') <= revenue_end]
     # if sort from high to low
     if order:
         if order == 'high_to_low':
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
+    if earning:
+        if earning == 'highest':
+            results = sorted(results, key=lambda k: k['revenue'], reverse=True)
+        elif earning == 'lowest':
+            results = sorted(results, key=lambda k: k['revenue'])
+
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
@@ -151,6 +172,9 @@ def get_combined():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('count', type=int)
     parser.add_argument('year', type=int)
+    parser.add_argument('earning', type=str)
+    parser.add_argument('revenue_start', type=float)
+    parser.add_argument('revenue_end', type=float)
     args = parser.parse_args()
     order = args.get('order')
     type1 = args.get('type1')
@@ -161,6 +185,9 @@ def get_combined():
     count = args.get('count')  # number of results to show
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
+    earning = args.get('earning')
+    revenue_start = args.get('revenue_start')
+    revenue_end = args.get('revenue_end')
     if not type1 and not type2 and not type3:
         return jsonify(msg='No media selection made')
     results = []
@@ -205,14 +232,23 @@ def get_combined():
                 results = [d for d in results if genre in d.get('genre')]
     if results and rate_start and rate_end:
         results = [d for d in results if rate_start <= d.get('rating') <= rate_end]
+    if year:
+        results = [d for d in results if year == d.get('year')]
+    if revenue_start is not None and revenue_end is not None:
+        results = [d for d in results if revenue_start <= d.get('revenue') <= revenue_end]
     # if sort from high to low
     if order:
         if order == 'high_to_low':
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
         elif order == 'low_to_high':
             results = sorted(results, key=lambda k: k['rating'])
-    if year:
-        results = [d for d in results if year == d.get('year')]
+
+    if earning:
+        if earning == 'highest':
+            results = sorted(results, key=lambda k: k['revenue'], reverse=True)
+        elif earning == 'lowest':
+            results = sorted(results, key=lambda k: k['revenue'])
+
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
