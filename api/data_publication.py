@@ -25,10 +25,6 @@ def get_animes():
     count = args.get('count') # number of results to show
     results = get_anime_data()
 
-    print(count)
-    print(genre)
-    print(rate_start)
-
     # if getting by genre
     if genre:
         results = [d for d in results if genre in d.get('genre')]

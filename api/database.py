@@ -63,8 +63,9 @@ class Books(Document):
     imgurl = StringField(required=True)
     smallimgurl = StringField(required=True)
     genre = StringField(required=True)
+    revenue = FloatField()
 
-    def __init__(self, title, author, rating, isbn, isbn13, year, imgurl, smallimgurl, genre, *args, **values):
+    def __init__(self, title, author, rating, isbn, isbn13, year, imgurl, smallimgurl, genre, revenue, *args, **values):
         super().__init__(*args, **values)
         self.title = title
         self.author = author
@@ -75,6 +76,7 @@ class Books(Document):
         self.imgurl = imgurl
         self.smallimgurl = smallimgurl
         self.genre = genre
+        self.revenue = revenue
 
 def get_anime_data():
     anime_data = [anime for anime in Animes.objects]
@@ -124,6 +126,7 @@ def get_book_data():
             result['genre'] = data.genre.split(', ')
             result['smallimgurl'] = data.smallimgurl
             result['rating'] = data.rating
+            result['revenue'] = round(data.revenue, 4)
             results.append(result)
         except:
             continue
