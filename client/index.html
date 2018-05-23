@@ -87,6 +87,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="up_down">
+              <!--<option value=" " disabled selected hidden>up_down</option>-->
+              <option value=""></option>
               <option value="high_to_low">high_to_low</option>
               <option value="low_to_high">low_to_high</option>
             </select>
@@ -96,7 +98,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="genre_of_animes">
-              <option value="all_genres">all_genres</option>
+              <option value=" " disabled selected hidden>all_genreas</option>
+              <option value="">all_genreas</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
               <option value="Comedy">Comedy</option>
@@ -124,7 +127,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes">
-              <option>number_of_result</option>
+              <option value=" " disabled selected hidden>number_of_result</option>
+              <option value="">number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -138,7 +142,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="type_of_animes">
-              <option value="all type">all type</option>
+              <option value=" " disabled selected hidden>type</option>
+              <option value="">type</option>
               <option value="Movie">Movie</option>
               <option value="TV">TV</option>
               <option value="OVA">OVA</option>
@@ -149,7 +154,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "rate_start">
-              <option value="rate_start">rate_start</option>
+              <option value=" " disabled selected hidden>rate-end</option>
+              <option value="">rate-end</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -168,7 +174,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "rate_end">
-              <option value="rate_end">rate_end</option>
+              <option value=" " disabled selected hidden>rate-end</option>
+              <option value="">rate-end</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -181,6 +188,12 @@
               <option value="9">9</option>
               <option value="20">10</option>
             </select>
+          </div>
+        </div>
+
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <button id="animes_search">search</button>
           </div>
         </div>
 
@@ -266,6 +279,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "up_down_movie">
+               <option value=" " disabled selected hidden>number_of_result</option>
+              <option value="">number_of_result</option>
               <option value="high_to_low">high_to_low</option>
               <option value="low_to_high">low_to_high</option>
             </select>
@@ -275,7 +290,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="number_of_movie">
-              <option>number_of_result</option>
+              <!--<option>number_of_result</option>-->
+              <option value=" " disabled selected hidden>number_of_result</option>
+              <option value="">number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -288,7 +305,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="year_movie">
-              <option value = "all year">all year</option>
+              <!--<option value = "all year">all year</option>-->
+              <option value=" " disabled selected hidden>all year</option>
+              <option value="">all year</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
               <option value="2015">2015</option>
@@ -344,7 +363,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "genre_of_movie">
-              <option value="all_genres">all_genres</option>
+              <!--<option value="all_genres">all_genres</option>-->
+              <option value=" " disabled selected hidden>all_genres</option>
+              <option value="">all_genres</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
               <option value="Comedy">Comedy</option>
@@ -383,7 +404,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_movie">
-              <option value="rate_start">rate_start</option>
+              <!--<option value="rate_start">rate_start</option>-->
+              <option value=" " disabled selected hidden>rate_start</option>
+              <option value="">rate_start</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -402,7 +425,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id ="rate_end_movie">
-              <option value="rate_end">rate_end</option>
+              <!--<option value="rate_end">rate_end</option>-->
+              <option value=" " disabled selected hidden>rate_end</option>
+              <option value="">rate_end</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -417,6 +442,12 @@
             </select>
           </div>
       </div>
+
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <button id="movies_search">search</button>
+          </div>
+        </div>
 
       <!--<div class="am-u-sm-12 am-u-md-3">-->
           <!--<div class="am-form-group">-->
@@ -495,6 +526,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="up_down_book">
+              <option value=" " disabled selected hidden>order</option>
+              <option value="">order</option>
               <option value="high_to_low">high_to_low</option>
               <option value="low_to_high">low_to_high</option>
             </select>
@@ -504,7 +537,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="number_of_book">
-              <option>number_of_result</option>
+              <!--<option>number_of_result</option>-->
+              <option value=" " disabled selected hidden>number_of_result</option>
+              <option value="">number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -517,7 +552,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id ="genre_of_book">
-              <option value="all_genres">all_genres</option>
+              <!--<option value="all_genres">all_genres</option>-->
+              <option value=" " disabled selected hidden>all_genres</option>
+              <option value="">all_genres</option>
               <option value="Fiction">Fiction</option>
               <option value="Literary">Literary</option>
               <option value="Family Life">Family Life</option>
@@ -556,7 +593,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="year_book">
-              <option value = "all year">all year</option>
+              <!--<option value = "all year">all year</option>-->
+              <option value=" " disabled selected hidden>all year</option>
+              <option value="">all year</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
               <option value="2015">2015</option>
@@ -612,7 +651,9 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_book">
-              <option value="rate_start">rate_start</option>
+              <!--<option value="rate_start">rate_start</option>-->
+              <option value=" " disabled selected hidden>rate_start</option>
+              <option value="">rate_start</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -631,7 +672,9 @@
          <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "rate_end_book">
-              <option value="rate_end">all rate_end</option>
+              <!--<option value="rate_end">rate_end</option>-->
+              <option value=" " disabled selected hidden>rate_end</option>
+              <option value="">rate_end</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -645,6 +688,12 @@
               <option value="10">10</option>
             </select>
           </div>
+      </div>
+
+       <div class="am-u-sm-12 am-u-md-3">
+        <div class="am-form-group">
+          <button id="books_search">search</button>
+        </div>
       </div>
 
       <div class="am-g">

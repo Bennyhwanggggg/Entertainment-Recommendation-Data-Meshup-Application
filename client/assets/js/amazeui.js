@@ -10864,10 +10864,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Selected = function(element, options) {
 	  this.$element = $(element);
-	  this.options = $.extend({}, Selected.DEFAULTS, {
-	    placeholder: element.getAttribute('placeholder') ||
-	    Selected.DEFAULTS.placeholder
-	  }, options);
+	  // this.options = $.extend({}, Selected.DEFAULTS, {
+	  //   placeholder: element.getAttribute('placeholder') ||
+	  //   Selected.DEFAULTS.placeholder
+	  // }, options);
 	  this.$originalOptions = this.$element.find('option');
 	  this.multiple = element.multiple;
 	  this.$selector = null;
@@ -10882,7 +10882,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  dropUp: 0,
 	  maxHeight: null,
 	  maxChecked: null,
-	  placeholder: '点击选择...',
+	  // placeholder: '点击选择...',
 	  selectedClass: 'am-checked',
 	  disabledClass: 'am-disabled',
 	  searchBox: false,
