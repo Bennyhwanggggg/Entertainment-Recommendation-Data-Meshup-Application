@@ -86,9 +86,9 @@
       <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1" id="11">high_to_low</option>
-              <option value="option1">low_to_high</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="up_down">
+              <option value="high_to_low">high_to_low</option>
+              <option value="low_to_high">low_to_high</option>
             </select>
           </div>
         </div>
@@ -124,7 +124,7 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes">
-              <option>numnber_of_result</option>
+              <option>number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -138,7 +138,7 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="type_of_animes">
-              <option value="option1">all type</option>
+              <option value="all type">all type</option>
               <option value="Movie">Movie</option>
               <option value="TV">TV</option>
               <option value="OVA">OVA</option>
@@ -148,38 +148,38 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">rate_start</option>
-              <option value="option2">0</option>
-              <option value="option2">1</option>
-              <option value="option2">2</option>
-              <option value="option2">3</option>
-              <option value="option2">4</option>
-              <option value="option2">5</option>
-              <option value="option2">6</option>
-              <option value="option2">7</option>
-              <option value="option2">8</option>
-              <option value="option3">9</option>
-              <option value="option3">10</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start">
+              <option value="rate_start">rate_start</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">rate_end</option>
-              <option value="option2">0</option>
-              <option value="option2">1</option>
-              <option value="option2">2</option>
-              <option value="option2">3</option>
-              <option value="option2">4</option>
-              <option value="option2">5</option>
-              <option value="option2">6</option>
-              <option value="option2">7</option>
-              <option value="option2">8</option>
-              <option value="option3">9</option>
-              <option value="option3">10</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end">
+              <option value="rate_end">rate_end</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="20">10</option>
             </select>
           </div>
         </div>
@@ -187,12 +187,12 @@
 
 
         <div class="am-u-sm-12 am-u-md-3">
-          <div class="am-input-group am-input-group-sm">
-            <input type="text" class="am-form-field">
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">Search</button>
-          </span>
-          </div>
+          <!--<div class="am-input-group am-input-group-sm">-->
+            <!--<input type="text" class="am-form-field">-->
+          <!--<span class="am-input-group-btn">-->
+            <!--<button class="am-btn am-btn-default" type="button">Search</button>-->
+          <!--</span>-->
+          <!--</div>-->
         </div>
       </div>
 
@@ -202,7 +202,7 @@
             <table class="am-table am-table-striped am-table-hover table-main" id="table1">
               <thead>
               <tr>
-                <th class="table-id">name</th><th class="table-title">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-date am-hide-sm-only">episodes</th><th class="table-date am-hide-sm-only">year</th>
+                <th class="table-id">name</th><th class="table-id">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-date am-hide-sm-only">episodes</th><th class="table-date am-hide-sm-only">year</th>
               </tr>
               </thead>
               <tbody id="table1_tbody">
@@ -265,115 +265,194 @@
       <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1" id="">high_to_low</option>
-              <option value="option1">low_to_high</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "up_down_movie">
+              <option value="high_to_low">high_to_low</option>
+              <option value="low_to_high">low_to_high</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">all_genres</option>
-              <option value="option2">Action</option>
-              <option value="option3">Adventure</option>
-              <option value="option3">Comedy</option>
-              <option value="option3">Parody</option>
-              <option value="option3">Drama</option>
-              <option value="option3">Fantasy</option>
-              <option value="option3">Magic</option>
-              <option value="option3">Military</option>
-              <option value="option3">Shounen</option>
-              <option value="option3">Sci-Fi</option>
-              <option value="option3">Thriller</option>
-              <option value="option3">Supernatural</option>
-              <option value="option3">Super Power</option>
-              <option value="option3">Mecha</option>
-              <option value="option3">Slice of Life</option>
-              <option value="option3">Seinen</option>
-              <option value="option3">Thriller</option>
-              <option value="option3">Police</option>
-              <option value="option3">Sports</option>
-            </select>
-          </div>
-        </div>
-
-
-        <div class="am-u-sm-12 am-u-md-3">
-          <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">all title</option>
-              <option value="option2">Movie</option>
-              <option value="option3">TV</option>
-              <option value="option3">OVA</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_movie">
+              <option>number_of_result</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="500">500</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">rate_start</option>
-              <option value="option2">0</option>
-              <option value="option2">1</option>
-              <option value="option2">2</option>
-              <option value="option2">3</option>
-              <option value="option2">4</option>
-              <option value="option2">5</option>
-              <option value="option2">6</option>
-              <option value="option2">7</option>
-              <option value="option2">8</option>
-              <option value="option3">9</option>
-              <option value="option3">10</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="year_movie">
+              <option value = "all year">all year</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+              <option value="2009">2009</option>
+              <option value="2008">2008</option>
+              <option value="2007">2007</option>
+              <option value="2006">2006</option>
+              <option value="2005">2005</option>
+              <option value="2004">2004</option>
+              <option value="2003">2003</option>
+              <option value="2002">2002</option>
+              <option value="2001">2001</option>
+              <option value="2000">2000</option>
+              <option value="1999">1999</option>
+              <option value="1998">1998</option>
+              <option value="1997">1997</option>
+              <option value="1996">1996</option>
+              <option value="1995">1995</option>
+              <option value="1994">1994</option>
+              <option value="1993">1993</option>
+              <option value="1992">1992</option>
+              <option value="1991">1991</option>
+              <option value="1990">1990</option>
+              <option value="1989">1989</option>
+              <option value="1988">1988</option>
+              <option value="1987">1987</option>
+              <option value="1986">1986</option>
+              <option value="1985">1985</option>
+              <option value="1984">1984</option>
+              <option value="1983">1983</option>
+              <option value="1982">1982</option>
+              <option value="1981">1981</option>
+              <option value="1980">1980</option>
+              <option value="1979">1979</option>
+              <option value="1978">1978</option>
+              <option value="1977">1977</option>
+              <option value="1976">1976</option>
+              <option value="1975">1975</option>
+              <option value="1974">1974</option>
+              <option value="1973">1973</option>
+              <option value="1972">1972</option>
+              <option value="1971">1971</option>
+              <option value="1970">1970</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">rate_end</option>
-              <option value="option2">0</option>
-              <option value="option2">1</option>
-              <option value="option2">2</option>
-              <option value="option2">3</option>
-              <option value="option2">4</option>
-              <option value="option2">5</option>
-              <option value="option2">6</option>
-              <option value="option2">7</option>
-              <option value="option2">8</option>
-              <option value="option3">9</option>
-              <option value="option3">10</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "genre_of_movie">
+              <option value="all_genres">all_genres</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Parody">Parody</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Magic">Magic</option>
+              <option value="Military">Military</option>
+              <option value="Shounen">Shounen</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Supernatural">Supernatural</option>
+              <option value="Super Power">Super Power</option>
+              <option value="Mecha">Mecha</option>
+              <option value="Slice of Life">Slice of Life</option>
+              <option value="Seinen">Seinen</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Police">Police</option>
+              <option value="Sports">Sports</option>
+            </select>
+          </div>
+        </div>
+
+
+        <!--<div class="am-u-sm-12 am-u-md-3">-->
+          <!--<div class="am-form-group">-->
+            <!--<select data-am-selected="{btnSize: 'sm'}" id = "type_of_movie">-->
+              <!--<option value="all title">all title</option>-->
+              <!--<option value="Movie">Movie</option>-->
+              <!--<option value="TV">TV</option>-->
+              <!--<option value="OVA">OVA</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_movie">
+              <option value="rate_start">rate_start</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}" id ="rate_end_movie">
+              <option value="rate_end">rate_end</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
           </div>
       </div>
 
+      <!--<div class="am-u-sm-12 am-u-md-3">-->
+          <!--<div class="am-form-group">-->
+            <!--<select data-am-selected="{btnSize: 'sm'}" id = "revenue_start_movie">-->
+              <!--<option value="revenue_start">revenue_start</option>-->
+              <!--<option value="50000000">50000000</option>-->
+              <!--<option value="100000000">100000000</option>-->
+              <!--<option value="5000000000">5000000000</option>-->
+              <!--<option value="10000000000">10000000000</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="am-u-sm-12 am-u-md-3">-->
+          <!--<div class="am-form-group">-->
+            <!--<select data-am-selected="{btnSize: 'sm'}" id = "revenue_end_movie">-->
+              <!--<option value="revenue_end">revenue_end</option>-->
+              <!--<option value="50000000">50000000</option>-->
+              <!--<option value="100000000">100000000</option>-->
+              <!--<option value="5000000000">5000000000</option>-->
+              <!--<option value="10000000000">10000000000</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
       <div class="am-g">
         <div class="am-u-sm-12">
           <form class="am-form">
-            <table class="am-table am-table-striped am-table-hover table-main">
+            <table class="am-table am-table-striped am-table-hover table-main" id="table2">
               <thead>
               <tr>
-                <th class="table-check"><input type="checkbox" /></th><th class="table-id">title</th><th class="table-title">genre</th><th class="table-type">description</th><th class="table-author am-hide-sm-only">director</th><th class="table-date am-hide-sm-only">actors</th><th class="table-set">years</th><th class="table-set">runtime</th><th class="table-set">rating</th><th class="table-set">revenue</th><th class="table-set">metascore</th>
+                <th class="table-id">title</th><th class="table-title">genre</th><th class="table-type">description</th><th class="table-author am-hide-sm-only">director</th><th class="table-date am-hide-sm-only">actors</th><th class="table-set">years</th><th class="table-set">runtime(mins)</th><th class="table-set">rating</th><th class="table-set">revenue(millions)</th><th class="table-set">metascore</th>
               </tr>
               </thead>
-              <tbody>
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>1</td>
-                <td><a href="#">Bus management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only">XXXXXX</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td>
-                </td>
-              </tr>
+              <tbody id="table2_tbody">
+
               </tbody>
             </table>
             <div class="am-cf">
@@ -415,86 +494,155 @@
        <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1" >high_to_low</option>
-              <option value="option1">low_to_high</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="up_down_book">
+              <option value="high_to_low">high_to_low</option>
+              <option value="low_to_high">low_to_high</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">all_genres</option>
-              <option value="option2">Action</option>
-              <option value="option3">Adventure</option>
-              <option value="option3">Comedy</option>
-              <option value="option3">Parody</option>
-              <option value="option3">Drama</option>
-              <option value="option3">Fantasy</option>
-              <option value="option3">Magic</option>
-              <option value="option3">Military</option>
-              <option value="option3">Shounen</option>
-              <option value="option3">Sci-Fi</option>
-              <option value="option3">Thriller</option>
-              <option value="option3">Supernatural</option>
-              <option value="option3">Super Power</option>
-              <option value="option3">Mecha</option>
-              <option value="option3">Slice of Life</option>
-              <option value="option3">Seinen</option>
-              <option value="option3">Thriller</option>
-              <option value="option3">Police</option>
-              <option value="option3">Sports</option>
-            </select>
-          </div>
-        </div>
-
-
-        <div class="am-u-sm-12 am-u-md-3">
-          <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">all title</option>
-              <option value="option2">Movie</option>
-              <option value="option3">TV</option>
-              <option value="option3">OVA</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_book">
+              <option>number_of_result</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="500">500</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">rate_start</option>
-              <option value="option2">0</option>
-              <option value="option2">1</option>
-              <option value="option2">2</option>
-              <option value="option2">3</option>
-              <option value="option2">4</option>
-              <option value="option2">5</option>
-              <option value="option2">6</option>
-              <option value="option2">7</option>
-              <option value="option2">8</option>
-              <option value="option3">9</option>
-              <option value="option3">10</option>
+            <select data-am-selected="{btnSize: 'sm'}" id ="genre_of_book">
+              <option value="all_genres">all_genres</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Literary">Literary</option>
+              <option value="Family Life">Family Life</option>
+              <option value="Historical fiction">Historical fiction</option>
+              <option value="World War">World War</option>
+              <option value="gender">gender</option>
+              <option value="Internet Archive Wishlist">Internet Archive Wishlist</option>
+              <option value="family relations">family relations</option>
+              <option value="sociology">sociology</option>
+              <option value="time travel">time travel</option>
+              <option value="dating">dating</option>
+              <option value="war stories">war stories</option>
+              <option value="technology">technology</option>
+              <option value="Horror">Horror</option>
+              <option value="Slice of Life">Slice of Life</option>
+              <option value="Secrets">Secrets</option>
+              <option value="Romans">Romans</option>
+              <option value="Homecoming">Homecoming</option>
+              <option value="Grief">Grief</option>
+            </select>
+          </div>
+        </div>
+
+
+        <!--<div class="am-u-sm-12 am-u-md-3">-->
+          <!--<div class="am-form-group">-->
+            <!--<select data-am-selected="{btnSize: 'sm'}" id ="type_of_book">-->
+              <!--<option value="option1">all title</option>-->
+              <!--<option value="option2">Movie</option>-->
+              <!--<option value="option3">TV</option>-->
+              <!--<option value="option3">OVA</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}" id="year_book">
+              <option value = "all year">all year</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+              <option value="2009">2009</option>
+              <option value="2008">2008</option>
+              <option value="2007">2007</option>
+              <option value="2006">2006</option>
+              <option value="2005">2005</option>
+              <option value="2004">2004</option>
+              <option value="2003">2003</option>
+              <option value="2002">2002</option>
+              <option value="2001">2001</option>
+              <option value="2000">2000</option>
+              <option value="1999">1999</option>
+              <option value="1998">1998</option>
+              <option value="1997">1997</option>
+              <option value="1996">1996</option>
+              <option value="1995">1995</option>
+              <option value="1994">1994</option>
+              <option value="1993">1993</option>
+              <option value="1992">1992</option>
+              <option value="1991">1991</option>
+              <option value="1990">1990</option>
+              <option value="1989">1989</option>
+              <option value="1988">1988</option>
+              <option value="1987">1987</option>
+              <option value="1986">1986</option>
+              <option value="1985">1985</option>
+              <option value="1984">1984</option>
+              <option value="1983">1983</option>
+              <option value="1982">1982</option>
+              <option value="1981">1981</option>
+              <option value="1980">1980</option>
+              <option value="1979">1979</option>
+              <option value="1978">1978</option>
+              <option value="1977">1977</option>
+              <option value="1976">1976</option>
+              <option value="1975">1975</option>
+              <option value="1974">1974</option>
+              <option value="1973">1973</option>
+              <option value="1972">1972</option>
+              <option value="1971">1971</option>
+              <option value="1970">1970</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">rate_end</option>
-              <option value="option2">0</option>
-              <option value="option2">1</option>
-              <option value="option2">2</option>
-              <option value="option2">3</option>
-              <option value="option2">4</option>
-              <option value="option2">5</option>
-              <option value="option2">6</option>
-              <option value="option2">7</option>
-              <option value="option2">8</option>
-              <option value="option3">9</option>
-              <option value="option3">10</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_book">
+              <option value="rate_start">rate_start</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+
+         <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-form-group">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end_book">
+              <option value="rate_end">all rate_end</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
           </div>
       </div>
@@ -502,28 +650,14 @@
       <div class="am-g">
         <div class="am-u-sm-12">
           <form class="am-form">
-            <table class="am-table am-table-striped am-table-hover table-main">
+            <table class="am-table am-table-striped am-table-hover table-main" id ="table3">
               <thead>
               <tr>
-                <th class="table-check"><input type="checkbox" /></th><th class="table-id">title</th><th class="table-title">genre</th><th class="table-type">description</th><th class="table-author am-hide-sm-only">director</th><th class="table-date am-hide-sm-only">actors</th><th class="table-set">years</th><th class="table-set">runtime</th><th class="table-set">rating</th><th class="table-set">revenue</th><th class="table-set">metascore</th>
+                <th class="table-id">title</th><th class="table-id">genre</th><th class="table-type">isbn</th><th class="table-author am-hide-sm-only">author</th><th class="table-set">years</th><th class="table-set">rating</th>
               </tr>
               </thead>
-              <tbody>
-              <tr>
-                <td><input type="checkbox" /></td>
-                <td>1</td>
-                <td><a href="#">Bus management</a></td>
-                <td>default</td>
-                <td class="am-hide-sm-only">XXXXXX</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td class="am-hide-sm-only">12.5.2018</td>
-                <td>
-                </td>
-              </tr>
+              <tbody id="table3_tbody">
+
               </tbody>
             </table>
             <div class="am-cf">
@@ -624,7 +758,7 @@
               ['Task', 'Hours per Day'],
               ['Animes', 8],
               ['Movies', 2],
-              ['Books', 4],
+              ['Books', 4]
             ]);
 
               // Optional; add a title and set the width and height of the chart
@@ -635,6 +769,93 @@
               chart.draw(data, options);
             }
             </script>
+
+            <div id="chart_div"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>//chart
+            <script type="text/javascript">
+              google.charts.load("current", {packages:['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ["Element", "Density", { role: "style" } ],
+                  ["Copper", 8.94, "#b87333"],
+                  ["Silver", 10.49, "silver"],
+                  ["Gold", 19.30, "gold"],
+                  ["Platinum", 21.45, "color: #e5e4e2"]
+                ]);
+
+                var view = new google.visualization.DataView(data);
+                view.setColumns([0, 1,
+                                 { calc: "stringify",
+                                   sourceColumn: 1,
+                                   type: "string",
+                                   role: "annotation" },
+                                 2]);
+
+                var options = {
+                  title: "Density of Precious Metals, in g/cm^3",
+                  width: 600,
+                  height: 400,
+                  bar: {groupWidth: "95%"},
+                  legend: { position: "none" },
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                chart.draw(view, options);
+            }
+            </script>
+            <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['line']});
+                google.charts.setOnLoadCallback(drawChart);
+
+              function drawChart() {
+                L = [[1,  37.8, 80.8, 41.8],
+                  [2,  30.9, 69.5, 32.4],
+                  [3,  25.4,   57, 25.7],
+                  [4,  11.7, 18.8, 10.5],
+                  [5,  11.9, 17.6, 10.4],
+                  [6,   8.8, 13.6,  7.7],
+                  [7,   7.6, 12.3,  9.6],
+                  [8,  12.3, 29.2, 10.6],
+                  [9,  16.9, 42.9, 14.8],
+                  [10, 12.8, 30.9, 11.6],
+                  [11,  5.3,  7.9,  4.7],
+                  [12,  6.6,  8.4,  5.2],
+                  [13,  4.8,  6.3,  3.6],
+                  [14,  4.2,  6.2,  3.4]
+                ]
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'Day');
+                data.addColumn('number', 'Guardians of the Galaxy');
+                data.addColumn('number', 'The Avengers');
+                data.addColumn('number', 'Transformers: Age of Extinction');
+
+                data.addRows(L);
+
+                var options = {
+                  chart: {
+                    title: 'Box Office Earnings in First Two Weeks of Opening',
+                    subtitle: 'in millions of dollars (USD)'
+                  },
+                  width: 900,
+                  height: 500,
+                  axes: {
+                    x: {
+                      0: {side: 'top'}
+                    }
+                  }
+                };
+
+                var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+                chart.draw(data, google.charts.Line.convertOptions(options));
+              }
+            </script>
+            <div id="line_top_x"></div>
+
             <div class="am-cf">
 
               <div class="am-fr">
