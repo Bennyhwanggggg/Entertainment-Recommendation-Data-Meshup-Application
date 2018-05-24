@@ -116,7 +116,7 @@ def dataimport():
     animedata = extract_anime_data()
     count = 0
     for data in animedata:
-        if count == 8000:
+        if count == 9000:
             break
         try:
             print(data)
