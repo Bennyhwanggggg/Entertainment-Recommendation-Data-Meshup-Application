@@ -15,7 +15,7 @@ def get_animes():
     parser.add_argument('rate_start', type=float)
     parser.add_argument('rate_end', type=float)
     parser.add_argument('count', type=int)
-    parser.add_argument('earning', type=str)
+    # parser.add_argument('earning', type=str)
     parser.add_argument('revenue_start', type=float)
     parser.add_argument('revenue_end', type=float)
     args = parser.parse_args()
@@ -27,7 +27,7 @@ def get_animes():
     count = args.get('count') # number of results to show
     revenue_start = args.get('revenue_start')
     revenue_end = args.get('revenue_end')
-    earning = args.get('earning')
+    # earning = args.get('earning')
     results = get_anime_data()
 
     # if getting by genre
@@ -44,14 +44,13 @@ def get_animes():
 
     # if sort from high to low
     if order:
-        if order == 'high_to_low':
+        if order == 'highest_rating':
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
-        elif order == 'low_to_high':
+        elif order == 'lowest_rating':
             results = sorted(results, key=lambda k: k['rating'])
-    if earning:
-        if earning == 'highest':
+        elif order == 'highest_revenue':
             results = sorted(results, key=lambda k: k['revenue'], reverse=True)
-        elif earning == 'lowest':
+        elif order == 'lowest_revenue':
             results = sorted(results, key=lambda k: k['revenue'])
     if results and count and len(results) > count:
         results = results[:count]
@@ -69,7 +68,7 @@ def get_movies():
     parser.add_argument('revenue_start', type=float)
     parser.add_argument('revenue_end', type=float)
     parser.add_argument('count', type=int)
-    parser.add_argument('earning', type=str)
+    # parser.add_argument('earning', type=str)
     args = parser.parse_args()
     order = args.get('order')
     genre = args.get('genre')
@@ -79,7 +78,7 @@ def get_movies():
     title = args.get('title')
     revenue_start = args.get('revenue_start')
     revenue_end = args.get('revenue_end')
-    earning = args.get('earning')
+    # earning = args.get('earning')
     count = args.get('count')  # number of results to show
     results = get_movie_data()
     # if getting by genre
@@ -99,14 +98,13 @@ def get_movies():
 
     # if sort from high to low
     if order:
-        if order == 'high_to_low':
+        if order == 'highest_rating':
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
-        elif order == 'low_to_high':
+        elif order == 'lowest_rating':
             results = sorted(results, key=lambda k: k['rating'])
-    if earning:
-        if earning == 'highest':
+        elif order == 'highest_revenue':
             results = sorted(results, key=lambda k: k['revenue'], reverse=True)
-        elif earning == 'lowest':
+        elif order == 'lowest_revenue':
             results = sorted(results, key=lambda k: k['revenue'])
     if results and count and len(results) > count:
         results = results[:count]
@@ -123,7 +121,7 @@ def get_books():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('year', type=int)
     parser.add_argument('count', type=int)
-    parser.add_argument('earning', type=str)
+    # parser.add_argument('earning', type=str)
     parser.add_argument('revenue_start', type=float)
     parser.add_argument('revenue_end', type=float)
     args = parser.parse_args()
@@ -135,7 +133,7 @@ def get_books():
     title = args.get('title')
     author = args.get('author')
     count = args.get('count')  # number of results to show
-    earning = args.get('earning')
+    # earning = args.get('earning')
     revenue_start = args.get('revenue_start')
     revenue_end = args.get('revenue_end')
     results = get_book_data()
@@ -158,14 +156,13 @@ def get_books():
         results = [d for d in results if revenue_start <= d.get('revenue') <= revenue_end]
     # if sort from high to low
     if order:
-        if order == 'high_to_low':
+        if order == 'highest_rating':
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
-        elif order == 'low_to_high':
+        elif order == 'lowest_rating':
             results = sorted(results, key=lambda k: k['rating'])
-    if earning:
-        if earning == 'highest':
+        elif order == 'highest_revenue':
             results = sorted(results, key=lambda k: k['revenue'], reverse=True)
-        elif earning == 'lowest':
+        elif order == 'lowest_revenue':
             results = sorted(results, key=lambda k: k['revenue'])
 
     if results and count and len(results) > count:
@@ -184,7 +181,7 @@ def get_combined():
     parser.add_argument('rate_end', type=float)
     parser.add_argument('count', type=int)
     parser.add_argument('year', type=int)
-    parser.add_argument('earning', type=str)
+    # parser.add_argument('earning', type=str)
     parser.add_argument('revenue_start', type=float)
     parser.add_argument('revenue_end', type=float)
     args = parser.parse_args()
@@ -197,7 +194,7 @@ def get_combined():
     count = args.get('count')  # number of results to show
     rate_start = args.get('rate_start')
     rate_end = args.get('rate_end')
-    earning = args.get('earning')
+    # earning = args.get('earning')
     revenue_start = args.get('revenue_start')
     revenue_end = args.get('revenue_end')
     if not type1 and not type2 and not type3:
@@ -250,15 +247,13 @@ def get_combined():
         results = [d for d in results if revenue_start <= d.get('revenue') <= revenue_end]
     # if sort from high to low
     if order:
-        if order == 'high_to_low':
+        if order == 'highest_rating':
             results = sorted(results, key=lambda k: k['rating'], reverse=True)
-        elif order == 'low_to_high':
+        elif order == 'lowest_rating':
             results = sorted(results, key=lambda k: k['rating'])
-
-    if earning:
-        if earning == 'highest':
+        elif order == 'highest_revenue':
             results = sorted(results, key=lambda k: k['revenue'], reverse=True)
-        elif earning == 'lowest':
+        elif order == 'lowest_revenue':
             results = sorted(results, key=lambda k: k['revenue'])
 
     if results and count and len(results) > count:
