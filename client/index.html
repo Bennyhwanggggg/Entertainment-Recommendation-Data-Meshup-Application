@@ -16,8 +16,11 @@
   <link rel="stylesheet" href="assets/css/admin.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="dist/pagination.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+
+
 
 <header class="am-topbar am-topbar-inverse admin-header">
   <div class="am-topbar-brand">
@@ -49,6 +52,7 @@
     </ul>
   </div>
 </header>
+
 
 <div class="am-cf admin-main">
   <!-- sidebar start -->
@@ -87,8 +91,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="up_down">
-              <!--<option value=" " disabled selected hidden>up_down</option>-->
-              <option value=""></option>
+              <option value=" " disabled selected hidden>up_down</option>
+              <option value="">up_down</option>
               <option value="high_to_low">high_to_low</option>
               <option value="low_to_high">low_to_high</option>
             </select>
@@ -154,8 +158,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "rate_start">
-              <option value=" " disabled selected hidden>rate-end</option>
-              <option value="">rate-end</option>
+              <option value=" " disabled selected hidden>rate-start</option>
+              <option value="">rate-start</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -193,7 +197,7 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <button id="animes_search">search</button>
+            <input type="submit" class="btn btn-info" value="search" id="animes_search">
           </div>
         </div>
 
@@ -250,8 +254,8 @@
                 <!--&lt;!&ndash;</ul>&ndash;&gt;-->
               <!--</div>-->
             <!--</div>-->
-            <hr />
-            <p>comments：.....</p>
+            <!--<hr />-->
+            <p>Please select to search：.....</p>
           </form>
         </div>
 
@@ -262,6 +266,9 @@
       <hr>
       <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
     </footer>
+
+    <div id='loading1' style="display:none; position:relative;left: 347px;top:-129px; "><img  src="loading.gif" alt=""></div>
+
 
   </div>
   <!-- content1 end -->
@@ -279,8 +286,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id = "up_down_movie">
-               <option value=" " disabled selected hidden>number_of_result</option>
-              <option value="">number_of_result</option>
+               <option value=" " disabled selected hidden>up_down</option>
+              <option value="">up_down</option>
               <option value="high_to_low">high_to_low</option>
               <option value="low_to_high">low_to_high</option>
             </select>
@@ -306,8 +313,8 @@
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="year_movie">
               <!--<option value = "all year">all year</option>-->
-              <option value=" " disabled selected hidden>all year</option>
-              <option value="">all year</option>
+              <option value=" " disabled selected hidden>all_year</option>
+              <option value="">all_year</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
               <option value="2015">2015</option>
@@ -445,7 +452,7 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <button id="movies_search">search</button>
+            <input type="submit" class="btn btn-info" value="search" id="movies_search">
           </div>
         </div>
 
@@ -486,31 +493,34 @@
 
               </tbody>
             </table>
-            <div class="am-cf">
+            <!--<div class="am-cf">-->
 
-              <div class="am-fr">
+              <!--<div class="am-fr">-->
 
-                <div style="width: 700px;margin: 100px auto;">
-                  <ul class="data-list1">
-                  </ul>
-                  <div id="pagination1" class="pagination"></div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <p>comments：.....</p>
+                <!--<div style="width: 700px;margin: 100px auto;">-->
+                  <!--<ul class="data-list1">-->
+                  <!--</ul>-->
+                  <!--<div id="pagination1" class="pagination"></div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<hr />-->
+            <p>Please select to search：.....</p>
           </form>
         </div>
 
       </div>
     </div>
+      </div>
 
     <footer class="admin-content-footer">
       <hr>
       <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
     </footer>
 
-  </div>
+    <div id='loading2' style="display: none;position:relative;left: 347px;top:-129px; "><img  src="loading.gif" alt=""></div>
+
+
     </div>
   <!-- content2 end -->
 
@@ -526,8 +536,8 @@
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
             <select data-am-selected="{btnSize: 'sm'}" id="up_down_book">
-              <option value=" " disabled selected hidden>order</option>
-              <option value="">order</option>
+              <option value=" " disabled selected hidden>up_down</option>
+              <option value="">up_down</option>
               <option value="high_to_low">high_to_low</option>
               <option value="low_to_high">low_to_high</option>
             </select>
@@ -692,7 +702,7 @@
 
        <div class="am-u-sm-12 am-u-md-3">
         <div class="am-form-group">
-          <button id="books_search">search</button>
+          <input type="submit" class="btn btn-info" value="search" id="books_search">
         </div>
       </div>
 
@@ -709,31 +719,34 @@
 
               </tbody>
             </table>
-            <div class="am-cf">
+            <!--<div class="am-cf">-->
 
-              <div class="am-fr">
+              <!--<div class="am-fr">-->
 
-                <div style="width: 700px;margin: 100px auto;">
-                  <ul class="data-list2">
-                  </ul>
-                  <div id="pagination2" class="pagination"></div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <p>comments：.....</p>
+                <!--<div style="width: 700px;margin: 100px auto;">-->
+                  <!--<ul class="data-list2">-->
+                  <!--</ul>-->
+                  <!--<div id="pagination2" class="pagination"></div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<hr />-->
+            <p>Please select to search：.....</p>
           </form>
         </div>
 
       </div>
     </div>
+      </div>
 
     <footer class="admin-content-footer">
       <hr>
       <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
     </footer>
 
-  </div>
+    <div id='loading3' style="display: none;position:relative;left: 347px;top:-129px; "><img  src="loading.gif" alt=""></div>
+
+
     </div>
   <!-- content3 end -->
 
@@ -944,6 +957,9 @@
 </footer>
 
 
+
+
+
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
@@ -961,6 +977,8 @@
 <script src="js/data.js"></script>
 <script src="dist/pagination.js"></script>
 <script src="js/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 <!--<script>-->

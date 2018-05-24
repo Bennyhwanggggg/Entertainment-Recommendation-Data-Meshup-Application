@@ -33,17 +33,10 @@ $(".combination").click(function(){
     $(".content2").hide();
 });
 
-
-
-
-
-
-
-
-
-
-
 $("#animes_search").click(function(){/* table1_Animes*/
+
+    var loading = document.getElementById('loading1');
+    loading.style.display = "block";
 
     var table1 = document.getElementById('table1_tbody');
     console.log("1");
@@ -113,6 +106,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
       .then(function(data){
         console.log("uuuuuuuuuu")
         console.log(data)
+        loading.style.display = "none";
         if (data.length!=0){
             var i;
             var animes_td;
@@ -161,6 +155,8 @@ $("#animes_search").click(function(){/* table1_Animes*/
 });
 
 $("#movies_search").click(function(){
+    var loading = document.getElementById('loading2');
+    loading.style.display = "block";
     console.log("22222")
     var table2 = document.getElementById('table2_tbody');
     console.log("1");
@@ -228,7 +224,10 @@ $("#movies_search").click(function(){
     }).then((response)=> response.json())
       .then(function(data){
         console.log(data)
-        var i;
+        loading.style.display = "none";
+
+        if (data.length!=0){
+            var i;
 
         var animes_td;
         var animes_tr
@@ -272,6 +271,11 @@ $("#movies_search").click(function(){
             table2.appendChild(animes_tr)
         }
 
+        }else{
+            alert("no data")
+        }
+
+
 
         console.log(table2)
     });
@@ -282,6 +286,8 @@ $("#movies_search").click(function(){
 });
 
 $("#books_search").click(function(){
+    var loading = document.getElementById('loading3');
+    loading.style.display = "block";
     console.log("3");
     var table3 = document.getElementById('table3_tbody');
     var k;
@@ -343,38 +349,44 @@ $("#books_search").click(function(){
         method: 'get'
     }).then((response)=> response.json())
       .then(function(data){
+        loading.style.display = "none";
         console.log(data)
-        var i;
 
-        var animes_td;
-        var animes_tr
-        for (i = 0; i < data.length; i++) {
-            // text += data[i] + "<br>";
-            console.log(data[i])
-            animes_tr = document.createElement('tr');
-            animes_tr.setAttribute('class',"table3tr");
-            animes_td1 = document.createElement('td');
-            animes_td2 = document.createElement('td');
-            animes_td3 = document.createElement('td');
-            animes_td4 = document.createElement('td');
-            animes_td5 = document.createElement('td');
-            animes_td6 = document.createElement('td');
+        if (data.length!=0){
+            var i;
+            var animes_td;
+            var animes_tr
+            for (i = 0; i < data.length; i++) {
+                // text += data[i] + "<br>";
+                console.log(data[i])
+                animes_tr = document.createElement('tr');
+                animes_tr.setAttribute('class',"table3tr");
+                animes_td1 = document.createElement('td');
+                animes_td2 = document.createElement('td');
+                animes_td3 = document.createElement('td');
+                animes_td4 = document.createElement('td');
+                animes_td5 = document.createElement('td');
+                animes_td6 = document.createElement('td');
 
-            animes_td1.innerHTML = data[i]['title'];
-            animes_td2.innerHTML = data[i]['genre'];
-            animes_td3.innerHTML = data[i]['isbn'];
-            animes_td4.innerHTML = data[i]['author'];
-            animes_td5.innerHTML = data[i]['year'];
-            animes_td6.innerHTML = data[i]['rating'];
+                animes_td1.innerHTML = data[i]['title'];
+                animes_td2.innerHTML = data[i]['genre'];
+                animes_td3.innerHTML = data[i]['isbn'];
+                animes_td4.innerHTML = data[i]['author'];
+                animes_td5.innerHTML = data[i]['year'];
+                animes_td6.innerHTML = data[i]['rating'];
 
-            animes_tr.appendChild(animes_td1)
-            animes_tr.appendChild(animes_td2)
-            animes_tr.appendChild(animes_td3)
-            animes_tr.appendChild(animes_td4)
-            animes_tr.appendChild(animes_td5)
-            animes_tr.appendChild(animes_td6)
-            table3.appendChild(animes_tr)
+                animes_tr.appendChild(animes_td1)
+                animes_tr.appendChild(animes_td2)
+                animes_tr.appendChild(animes_td3)
+                animes_tr.appendChild(animes_td4)
+                animes_tr.appendChild(animes_td5)
+                animes_tr.appendChild(animes_td6)
+                table3.appendChild(animes_tr)
+            }
+        }else{
+            alert("Sorry, we do not have data!!")
         }
+
 
         console.log(table3)
     });
