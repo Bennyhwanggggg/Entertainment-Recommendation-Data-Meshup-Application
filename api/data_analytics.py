@@ -7,21 +7,31 @@ from .database import *
 
 analytics = Blueprint("analytics", __name__, url_prefix="/analytics")
 
+
+'''
+TODO: Add revenue data and change to i
+'''
 @analytics.route("/genrequality", methods=["GET"])
 def average_rating_genres():
     parser = reqparse.RequestParser()
     parser.add_argument("year", type=int)
+    parser.add_argument("order", type=str)
+    parser.add_argument("count", type=int)
+    parser.add_argument("earning", type=str)
     args = parser.parse_args()
     year = args.get("year")
+    order = args.get("order")
+    earning = args.get("earning")
+    count = args.get("count") # can only be used if order or earning is used
 
     if year:
-        anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()\
+        anime_data = [(anime['genre'], anime['rating'], anime['revenue']) for anime in get_anime_data()\
                 if anime['start_date'].year == year ]
-        movie_data = [(movie['genre'], movie['rating']) for movie in get_movie_data()\
+        movie_data = [(movie['genre'], movie['rating'], movie['revenue']) for movie in get_movie_data()\
                 if movie['year'] == year]
     else:
-        anime_data = [(anime['genre'], anime['rating']) for anime in get_anime_data()]
-        movie_data = [(movie['genre'], movie['rating']) for movie in get_movie_data()]
+        anime_data = [(anime['genre'], anime['rating'], anime['revenue']) for anime in get_anime_data()]
+        movie_data = [(movie['genre'], movie['rating'], movie['revenue']) for movie in get_movie_data()]
 
     book_data = []
     for book in get_book_data():
@@ -31,11 +41,12 @@ def average_rating_genres():
             continue
         if year and book['year'] != year:
             continue
-        book_data.append((map(str.capitalize, book['genre']), book['rating']))
+        book_data.append((map(str.capitalize, book['genre']), book['rating'], book['revenue']))
 
     ratings = {}
     averages = {}
-
+    revenues = {}
+    average_earning = {}
     # for data in anime_data + movie_data + book_data:
     for data in anime_data + movie_data + book_data:
         for genre in data[0]:
@@ -43,11 +54,38 @@ def average_rating_genres():
                 ratings[genre] = [data[1]]
             else:
                 ratings[genre].append(data[1])
+            if genre not in revenues:
+                revenues[genre] = [data[2]]
+            else:
+                revenues[genre].append(data[2])
 
     for genre in ratings:
         averages[genre] = mean(ratings[genre])
 
-    return jsonify(averages), 200
+    for genre in revenues:
+        average_earning[genre] = mean(revenues[genre])
+
+    results = []
+    for key, val in averages.items():
+        result = dict()
+        result['genre'] = key
+        result['average_rating'] = val
+        result['average_revenue'] = average_earning[key]
+        results.append(result)
+
+    if order:
+        if order == 'high_to_low' and results:
+            results = sorted(results, key=lambda k: k['average_rating'], reverse=True)
+        if order == 'low_to_high' and results:
+            results = sorted(results, key=lambda k: k['average_rating'])
+    if earning:
+        if earning == 'highest' and results:
+            results = sorted(results, key=lambda k: k['average_revenue'], reverse=True)
+        if earning == 'lowest' and results:
+            results = sorted(results, key=lambda k: k['average_revenue'])
+    if count and results and count > len(results):
+        results = results[:count]
+    return jsonify(results), 200
 
 @analytics.route("/genrequality/<string:genre>", methods=["GET"])
 def average_rating_genre(genre):
@@ -60,9 +98,12 @@ def average_rating_genre(genre):
     anime_ratings = [anime.rating for anime in anime_data] if anime_data else []
     movie_ratings = [movie.rating for movie in movie_data] if movie_data else []
     book_rating = [book.rating for book in book_data] if book_data else []
-    average = mean(anime_ratings + movie_ratings + book_rating)
-
-    return jsonify({genre:{"average":average}}), 200
+    average_rating = mean(anime_ratings + movie_ratings + book_rating)
+    anime_rev_ratings = [anime.revenue for anime in anime_data] if anime_data else []
+    movie_rev_ratings = [movie.revenue for movie in movie_data] if movie_data else []
+    book_rev_rating = [book.revenue for book in book_data] if book_data else []
+    average_revenue = mean(anime_rev_ratings + movie_rev_ratings + book_rev_rating)
+    return jsonify({genre:{"average_rating": average_rating, "average_revenue": average_revenue}}), 200
 
 
 # Production and quality analytics
@@ -96,8 +137,11 @@ def production_and_quality():
         results['Number of movies'] = len(movie_results)
         results['Number of books'] = len(book_results)
         results['Average rating of animes'] = mean([anime['rating'] for anime in anime_results]) if anime_results else 0
+        results['Average earning of animes'] = mean([anime['revenue'] for anime in anime_results]) if anime_results else 0
         results['Average rating of books'] = mean([book['rating'] for book in book_results]) if book_results else 0
+        results['Average earning of books'] = mean([book['revenue'] for book in book_results]) if book_results else 0
         results['Average rating of movies'] = mean([movie['rating'] for movie in movie_results]) if movie_results else 0
+        results['Average earning of movies'] = mean([movie['revenue'] for movie in movie_results]) if movie_results else 0
         return jsonify(results), 200
 
     if year_start and year_end and year_start <= year_end:
@@ -111,8 +155,11 @@ def production_and_quality():
             result['Number of movies'] = len(mv_results)
             result['Number of books'] = len(bk_results)
             result['Average rating of animes'] = mean([anime['rating'] for anime in ani_results]) if ani_results else 0
+            result['Average earning of animes'] = mean([anime['revenue'] for anime in ani_results]) if ani_results else 0
             result['Average rating of books'] = mean([book['rating'] for book in bk_results]) if bk_results else 0
+            result['Average earning of books'] = mean([book['revenue'] for book in bk_results]) if bk_results else 0
             result['Average rating of movies'] = mean([movie['rating'] for movie in mv_results]) if mv_results else 0
+            result['Average earning of movies'] = mean([movie['revenue'] for movie in mv_results]) if mv_results else 0
             results[yr] = result
         return jsonify(results), 200
     return jsonify(message='invalid request'), 400
