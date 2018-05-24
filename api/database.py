@@ -15,9 +15,10 @@ class Animes(Document):
     episodes = IntField(required=True)
     start_date = DateTimeField(required=True)
     end_date = DateTimeField(required=True)
+    revenue = FloatField(required=True)
 
     def __init__(self, name, genre, type, episodes, rating, start_date,\
-            end_date, *args, **values):
+            end_date, revenue, *args, **values):
         super().__init__(*args, **values)
         self.name = name
         self.genre = genre
@@ -26,6 +27,7 @@ class Animes(Document):
         self.episodes = episodes
         self.start_date = start_date
         self.end_date = end_date
+        self.revenue = float(revenue)
 
 class Movies(Document):
     title = StringField(required=True, primary_key=True)
@@ -63,7 +65,7 @@ class Books(Document):
     imgurl = StringField(required=True)
     smallimgurl = StringField(required=True)
     genre = StringField(required=True)
-    revenue = FloatField()
+    revenue = FloatField(required=True)
 
     def __init__(self, title, author, rating, isbn, isbn13, year, imgurl, smallimgurl, genre, revenue, *args, **values):
         super().__init__(*args, **values)
@@ -90,6 +92,7 @@ def get_anime_data():
         result['episodes'] = data.episodes
         result['start_date'] = data.start_date
         result['end_date'] = data.end_date
+        result['revenue'] = float(data.revenue)
         results.append(result)
     return results
 

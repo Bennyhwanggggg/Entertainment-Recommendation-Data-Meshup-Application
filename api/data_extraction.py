@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from mongoengine import connect
-from .database import Animes, Books, Movies
+from database import Animes, Books, Movies
 import chardet
 import requests
 import json
@@ -99,7 +99,7 @@ def dataimport():
         except:
             continue
     print('done!')
-    
+
     print('importing movie data....', end='')
     moviedata = extract_movie_data()
     for data in moviedata:
@@ -116,12 +116,14 @@ def dataimport():
     animedata = extract_anime_data()
     count = 0
     for data in animedata:
-        if count == 3000:
+        if count == 8000:
             break
         try:
+            print(data)
             Animes(data['name'], data['genre'], data['type'], data['episodes'],
-                    data['rating'], data['start_date'], data['end_date']).save()
+                    data['rating'], data['start_date'], data['end_date'], data['revenue']).save()
             count += 1
-        except:
+        except Exception as e:
+            print(e)
             continue
     print('done!')
