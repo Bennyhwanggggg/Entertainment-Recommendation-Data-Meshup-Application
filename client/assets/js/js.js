@@ -153,12 +153,7 @@ $("#movies_search").click(function(){
     if(document.getElementsByClassName("table2tr").length!=0){
             table2tr = document.getElementsByClassName("table2tr");
             console.log(table2tr.length)
-            var data_length = table2tr.length
-            // for (k = 0; k < table2tr.length; k++) {
-            //     console.log(k);
-            //     table2.removeChild(table2tr[k]);
-            //     console.log(table2tr);
-            // }
+            var data_length = table2tr.length;
 
             var i = 0;
             while (i < data_length){
@@ -190,9 +185,6 @@ $("#movies_search").click(function(){
     if (genretoshow){
         url = url + '&genre='+genretoshow
     }
-    // if (typetoshow){
-    //     url = url + '&title='+typetoshow
-    // }
     if (start_rate){
         url = url + '&rate_start='+start_rate
     }
@@ -205,8 +197,6 @@ $("#movies_search").click(function(){
     if (year){
         url = url + '&year='+year
     }
-
-
 
     fetch(url, {
         method: 'get'
@@ -233,7 +223,7 @@ $("#movies_search").click(function(){
             movies_td6 = document.createElement('td');
             movies_td7 = document.createElement('td');
             movies_td8 = document.createElement('td');
-            movies_td9 = document.createElement('td');
+            // movies_td9 = document.createElement('td');
             movies_td10 = document.createElement('td');
             movies_td11 = document.createElement('td');
 
@@ -245,7 +235,7 @@ $("#movies_search").click(function(){
             movies_td6.innerHTML = data[i]['year'];
             movies_td7.innerHTML = data[i]['runtime'];
             movies_td8.innerHTML = data[i]['rating'];
-            movies_td9.innerHTML = data[i]['revenue'];
+            // movies_td9.innerHTML = data[i]['revenue'];
             movies_td10.innerHTML = data[i]['metascore'];
             movies_td11.innerHTML = data[i]['revenue'];
 
@@ -257,7 +247,7 @@ $("#movies_search").click(function(){
             movies_tr.appendChild(movies_td6)
             movies_tr.appendChild(movies_td7)
             movies_tr.appendChild(movies_td8)
-            movies_tr.appendChild(movies_td9)
+            // movies_tr.appendChild(movies_td9)
             movies_tr.appendChild(movies_td10)
             movies_tr.appendChild(movies_td11)
             table2.appendChild(movies_tr)
@@ -282,12 +272,7 @@ $("#books_search").click(function(){
     if(document.getElementsByClassName("table3tr").length!=0){
             table3tr = document.getElementsByClassName("table3tr");
             console.log(table3tr.length)
-            var data_length = table3tr.length
-            // for (k = 0; k < table3tr.length; k++) {
-            //     console.log(k);
-            //     table3.removeChild(table3tr[k]);
-            //     console.log(table3tr);
-            // }
+            var data_length = table3tr.length;
 
             var i = 0;
             while (i < data_length){
@@ -308,7 +293,6 @@ $("#books_search").click(function(){
     var year =$("#year_book").val();
     console.log(numtoshow);
     // const url = 'http://127.0.0.1:5000/show/books?count='+numtoshow+'&rate_start='+start_rate + '&genre='+genretoshow+'&rate_end='+end_rate+'&order='+up_down+'&year='+year;
-
 
     var url = 'http://127.0.0.1:5000/show/books?'
     if (numtoshow){
