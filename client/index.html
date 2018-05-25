@@ -17,14 +17,58 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="dist/pagination.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
+<style>
+  #container{
+            width: 1200px;
+            /*height: 500px;*/
+            /*margin: 50px auto;*/
+            box-shadow: 2px 2px 10px gray;
+            margin-left: 100px;
+            margin-top: 250px;
+        }
+        #container li{
+            width: 234px;
+            height: 300px;
+            list-style: none;
+            float: left;
+            -webkit-transition: all 1s linear;
+        }
+        img{
+            width: 600px;
+            height: 300px;
+        }
+        /*.content{*/
+            /*width: 30px;*/
+            /*height: 20px;*/
+            /*position: absolute;*/
+            /*bottom: 0;*/
+            /*background: navajowhite;*/
+            /*color: black;*/
+            /*z-index: 10;*/
+            /*opacity: .5;*/
+        /*}*/
+        #container ul:hover li{
+            width: 85px;
+        }
+        #container ul li:hover{
+            width: 600px;
+        }
+  .center {
+    text-align: center;
+}
+</style>
 
 
 
 <header class="am-topbar am-topbar-inverse admin-header">
   <div class="am-topbar-brand">
-    <strong>HeavyWeight</strong> <small>Showing</small>
+    <strong>HeavyWeight</strong>
   </div>
 
   <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -32,7 +76,7 @@
   <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
     <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-home"></span> Home</a></li>
+      <li><a href="javascript:;" class="home"><span class="am-icon-home"></span> Home</a></li>
       <li><a href="javascript:;" class="animes"><span class="am-icon-table"></span> Animes</a></li>
       <li><a href="javascript:;" class="movie"><span class="am-icon-table "></span> Movies</a></li>
       <li><a href="javascript:;" class="books"><span class="am-icon-table"></span> Books</a></li>
@@ -53,56 +97,134 @@
   </div>
 </header>
 
+<div class="am-cf admin-main content_home">
+  <div id="container">
+    <ul>
+        <li>
+            <div class="center">
+            <div>Waht is HeavyWeight</div>
+            <div class="text">
+                <p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>
+            </div>
+            </div>
+        </li>
+        <li>
+            <div class="center">
+            <div>Animes</div>
+            <div class="text">
+                <p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>
+            </div>
+            </div>
+        </li>
+        <li>
+            <div class="center">
+            <div>Movies</div>
+            <div class="text">
+                <p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>
+            </div>
+            </div>
+        </li>
+        <li>
+            <div class="center">
+            <div>Books</div>
+            <div class="text">
+                <p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>
+            </div>
+            </div>
+        </li>
+        <li>
+            <div class="center">
+           <div>Analysis</div>
+            <div class="text">
+                <p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>
+            </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
 
 <div class="am-cf admin-main">
-  <!-- sidebar start -->
-  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
-    <div class="am-offcanvas-bar admin-offcanvas-bar">
-      <ul class="am-list admin-sidebar-list">
 
-        <!--<li><a href="javascript:;" class="combination"><span class="am-icon-table"></span> Analysis</a></li>-->
-      </ul>
+  <!--<div class="admin-content content_home">-->
+  <!--<div id="container">-->
+    <!--<ul>-->
+        <!--<li>-->
+            <!--<div class="center">-->
+            <!--<div>Waht is HeavyWeight</div>-->
+            <!--<div class="text">-->
+                <!--<p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="center">-->
+            <!--<div>Animes</div>-->
+            <!--<div class="text">-->
+                <!--<p>We are experts in this industry with over 100 years experience. What that means is you are going to get right <br> solution. please find our services.</p>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="center">-->
+            <!--<div>Movies</div>-->
+            <!--<div class="text">-->
+                <!--<p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="center">-->
+            <!--<div>Books</div>-->
+            <!--<div class="text">-->
+                <!--<p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="center">-->
+           <!--<div>Analysis</div>-->
+            <!--<div class="text">-->
+                <!--<p>The aim of this mashup application is to help user find a comparison between movies, anime and books.  <br> The application will show how different genre compare across different medias through use of table and charts.</p>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
 
-      <div class="am-panel am-panel-default admin-sidebar-panel">
-        <div class="am-panel-bd">
-          <p><span class="am-icon-bookmark"></span> Notice Board</p>
-          <p>balallalaalala.—— HeavyWeight</p>
-        </div>
-      </div>
+<!--</div>-->
 
-      <div class="am-panel am-panel-default admin-sidebar-panel">
-        <div class="am-panel-bd">
-          <p><span class="am-icon-tag"></span> wiki</p>
-          <p>Welcome to HeavyWeight!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- sidebar end -->
 
   <!-- content1 start -->
   <div class="admin-content content1">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table1</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Animes</strong> / <small>Table1</small></div>
       </div>
       <hr>
       <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="up_down">
-              <option value=" " disabled selected hidden>up_down</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="up_down" placeholder="up_down">
+              <!--<option value=" " disabled selected hidden>up_down</option>-->
               <option value="">up_down</option>
-              <option value="high_to_low">high_to_low</option>
-              <option value="low_to_high">low_to_high</option>
+              <option value="highest_rating">highest_rating</option>
+              <option value="lowest_rating">lowest_rating</option>
+              <option value="highest_revenue">highest_revenue</option>
+              <option value="lowest_revenue">lowest_revenue</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="genre_of_animes">
-              <option value=" " disabled selected hidden>all_genreas</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="genre_of_animes" placeholder="all_genreas">
+              <!--<option value=" " disabled selected hidden>all_genreas</option>-->
               <option value="">all_genreas</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
@@ -130,8 +252,8 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes">
-              <option value=" " disabled selected hidden>number_of_result</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes" placeholder="number_of_result">
+              <!--<option value=" " disabled selected hidden>number_of_result</option>-->
               <option value="">number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
@@ -145,8 +267,8 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="type_of_animes">
-              <option value=" " disabled selected hidden>type</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="type_of_animes" placeholder="type">
+              <!--<option value=" " disabled selected hidden>type</option>-->
               <option value="">type</option>
               <option value="Movie">Movie</option>
               <option value="TV">TV</option>
@@ -157,8 +279,8 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start">
-              <option value=" " disabled selected hidden>rate-start</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start" placeholder="rate-start">
+              <!--<option value=" " disabled selected hidden>rate-start</option>-->
               <option value="">rate-start</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -177,8 +299,8 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end">
-              <option value=" " disabled selected hidden>rate-end</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end" placeholder="rate-end">
+              <!--<option value=" " disabled selected hidden>rate-end</option>-->
               <option value="">rate-end</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -219,42 +341,12 @@
             <table class="am-table am-table-striped am-table-hover table-main" id="table1">
               <thead>
               <tr>
-                <th class="table-id">name</th><th class="table-id">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-date am-hide-sm-only">episodes</th><th class="table-date am-hide-sm-only">year</th>
+                <th class="table-id">name</th><th class="table-id">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-author am-hide-sm-only">revenue</th><th class="table-date am-hide-sm-only">episodes</th><th class="table-date am-hide-sm-only">year</th>
               </tr>
               </thead>
               <tbody id="table1_tbody">
-              <!--<tr>-->
-                <!--<td><a href="#">Business management</a></td>-->
-                <!--<td>default</td>-->
-                <!--<td class="am-hide-sm-only">XXXXXX</td>-->
-                <!--<td class="am-hide-sm-only">12.5.2018</td>-->
-                <!--<td>-->
-                <!--</td>-->
-              <!--</tr>-->
               </tbody>
             </table>
-            <!--<div class="am-cf">-->
-
-              <!--<div class="am-fr">-->
-
-                <!--<div style="width: 700px;margin: 100px auto;">-->
-                  <!--<ul class="data-list">-->
-                  <!--</ul>-->
-                  <!--<div id="pagination" class="pagination"></div>-->
-                <!--</div>-->
-
-                <!--&lt;!&ndash;<ul class="am-pagination">&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li class="am-disabled"><a href="#">«</a></li>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li class="am-active"><a href="#">1</a></li>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li><a href="#">2</a></li>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li><a href="#">3</a></li>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li><a href="#">4</a></li>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li><a href="#">5</a></li>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<li><a href="#">»</a></li>&ndash;&gt;-->
-                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--<hr />-->
             <p>Please select to search：.....</p>
           </form>
         </div>
@@ -267,7 +359,7 @@
       <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
     </footer>
 
-    <div id='loading1' style="display:none; position:relative;left: 347px;top:-129px; "><img  src="loading.gif" alt=""></div>
+    <div id='loading1' style="display:none; position:relative;left: 549px;top:-129px; "><img  src="loading.gif" alt=""></div>
 
 
   </div>
@@ -277,7 +369,7 @@
   <div class="admin-content content2">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table2</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Movies</strong> / <small>Table2</small></div>
       </div>
 
       <hr>
@@ -285,20 +377,22 @@
       <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "up_down_movie">
-               <option value=" " disabled selected hidden>up_down</option>
+            <select data-am-selected="{btnSize: 'sm'}" id = "up_down_movie" placeholder="up_down">
+               <!--<option value=" " disabled selected hidden>up_down</option>-->
               <option value="">up_down</option>
-              <option value="high_to_low">high_to_low</option>
-              <option value="low_to_high">low_to_high</option>
+              <option value="highest_rating">highest_rating</option>
+              <option value="lowest_rating">lowest_rating</option>
+              <option value="highest_revenue">highest_revenue</option>
+              <option value="lowest_revenue">lowest_revenue</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="number_of_movie">
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_movie" placeholder="number_of_result">
               <!--<option>number_of_result</option>-->
-              <option value=" " disabled selected hidden>number_of_result</option>
+              <!--<option value=" " disabled selected hidden>number_of_result</option>-->
               <option value="">number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
@@ -311,9 +405,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="year_movie">
+            <select data-am-selected="{btnSize: 'sm'}" id="year_movie" placeholder="all_year">
               <!--<option value = "all year">all year</option>-->
-              <option value=" " disabled selected hidden>all_year</option>
+              <!--<option value=" " disabled selected hidden>all_year</option>-->
               <option value="">all_year</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
@@ -369,9 +463,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "genre_of_movie">
+            <select data-am-selected="{btnSize: 'sm'}" id = "genre_of_movie" placeholder="all_genres">
               <!--<option value="all_genres">all_genres</option>-->
-              <option value=" " disabled selected hidden>all_genres</option>
+              <!--<option value=" " disabled selected hidden>all_genres</option>-->
               <option value="">all_genres</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
@@ -410,9 +504,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_movie">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_movie" placeholder="rate_start">
               <!--<option value="rate_start">rate_start</option>-->
-              <option value=" " disabled selected hidden>rate_start</option>
+              <!--<option value=" " disabled selected hidden>rate_start</option>-->
               <option value="">rate_start</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -431,9 +525,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id ="rate_end_movie">
+            <select data-am-selected="{btnSize: 'sm'}" id ="rate_end_movie" placeholder="rate_end">
               <!--<option value="rate_end">rate_end</option>-->
-              <option value=" " disabled selected hidden>rate_end</option>
+              <!--<option value=" " disabled selected hidden>rate_end</option>-->
               <option value="">rate_end</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -456,29 +550,7 @@
           </div>
         </div>
 
-      <!--<div class="am-u-sm-12 am-u-md-3">-->
-          <!--<div class="am-form-group">-->
-            <!--<select data-am-selected="{btnSize: 'sm'}" id = "revenue_start_movie">-->
-              <!--<option value="revenue_start">revenue_start</option>-->
-              <!--<option value="50000000">50000000</option>-->
-              <!--<option value="100000000">100000000</option>-->
-              <!--<option value="5000000000">5000000000</option>-->
-              <!--<option value="10000000000">10000000000</option>-->
-            <!--</select>-->
-          <!--</div>-->
-        <!--</div>-->
 
-        <!--<div class="am-u-sm-12 am-u-md-3">-->
-          <!--<div class="am-form-group">-->
-            <!--<select data-am-selected="{btnSize: 'sm'}" id = "revenue_end_movie">-->
-              <!--<option value="revenue_end">revenue_end</option>-->
-              <!--<option value="50000000">50000000</option>-->
-              <!--<option value="100000000">100000000</option>-->
-              <!--<option value="5000000000">5000000000</option>-->
-              <!--<option value="10000000000">10000000000</option>-->
-            <!--</select>-->
-          <!--</div>-->
-        <!--</div>-->
 
       <div class="am-g">
         <div class="am-u-sm-12">
@@ -486,25 +558,13 @@
             <table class="am-table am-table-striped am-table-hover table-main" id="table2">
               <thead>
               <tr>
-                <th class="table-id">title</th><th class="table-title">genre</th><th class="table-type">description</th><th class="table-author am-hide-sm-only">director</th><th class="table-date am-hide-sm-only">actors</th><th class="table-set">years</th><th class="table-set">runtime(mins)</th><th class="table-set">rating</th><th class="table-set">revenue(millions)</th><th class="table-set">metascore</th>
+                <th class="table-id">title</th><th class="table-title">genre</th><th class="table-type">description</th><th class="table-author am-hide-sm-only">director</th><th class="table-date am-hide-sm-only">actors</th><th class="table-set">years</th><th class="table-set">runtime(mins)</th><th class="table-set">rating</th><th class="table-set">revenue</th><th class="table-set">revenue(millions)</th><th class="table-set">metascore</th>
               </tr>
               </thead>
               <tbody id="table2_tbody">
 
               </tbody>
             </table>
-            <!--<div class="am-cf">-->
-
-              <!--<div class="am-fr">-->
-
-                <!--<div style="width: 700px;margin: 100px auto;">-->
-                  <!--<ul class="data-list1">-->
-                  <!--</ul>-->
-                  <!--<div id="pagination1" class="pagination"></div>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--<hr />-->
             <p>Please select to search：.....</p>
           </form>
         </div>
@@ -518,7 +578,7 @@
       <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
     </footer>
 
-    <div id='loading2' style="display: none;position:relative;left: 347px;top:-129px; "><img  src="loading.gif" alt=""></div>
+    <div id='loading2' style="display: none;position:relative;left: 549px;top:-129px; "><img  src="loading.gif" alt=""></div>
 
 
     </div>
@@ -528,27 +588,29 @@
   <div class="admin-content content3">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table3</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Books</strong> / <small>Table3</small></div>
       </div>
       <hr>
 
        <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="up_down_book">
-              <option value=" " disabled selected hidden>up_down</option>
+            <select data-am-selected="{btnSize: 'sm'}" id="up_down_book" placeholder="up_down">
+              <!--<option value=" " disabled selected hidden>up_down</option>-->
               <option value="">up_down</option>
-              <option value="high_to_low">high_to_low</option>
-              <option value="low_to_high">low_to_high</option>
+              <option value="highest_rating">highest_rating</option>
+              <option value="lowest_rating">lowest_rating</option>
+              <option value="highest_revenue">highest_revenue</option>
+              <option value="lowest_revenue">lowest_revenue</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="number_of_book">
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_book" placeholder="number_of_result">
               <!--<option>number_of_result</option>-->
-              <option value=" " disabled selected hidden>number_of_result</option>
+              <!--<option value=" " disabled selected hidden>number_of_result</option>-->
               <option value="">number_of_result</option>
               <option value="20">20</option>
               <option value="50">50</option>
@@ -561,9 +623,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id ="genre_of_book">
+            <select data-am-selected="{btnSize: 'sm'}" id ="genre_of_book" placeholder="all_genres">
               <!--<option value="all_genres">all_genres</option>-->
-              <option value=" " disabled selected hidden>all_genres</option>
+              <!--<option value=" " disabled selected hidden>all_genres</option>-->
               <option value="">all_genres</option>
               <option value="Fiction">Fiction</option>
               <option value="Literary">Literary</option>
@@ -588,23 +650,11 @@
           </div>
         </div>
 
-
-        <!--<div class="am-u-sm-12 am-u-md-3">-->
-          <!--<div class="am-form-group">-->
-            <!--<select data-am-selected="{btnSize: 'sm'}" id ="type_of_book">-->
-              <!--<option value="option1">all title</option>-->
-              <!--<option value="option2">Movie</option>-->
-              <!--<option value="option3">TV</option>-->
-              <!--<option value="option3">OVA</option>-->
-            <!--</select>-->
-          <!--</div>-->
-        <!--</div>-->
-
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="year_book">
+            <select data-am-selected="{btnSize: 'sm'}" id="year_book" placeholder="all year">
               <!--<option value = "all year">all year</option>-->
-              <option value=" " disabled selected hidden>all year</option>
+              <!--<option value=" " disabled selected hidden>all year</option>-->
               <option value="">all year</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
@@ -660,9 +710,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_book">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_book" placeholder="rate_start">
               <!--<option value="rate_start">rate_start</option>-->
-              <option value=" " disabled selected hidden>rate_start</option>
+              <!--<option value=" " disabled selected hidden>rate_start</option>-->
               <option value="">rate_start</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -681,9 +731,9 @@
 
          <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end_book">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end_book" placeholder="rate_end">
               <!--<option value="rate_end">rate_end</option>-->
-              <option value=" " disabled selected hidden>rate_end</option>
+              <!--<option value=" " disabled selected hidden>rate_end</option>-->
               <option value="">rate_end</option>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -712,25 +762,13 @@
             <table class="am-table am-table-striped am-table-hover table-main" id ="table3">
               <thead>
               <tr>
-                <th class="table-id">title</th><th class="table-id">genre</th><th class="table-type">isbn</th><th class="table-author am-hide-sm-only">author</th><th class="table-set">years</th><th class="table-set">rating</th>
+                <th class="table-id">title</th><th class="table-id">genre</th><th class="table-type">isbn</th><th class="table-author am-hide-sm-only">author</th><th class="table-set">years</th><th class="table-set">rating</th><th class="table-set">revenue</th>
               </tr>
               </thead>
               <tbody id="table3_tbody">
 
               </tbody>
             </table>
-            <!--<div class="am-cf">-->
-
-              <!--<div class="am-fr">-->
-
-                <!--<div style="width: 700px;margin: 100px auto;">-->
-                  <!--<ul class="data-list2">-->
-                  <!--</ul>-->
-                  <!--<div id="pagination2" class="pagination"></div>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--<hr />-->
             <p>Please select to search：.....</p>
           </form>
         </div>
@@ -744,7 +782,7 @@
       <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
     </footer>
 
-    <div id='loading3' style="display: none;position:relative;left: 347px;top:-129px; "><img  src="loading.gif" alt=""></div>
+    <div id='loading3' style="display: none;position:relative;left: 549px;top:-129px; "><img  src="loading.gif" alt=""></div>
 
 
     </div>
@@ -754,55 +792,15 @@
   <div class="admin-content content4">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Table</strong> / <small>Table4</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Analysis</strong> </div>
       </div>
       <hr>
-      <!--<div class="am-g">-->
-        <!--<div class="am-u-sm-12 am-u-md-3">-->
-          <!--<div class="am-form-group">-->
-            <!--<select data-am-selected="{btnSize: 'sm'}">-->
-              <!--<option value="option1">all genres</option>-->
-              <!--<option value="option2">****</option>-->
-              <!--<option value="option3">****</option>-->
-              <!--<option value="option3">****</option>-->
-              <!--<option value="option3">****</option>-->
-              <!--<option value="option3">****</option>-->
-              <!--<option value="option3">****</option>-->
-            <!--</select>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="am-u-sm-12 am-u-md-3">-->
-          <!--<div class="am-input-group am-input-group-sm">-->
-            <!--<input type="text" class="am-form-field">-->
-          <!--<span class="am-input-group-btn">-->
-            <!--<button class="am-btn am-btn-default" type="button">Search</button>-->
-          <!--</span>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
 
       <div class="am-g">
         <div class="am-u-sm-12">
           <form class="am-form">
             <table class="am-table am-table-striped am-table-hover table-main">
               <thead>
-              <!--<tr>-->
-                <!--<th class="table-check"><input type="checkbox" /></th><th class="table-id">ID</th><th class="table-title">Title</th><th class="table-type">genres</th><th class="table-author am-hide-sm-only">author</th><th class="table-date am-hide-sm-only">Date</th><th class="table-set">settings</th>-->
-              <!--</tr>-->
-              <!--</thead>-->
-              <!--<tbody>-->
-              <!--<tr>-->
-                <!--<td><input type="checkbox" /></td>-->
-                <!--<td>1</td>-->
-                <!--<td><a href="#">Business management</a></td>-->
-                <!--<td>default</td>-->
-                <!--<td class="am-hide-sm-only">XXXXXX</td>-->
-                <!--<td class="am-hide-sm-only">12.5.2018</td>-->
-                <!--<td>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--</tbody>-->
-            <!--</table>-->
             <h1>Comparison</h1>
 
             <div id="piechart"></div>
@@ -834,7 +832,7 @@
 
             <div id="chart_div"></div>
 
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>//chart
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
               google.charts.load("current", {packages:['corechart']});
               google.charts.setOnLoadCallback(drawChart);
@@ -917,33 +915,13 @@
               }
             </script>
             <div id="line_top_x"></div>
-
-            <div class="am-cf">
-
-              <div class="am-fr">
-                <ul class="am-pagination">
-                  <li class="am-disabled"><a href="#">«</a></li>
-                  <li class="am-active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div>
-            </div>
             <hr />
-            <p>comments：.....</p>
+            <!--<p>comments：.....</p>-->
           </form>
         </div>
 
       </div>
     </div>
-
-    <footer class="admin-content-footer">
-      <hr>
-      <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
-    </footer>
 
   </div>
   <!-- content4 end -->
@@ -952,7 +930,6 @@
 <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 
 <footer>
-  <hr>
   <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
 </footer>
 
@@ -979,68 +956,7 @@
 <script src="js/index.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<!--<script>-->
-  <!--$("#animes").click(function(){-->
-    <!--console.log("1");-->
-    <!--// const url = 'http://127.0.0.1:5000/animes';-->
-    <!--//-->
-    <!--// var e = document.getElementById("11");-->
-    <!--// var strUser = e.options[e.selectedIndex].value;-->
-    <!--//-->
-    <!--// var a = document.getElementById('11').value-->
-    <!--// console.log(a)-->
-
-    <!--// fetch(url, {-->
-    <!--//     method: 'get',-->
-    <!--//     headers: {'Content-Type' : 'application/json'},-->
-    <!--//     body: JSON.stringify({-->
-    <!--//         order: document.getElementById('11').value-->
-    <!--//     })-->
-    <!--// }).then(function(response){-->
-    <!--//     return response.json()-->
-    <!--// }).then(function(data) {-->
-    <!--//     console.log(data)-->
-    <!--//     // loading.style.display = "none";-->
-    <!--//     // if (data.lgname == "The LGA name you inputed doesn't exist.") {-->
-    <!--//     //     let div = document.createElement('div');-->
-    <!--//     //     div.setAttribute('id', "666");-->
-    <!--//     //     div.innerHTML = 'https://mlab.com/databases/my-database/collections/crime/' + data.lgname;-->
-    <!--//     //     return parent_tag.appendChild(div);-->
-    <!--//     // }-->
-    <!--// }-->
-
-    <!--$(".content1").show();-->
-    <!--$(".content2").hide();-->
-    <!--$(".content3").hide();-->
-    <!--$(".content4").hide();-->
-<!--});-->
-
-<!--$("#movie").click(function(){-->
-    <!--console.log("2")-->
-    <!--$(".content2").show();-->
-    <!--$(".content1").hide();-->
-    <!--$(".content3").hide();-->
-    <!--$(".content4").hide();-->
-<!--});-->
-
-<!--$("#books").click(function(){-->
-    <!--console.log("3")-->
-    <!--$(".content3").show();-->
-    <!--$(".content1").hide();-->
-    <!--$(".content2").hide();-->
-    <!--$(".content4").hide();-->
-<!--});-->
-
-<!--$("#combination").click(function(){-->
-    <!--console.log("4")-->
-    <!--$(".content4").show();-->
-    <!--$(".content1").hide();-->
-    <!--$(".content3").hide();-->
-    <!--$(".content2").hide();-->
-<!--});-->
-<!--</script>-->
+<script src="js/index.js"></script>
 
 </body>
 </html>

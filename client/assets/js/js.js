@@ -2,12 +2,20 @@
  * Created by wayne on 17/5/18.
  */
 
+$(".home").click(function(){
+    $(".content_home").show();
+    $(".content1").hide();
+    $(".content2").hide();
+    $(".content3").hide();
+    $(".content4").hide();
+});
 
 $(".animes").click(function(){
     $(".content1").show();
     $(".content2").hide();
     $(".content3").hide();
     $(".content4").hide();
+    $(".content_home").hide();
 });
 
 $(".movie").click(function(){
@@ -15,6 +23,7 @@ $(".movie").click(function(){
     $(".content1").hide();
     $(".content3").hide();
     $(".content4").hide();
+    $(".content_home").hide();
 });
 
 $(".books").click(function(){
@@ -22,6 +31,7 @@ $(".books").click(function(){
     $(".content1").hide();
     $(".content2").hide();
     $(".content4").hide();
+    $(".content_home").hide();
 });
 
 $(".combination").click(function(){
@@ -31,6 +41,7 @@ $(".combination").click(function(){
     $(".content1").hide();
     $(".content3").hide();
     $(".content2").hide();
+    $(".content_home").hide();
 });
 
 $("#animes_search").click(function(){/* table1_Animes*/
@@ -60,26 +71,6 @@ $("#animes_search").click(function(){/* table1_Animes*/
     var end_rate =$("#rate_end").val();
     var up_down =$("#up_down").val();
     console.log(numtoshow);
-
-    // if (numtoshow == "number_of_result"){
-    //     numtoshow = 'None'
-    // }
-    // if (genretoshow == "all_genres"){
-    //     genretoshow = 'None'
-    // }
-    // if (typetoshow == "all type"){
-    //     typetoshow = 'None'
-    // }
-    // if (start_rate == "rate_start"){
-    //     start_rate = 'None'
-    // }
-    // if (end_rate == "rate_end"){
-    //     end_rate = 'None'
-    // }
-    //
-    // console.log("pppppppppppppppp")
-    // console.log(genretoshow)
-    //
     // var url = 'http://127.0.0.1:5000/show/animes?count='+numtoshow+'&genre='+genretoshow+'&title='+typetoshow+'&rate_start='+start_rate + '&rate_end='+end_rate+'&order='+up_down;
     var url = 'http://127.0.0.1:5000/show/animes?'
     if (numtoshow){
@@ -122,13 +113,15 @@ $("#animes_search").click(function(){/* table1_Animes*/
                 animes_td4 = document.createElement('td');
                 animes_td5 = document.createElement('td');
                 animes_td6 = document.createElement('td');
+                animes_td7 = document.createElement('td');
 
                 animes_td1.innerHTML = data[i]['title'];
                 animes_td2.innerHTML = data[i]['genre'];
                 animes_td3.innerHTML = data[i]['type'];
                 animes_td4.innerHTML = data[i]['rating'];
-                animes_td5.innerHTML = data[i]['episodes'];
-                animes_td6.innerHTML = data[i]['start_date'].substring(12,16);
+                animes_td5.innerHTML = data[i]['revenue'];
+                animes_td6.innerHTML = data[i]['episodes'];
+                animes_td7.innerHTML = data[i]['start_date'].substring(12,16);
 
                 animes_tr.appendChild(animes_td1)
                 animes_tr.appendChild(animes_td2)
@@ -136,6 +129,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
                 animes_tr.appendChild(animes_td4)
                 animes_tr.appendChild(animes_td5)
                 animes_tr.appendChild(animes_td6)
+                animes_tr.appendChild(animes_td7)
                 table1.appendChild(animes_tr)
             }
 
@@ -147,11 +141,6 @@ $("#animes_search").click(function(){/* table1_Animes*/
 
         console.log(table1)
     });
-
-    // $(".content1").show();
-    // $(".content2").hide();
-    // $(".content3").hide();
-    // $(".content4").hide();
 });
 
 $("#movies_search").click(function(){
@@ -230,45 +219,48 @@ $("#movies_search").click(function(){
             var i;
 
         var animes_td;
-        var animes_tr
+        var movies_tr;
         for (i = 0; i < data.length; i++) {
             // text += data[i] + "<br>";
             console.log(data[i])
-            animes_tr = document.createElement('tr');
-            animes_tr.setAttribute('class',"table2tr");
-            animes_td1 = document.createElement('td');
-            animes_td2 = document.createElement('td');
-            animes_td3 = document.createElement('td');
-            animes_td4 = document.createElement('td');
-            animes_td5 = document.createElement('td');
-            animes_td6 = document.createElement('td');
-            animes_td7 = document.createElement('td');
-            animes_td8 = document.createElement('td');
-            animes_td9 = document.createElement('td');
-            animes_td10 = document.createElement('td');
+            movies_tr = document.createElement('tr');
+            movies_tr.setAttribute('class',"table2tr");
+            movies_td1 = document.createElement('td');
+            movies_td2 = document.createElement('td');
+            movies_td3 = document.createElement('td');
+            movies_td4 = document.createElement('td');
+            movies_td5 = document.createElement('td');
+            movies_td6 = document.createElement('td');
+            movies_td7 = document.createElement('td');
+            movies_td8 = document.createElement('td');
+            movies_td9 = document.createElement('td');
+            movies_td10 = document.createElement('td');
+            movies_td11 = document.createElement('td');
 
-            animes_td1.innerHTML = data[i]['title'];
-            animes_td2.innerHTML = data[i]['genre'];
-            animes_td3.innerHTML = data[i]['description'];
-            animes_td4.innerHTML = data[i]['director'];
-            animes_td5.innerHTML = data[i]['actors'];
-            animes_td6.innerHTML = data[i]['year'];
-            animes_td7.innerHTML = data[i]['runtime'];
-            animes_td8.innerHTML = data[i]['rating'];
-            animes_td9.innerHTML = data[i]['revenue'];
-            animes_td10.innerHTML = data[i]['metascore'];
+            movies_td1.innerHTML = data[i]['title'];
+            movies_td2.innerHTML = data[i]['genre'];
+            movies_td3.innerHTML = data[i]['description'];
+            movies_td4.innerHTML = data[i]['director'];
+            movies_td5.innerHTML = data[i]['actors'];
+            movies_td6.innerHTML = data[i]['year'];
+            movies_td7.innerHTML = data[i]['runtime'];
+            movies_td8.innerHTML = data[i]['rating'];
+            movies_td9.innerHTML = data[i]['revenue'];
+            movies_td10.innerHTML = data[i]['metascore'];
+            movies_td11.innerHTML = data[i]['revenue'];
 
-            animes_tr.appendChild(animes_td1)
-            animes_tr.appendChild(animes_td2)
-            animes_tr.appendChild(animes_td3)
-            animes_tr.appendChild(animes_td4)
-            animes_tr.appendChild(animes_td5)
-            animes_tr.appendChild(animes_td6)
-            animes_tr.appendChild(animes_td7)
-            animes_tr.appendChild(animes_td8)
-            animes_tr.appendChild(animes_td9)
-            animes_tr.appendChild(animes_td10)
-            table2.appendChild(animes_tr)
+            movies_tr.appendChild(movies_td1)
+            movies_tr.appendChild(movies_td2)
+            movies_tr.appendChild(movies_td3)
+            movies_tr.appendChild(movies_td4)
+            movies_tr.appendChild(movies_td5)
+            movies_tr.appendChild(movies_td6)
+            movies_tr.appendChild(movies_td7)
+            movies_tr.appendChild(movies_td8)
+            movies_tr.appendChild(movies_td9)
+            movies_tr.appendChild(movies_td10)
+            movies_tr.appendChild(movies_td11)
+            table2.appendChild(movies_tr)
         }
 
         }else{
@@ -279,10 +271,6 @@ $("#movies_search").click(function(){
 
         console.log(table2)
     });
-    // $(".content2").show();
-    // $(".content1").hide();
-    // $(".content3").hide();
-    // $(".content4").hide();
 });
 
 $("#books_search").click(function(){
@@ -355,33 +343,36 @@ $("#books_search").click(function(){
         if (data.length!=0){
             var i;
             var animes_td;
-            var animes_tr
+            var books_tr
             for (i = 0; i < data.length; i++) {
                 // text += data[i] + "<br>";
                 console.log(data[i])
-                animes_tr = document.createElement('tr');
-                animes_tr.setAttribute('class',"table3tr");
-                animes_td1 = document.createElement('td');
-                animes_td2 = document.createElement('td');
-                animes_td3 = document.createElement('td');
-                animes_td4 = document.createElement('td');
-                animes_td5 = document.createElement('td');
-                animes_td6 = document.createElement('td');
+                books_tr = document.createElement('tr');
+                books_tr.setAttribute('class',"table3tr");
+                books_td1 = document.createElement('td');
+                books_td2 = document.createElement('td');
+                books_td3 = document.createElement('td');
+                books_td4 = document.createElement('td');
+                books_td5 = document.createElement('td');
+                books_td6 = document.createElement('td');
+                books_td7 = document.createElement('td');
 
-                animes_td1.innerHTML = data[i]['title'];
-                animes_td2.innerHTML = data[i]['genre'];
-                animes_td3.innerHTML = data[i]['isbn'];
-                animes_td4.innerHTML = data[i]['author'];
-                animes_td5.innerHTML = data[i]['year'];
-                animes_td6.innerHTML = data[i]['rating'];
+                books_td1.innerHTML = data[i]['title'];
+                books_td2.innerHTML = data[i]['genre'];
+                books_td3.innerHTML = data[i]['isbn'];
+                books_td4.innerHTML = data[i]['author'];
+                books_td5.innerHTML = data[i]['year'];
+                books_td6.innerHTML = data[i]['rating'];
+                books_td7.innerHTML = data[i]['revenue'];
 
-                animes_tr.appendChild(animes_td1)
-                animes_tr.appendChild(animes_td2)
-                animes_tr.appendChild(animes_td3)
-                animes_tr.appendChild(animes_td4)
-                animes_tr.appendChild(animes_td5)
-                animes_tr.appendChild(animes_td6)
-                table3.appendChild(animes_tr)
+                books_tr.appendChild(books_td1)
+                books_tr.appendChild(books_td2)
+                books_tr.appendChild(books_td3)
+                books_tr.appendChild(books_td4)
+                books_tr.appendChild(books_td5)
+                books_tr.appendChild(books_td6)
+                books_tr.appendChild(books_td7)
+                table3.appendChild(books_tr)
             }
         }else{
             alert("Sorry, we do not have data!!")
@@ -390,17 +381,8 @@ $("#books_search").click(function(){
 
         console.log(table3)
     });
-    // $(".content3").show();
-    // $(".content1").hide();
-    // $(".content2").hide();
-    // $(".content4").hide();
 });
 
 $(".combination").click(function(){
     console.log("4");
-
-    // $(".content4").show();
-    // $(".content1").hide();
-    // $(".content3").hide();
-    // $(".content2").hide();
 });
