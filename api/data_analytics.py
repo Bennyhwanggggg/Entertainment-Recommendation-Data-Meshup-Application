@@ -133,15 +133,15 @@ def production_and_quality():
         book_results = [book for book in book_results if year == book['year']]
         movie_results = [movie for movie in movie_results if year == movie['year']]
         results = dict()
-        results['Number of animes'] = len(anime_results)
-        results['Number of movies'] = len(movie_results)
-        results['Number of books'] = len(book_results)
-        results['Average rating of animes'] = mean([anime['rating'] for anime in anime_results]) if anime_results else 0
-        results['Average earning of animes'] = mean([anime['revenue'] for anime in anime_results]) if anime_results else 0
-        results['Average rating of books'] = mean([book['rating'] for book in book_results]) if book_results else 0
-        results['Average earning of books'] = mean([book['revenue'] for book in book_results]) if book_results else 0
-        results['Average rating of movies'] = mean([movie['rating'] for movie in movie_results]) if movie_results else 0
-        results['Average earning of movies'] = mean([movie['revenue'] for movie in movie_results]) if movie_results else 0
+        results['Number_of_animes'] = len(anime_results)
+        results['Number_of_movies'] = len(movie_results)
+        results['Number_of_books'] = len(book_results)
+        results['Average_rating_of_animes'] = mean([anime['rating'] for anime in anime_results]) if anime_results else 0
+        results['Average_earning_of_animes'] = mean([anime['revenue'] for anime in anime_results]) if anime_results else 0
+        results['Average_rating_of_books'] = mean([book['rating'] for book in book_results]) if book_results else 0
+        results['Average_earning_of_books'] = mean([book['revenue'] for book in book_results]) if book_results else 0
+        results['Average_rating_of_movies'] = mean([movie['rating'] for movie in movie_results]) if movie_results else 0
+        results['Average_earning_of_movies'] = mean([movie['revenue'] for movie in movie_results]) if movie_results else 0
         return jsonify(results), 200
 
     if year_start and year_end and year_start <= year_end:
@@ -151,16 +151,54 @@ def production_and_quality():
             bk_results = [book for book in book_results if yr == book['year']]
             mv_results = [movie for movie in movie_results if yr == movie['year']]
             result = dict()
-            result['Number of animes'] = len(ani_results)
-            result['Number of movies'] = len(mv_results)
-            result['Number of books'] = len(bk_results)
-            result['Average rating of animes'] = mean([anime['rating'] for anime in ani_results]) if ani_results else 0
-            result['Average earning of animes'] = mean([anime['revenue'] for anime in ani_results]) if ani_results else 0
-            result['Average rating of books'] = mean([book['rating'] for book in bk_results]) if bk_results else 0
-            result['Average earning of books'] = mean([book['revenue'] for book in bk_results]) if bk_results else 0
-            result['Average rating of movies'] = mean([movie['rating'] for movie in mv_results]) if mv_results else 0
-            result['Average earning of movies'] = mean([movie['revenue'] for movie in mv_results]) if mv_results else 0
+            result['Number_of_animes'] = len(ani_results)
+            result['Number_of_movies'] = len(mv_results)
+            result['Number_of_books'] = len(bk_results)
+            result['Average_rating_of_animes'] = mean([anime['rating'] for anime in ani_results]) if ani_results else 0
+            result['Average_earning_of_animes'] = mean([anime['revenue'] for anime in ani_results]) if ani_results else 0
+            result['Average_rating_of_books'] = mean([book['rating'] for book in bk_results]) if bk_results else 0
+            result['Average_earning_of_books'] = mean([book['revenue'] for book in bk_results]) if bk_results else 0
+            result['Average_rating_of_movies'] = mean([movie['rating'] for movie in mv_results]) if mv_results else 0
+            result['Average_earning_of_movies'] = mean([movie['revenue'] for movie in mv_results]) if mv_results else 0
             results[yr] = result
+        return jsonify(results), 200
+    return jsonify(message='invalid request'), 400
+
+@analytics.route('/productiontrend', methods=['GET'])#get the trend from start year to end year
+def production_and_trend():
+    parser = reqparse.RequestParser()
+    parser.add_argument('genre', type=str)
+    parser.add_argument('year_start', type=int)
+    parser.add_argument('year_end', type=int)
+    args = parser.parse_args()
+    genre = args.get('genre')
+    year_start = args.get('year_start')
+    year_end = args.get('year_end')
+    anime_results = get_anime_data()
+    book_results = get_book_data()
+    movie_results = get_movie_data()
+    if genre:
+        anime_results = [anime for anime in anime_results if genre in anime['genre']]
+        book_results = [book for book in book_results if genre in book['genre']]
+        movie_results = [movie for movie in movie_results if genre in movie['genre']]
+
+    if year_start and year_end and year_start <= year_end:
+        results = dict()
+        s = []
+        for yr in range(year_start, year_end+1):
+            L = []
+            ani_results = [anime for anime in anime_results if int(anime['start_date'].strftime('%Y')) == yr]
+            bk_results = [book for book in book_results if yr == book['year']]
+            mv_results = [movie for movie in movie_results if yr == movie['year']]
+            a = mean([anime['rating'] for anime in ani_results]) if ani_results else 0
+            b= mean([book['rating'] for book in bk_results]) if bk_results else 0
+            c= mean([movie['rating'] for movie in mv_results]) if mv_results else 0
+            L.append(yr)
+            L.append(a)
+            L.append(b)
+            L.append(c)
+            s.append(L)
+        results['data'] = s
         return jsonify(results), 200
     return jsonify(message='invalid request'), 400
 
