@@ -423,6 +423,7 @@ function pie_chart(){
           }
         }
       });
+      loading.style.display = "none";
       console.log("Number_of_animes");
       console.log(name_value);
 
@@ -511,6 +512,7 @@ $("#combine_trend").click(function(){
 
         }
       });
+      loading.style.display = "none";
       console.log("Number_of_animes");
       console.log(dataset);
 
