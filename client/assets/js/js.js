@@ -367,6 +367,185 @@ $("#books_search").click(function(){
     });
 });
 
-$(".combination").click(function(){
-    console.log("4");
+// $(".combination").click(function(){
+//     console.log("4");
+// });
+
+
+
+function pie_chart(){
+    var loading = document.getElementById('loading4');
+    loading.style.display = "block";
+
+      $(function(){
+      url = "http://127.0.0.1:5000/analytics/productionquality?",
+      genre = $('#genre_of_combine').val(),
+      year = $('#year_combine').val(),
+      year_start = $('#year_start_combine').val(),
+      year_end = $('#year_end_combine').val()
+      // <!--var genre = $(this).attr('genre_of_combine');-->
+      // <!--var year = $(this).attr('year_combine');-->
+      console.log(genre);
+      console.log(year);
+      console.log("2222222");
+      console.log(year_start);
+      var name_items = [];
+      var name_value = [];
+      test = "22222";
+      var url = "http://127.0.0.1:5000/analytics/productionquality?genre="+genre;
+      if (year){
+        url = url + "&year="+year
+      }
+      if (year_start){
+        url = url + "&year_start=" + year_start
+      }
+      if (year_end){
+        url = url + "&year_end=" + year_end
+      }
+      var data = [];
+      $.ajax({
+
+        url:url,
+        type:'get',
+        dataType:"json",
+        async:false,
+        success: function(result) {
+            loading.style.display = "none";
+          console.log("yyyyyyyyy")
+          name_value.push(result.Number_of_animes);
+          name_value.push(result.Number_of_movies);
+          name_value.push(result.Number_of_books);
+
+          console.log(name_items);
+          for (let key in result){
+            name_items.push(key);
+          }
+        }
+      });
+      console.log("Number_of_animes");
+      console.log(name_value);
+
+      for (let key = 0; key < 3; key++){
+            console.log(name_items[key]);
+      }
+      google.charts.load("current", {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data1 = google.visualization.arrayToDataTable([['Entertainment', 'length of results'],
+        ['Animes', name_value[0]],
+        ['Movies', name_value[1]],
+        ['Books', name_value[2]]]);
+
+        // Optional; add a title and set the width and height of the chart
+        var option = {'title':'The analysis of entertainment', 'width':550, 'height':500};
+
+        // Display the chart inside the <div> element with id="piechart"
+        var pie = new google.visualization.PieChart(document.getElementById('piechart'));
+        pie.draw(data1, option);
+
+
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Number", { role: "style" } ],
+          ["Animes", name_value[0], "#b87333"],
+          ["Movies", name_value[1], "silver"],
+          ["Books", name_value[2], "gold"]
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]);
+
+        var options = {
+          title: "Number of each category",
+          width: 600,
+          height: 200,
+          bar: {groupWidth: "95%"},
+          legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options);
+    }
+    })
+}
+
+
+var dataset = [];
+$("#combine_trend").click(function(){
+    console.log("666");
+    var loading = document.getElementById('loading4');
+    loading.style.display = "block";
+
+    $(function(){
+      url = "http://127.0.0.1:5000/analytics/productiontrend?",
+      genre = $('#genre_of_combine').val(),
+      year_start = $('#year_start_combine').val(),
+      year_end = $('#year_end_combine').val()
+      console.log(genre);
+      console.log("3333");
+      console.log(year_start);
+      var url = "http://127.0.0.1:5000/analytics/productiontrend?genre="+genre;
+      if (year_start){
+        url = url + "&year_start=" + year_start
+      }
+      if (year_end){
+        url = url + "&year_end=" + year_end
+      }
+      console.log(url);
+
+      $.ajax({
+        url:url,
+        type:'get',
+        dataType:"json",
+        async:false,
+        success: function(result) {
+            loading.style.display = "none";
+          console.log("123456789");
+          //console.log(result.data);
+          dataset = result.data
+
+        }
+      });
+      console.log("Number_of_animes");
+      console.log(dataset);
+
+    });
+  google.charts.load('current', {'packages':['line']});
+  google.charts.setOnLoadCallback(draw_Chart);
+  function draw_Chart(){
+      var L = dataset;
+      console.log("1234");
+      console.log(L);
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Category');
+      data.addColumn('number', 'Animes');
+      data.addColumn('number', 'Movies');
+      data.addColumn('number', 'Books');
+
+      data.addRows(L);
+
+      var options = {
+        chart: {
+          title: 'The rating comparison between anmies, movies and books',
+          subtitle: 'number of each category'
+        },
+        width: 900,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
 });
+
