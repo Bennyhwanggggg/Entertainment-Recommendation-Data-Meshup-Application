@@ -125,28 +125,28 @@
   <div class="admin-content content1">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Animes</strong> / <small>Table1</small></div>
+	  <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Anime</strong></div>
       </div>
       <hr>
       <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="up_down" placeholder="up_down">
+            <select data-am-selected="{btnSize: 'sm'}" id="up_down" placeholder="Sort">
               <!--<option value=" " disabled selected hidden>up_down</option>-->
-              <option value="">up_down</option>
-              <option value="highest_rating">highest_rating</option>
-              <option value="lowest_rating">lowest_rating</option>
-              <option value="highest_revenue">highest_revenue</option>
-              <option value="lowest_revenue">lowest_revenue</option>
+              <option value="">Sort</option>
+              <option value="highest_rating">Rating: High-Low</option>
+              <option value="lowest_rating">Rating: Low-High</option>
+              <option value="highest_revenue">Revenue: High-Low</option>
+              <option value="lowest_revenue">Revenue: Low-High</option>
             </select>
           </div>
         </div>
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="genre_of_animes" placeholder="all_genreas">
+            <select data-am-selected="{btnSize: 'sm'}" id="genre_of_animes" placeholder="Genre">
               <!--<option value=" " disabled selected hidden>all_genreas</option>-->
-              <option value="">all_genreas</option>
+              <option value="">Genre</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
               <option value="Comedy">Comedy</option>
@@ -173,9 +173,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes" placeholder="number_of_result">
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_animes" placeholder="Number of Results">
               <!--<option value=" " disabled selected hidden>number_of_result</option>-->
-              <option value="">number_of_result</option>
+              <option value="">Number of Results</option>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -188,9 +188,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="type_of_animes" placeholder="type">
+            <select data-am-selected="{btnSize: 'sm'}" id="type_of_animes" placeholder="Type">
               <!--<option value=" " disabled selected hidden>type</option>-->
-              <option value="">type</option>
+              <option value="">Type</option>
               <option value="Movie">Movie</option>
               <option value="TV">TV</option>
               <option value="OVA">OVA</option>
@@ -200,9 +200,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start" placeholder="rate-start">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start" placeholder="Rating Low">
               <!--<option value=" " disabled selected hidden>rate-start</option>-->
-              <option value="">rate-start</option>
+              <option value="">Rating Low</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -220,9 +220,9 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end" placeholder="rate-end">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end" placeholder="Rating High">
               <!--<option value=" " disabled selected hidden>rate-end</option>-->
-              <option value="">rate-end</option>
+              <option value="">Rating High</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -250,7 +250,7 @@
             <table class="am-table am-table-striped am-table-hover table-main" id="table1">
               <thead>
               <tr>
-                <th class="table-id">name</th><th class="table-id">genre</th><th class="table-type">type</th><th class="table-author am-hide-sm-only">rating</th><th class="table-author am-hide-sm-only">revenue</th><th class="table-date am-hide-sm-only">episodes</th><th class="table-date am-hide-sm-only">year</th>
+                <th class="table-id">Title</th><th class="table-id">Genre</th><th class="table-type">Type</th><th class="table-author am-hide-sm-only">Rating</th><th class="table-author am-hide-sm-only">Revenue</th><th class="table-date am-hide-sm-only">Episodes</th><th class="table-date am-hide-sm-only">Year</th>
               </tr>
               </thead>
               <tbody id="table1_tbody">
@@ -266,7 +266,7 @@
 
     <footer class="admin-content-footer">
       <hr>
-      <p class="am-padding-left">© 2018 All by HeavyWeight.</p>
+      <p class="am-padding-left">© 2018 All by HeavyWeight. Built with <a href="http://amazeui.org/">Amaze UI<a/></p>
     </footer>
 
     <div id='loading1' style="display:none; position:relative;left: 549px;top:-265px; "><img  src="loading.gif" alt=""></div>
