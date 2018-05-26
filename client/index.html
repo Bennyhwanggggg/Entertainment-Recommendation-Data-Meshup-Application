@@ -256,7 +256,7 @@
               <tbody id="table1_tbody">
               </tbody>
             </table>
-            <p>Please select to search：.....</p>
+            <p id="search_help_msg_anime">Please select to search：.....</p>
           </form>
         </div>
 
@@ -463,7 +463,7 @@
 
               </tbody>
             </table>
-            <p>Please select to search：.....</p>
+            <p id="search_help_msg_movies">Please select to search：.....</p>
           </form>
         </div>
 
@@ -486,16 +486,16 @@
   <div class="admin-content content3">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Books</strong> / <small>Table3</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">Books</strong></div>
       </div>
       <hr>
 
        <div class="am-g">
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="up_down_book" placeholder="up_down">
+            <select data-am-selected="{btnSize: 'sm'}" id="up_down_book" placeholder="Sort">
               <!--<option value=" " disabled selected hidden>up_down</option>-->
-              <option value="">up_down</option>
+              <option value="">Sort</option>
               <option value="highest_rating">highest_rating</option>
               <option value="lowest_rating">lowest_rating</option>
               <option value="highest_revenue">highest_revenue</option>
@@ -506,10 +506,10 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="number_of_book" placeholder="number_of_result">
+            <select data-am-selected="{btnSize: 'sm'}" id="number_of_book" placeholder="Number of Results">
               <!--<option>number_of_result</option>-->
               <!--<option value=" " disabled selected hidden>number_of_result</option>-->
-              <option value="">number_of_result</option>
+              <option value="">Number of Results</option>
               <option value="20">20</option>
               <option value="50">50</option>
               <option value="100">100</option>
@@ -521,10 +521,10 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id ="genre_of_book" placeholder="all_genres">
+            <select data-am-selected="{btnSize: 'sm'}" id ="genre_of_book" placeholder="Genre">
               <!--<option value="all_genres">all_genres</option>-->
               <!--<option value=" " disabled selected hidden>all_genres</option>-->
-              <option value="">all_genres</option>
+              <option value="">Genre</option>
               <option value="Fiction">Fiction</option>
               <option value="Literary">Literary</option>
               <option value="Family Life">Family Life</option>
@@ -550,10 +550,10 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id="year_book" placeholder="all year">
+            <select data-am-selected="{btnSize: 'sm'}" id="year_book" placeholder="Year">
               <!--<option value = "all year">all year</option>-->
               <!--<option value=" " disabled selected hidden>all year</option>-->
-              <option value="">all year</option>
+              <option value="">Year</option>
               <option value="2017">2017</option>
               <option value="2016">2016</option>
               <option value="2015">2015</option>
@@ -608,10 +608,10 @@
 
         <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_book" placeholder="rate_start">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_start_book" placeholder="Rating Low">
               <!--<option value="rate_start">rate_start</option>-->
               <!--<option value=" " disabled selected hidden>rate_start</option>-->
-              <option value="">rate_start</option>
+              <option value="">Rating Low</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -629,10 +629,10 @@
 
          <div class="am-u-sm-12 am-u-md-3">
           <div class="am-form-group">
-            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end_book" placeholder="rate_end">
+            <select data-am-selected="{btnSize: 'sm'}" id = "rate_end_book" placeholder="Rating High">
               <!--<option value="rate_end">rate_end</option>-->
               <!--<option value=" " disabled selected hidden>rate_end</option>-->
-              <option value="">rate_end</option>
+              <option value="">Rating High</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -660,14 +660,14 @@
             <table class="am-table am-table-striped am-table-hover table-main" id ="table3">
               <thead>
               <tr>
-                <th class="table-id">title</th><th class="table-id">genre</th><th class="table-type">isbn</th><th class="table-author am-hide-sm-only">author</th><th class="table-set">years</th><th class="table-set">rating</th><th class="table-set">revenue</th>
+                <th class="table-id">Title</th><th class="table-id">Genre</th><th class="table-type">ISBN</th><th class="table-author am-hide-sm-only">Author</th><th class="table-set">Year</th><th class="table-set">Rating</th><th class="table-set">Revenue</th>
               </tr>
               </thead>
               <tbody id="table3_tbody">
 
               </tbody>
             </table>
-            <p>Please select to search：.....</p>
+            <p id="search_help_msg_books">Please select to search：.....</p>
           </form>
         </div>
 

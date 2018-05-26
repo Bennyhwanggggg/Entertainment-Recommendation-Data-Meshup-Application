@@ -132,7 +132,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
                 animes_tr.appendChild(animes_td7)
                 table1.appendChild(animes_tr)
             }
-
+	    document.getElementById("search_help_msg_anime").innerHTML= "";
         }else{
             alert("no data!!!!");
         }
@@ -252,7 +252,7 @@ $("#movies_search").click(function(){
             movies_tr.appendChild(movies_td11)
             table2.appendChild(movies_tr)
         }
-
+	document.getElementById("search_help_msg_movies").innerHTML= "";
         }else{
             alert("no data")
         }
@@ -358,6 +358,7 @@ $("#books_search").click(function(){
                 books_tr.appendChild(books_td7)
                 table3.appendChild(books_tr)
             }
+	    document.getElementById("search_help_msg_books").innerHTML= "";
         }else{
             alert("Sorry, we do not have data!!")
         }
