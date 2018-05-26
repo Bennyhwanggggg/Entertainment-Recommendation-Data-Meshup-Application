@@ -191,8 +191,8 @@ def production_and_trend():
             bk_results = [book for book in book_results if yr == book['year']]
             mv_results = [movie for movie in movie_results if yr == movie['year']]
             a = mean([anime['rating'] for anime in ani_results]) if ani_results else 0
-            b= mean([book['rating'] for book in bk_results]) if bk_results else 0
-            c= mean([movie['rating'] for movie in mv_results]) if mv_results else 0
+            c= mean([book['rating'] for book in bk_results]) if bk_results else 0
+            b= mean([movie['rating'] for movie in mv_results]) if mv_results else 0
             L.append(yr)
             L.append(a)
             L.append(b)
