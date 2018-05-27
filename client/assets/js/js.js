@@ -415,14 +415,14 @@ function pie_chart(){
       url = "http://127.0.0.1:5000/analytics/productionquality?",
       genre = $('#genre_of_combine').val(),
       year = $('#year_combine').val(),
-      year_start = $('#year_start_combine').val(),
-      year_end = $('#year_end_combine').val()
+//       year_start = $('#year_start_combine').val(),
+//       year_end = $('#year_end_combine').val()
       // <!--var genre = $(this).attr('genre_of_combine');-->
       // <!--var year = $(this).attr('year_combine');-->
       console.log(genre);
       console.log(year);
       console.log("2222222");
-      console.log(year_start);
+//       console.log(year_start);
       var name_items = [];
       var name_value = [];
       test = "22222";
@@ -430,12 +430,12 @@ function pie_chart(){
       if (year){
         url = url + "&year="+year
       }
-      if (year_start){
-        url = url + "&year_start=" + year_start
-      }
-      if (year_end){
-        url = url + "&year_end=" + year_end
-      }
+//       if (year_start){
+//         url = url + "&year_start=" + year_start
+//       }
+//       if (year_end){
+//         url = url + "&year_end=" + year_end
+//       }
       var data = [];
       $.ajax({
 
@@ -460,9 +460,9 @@ function pie_chart(){
       console.log("Number_of_animes");
       console.log(name_value);
 
-      for (let key = 0; key < 3; key++){
-            console.log(name_items[key]);
-      }
+//       for (let key = 0; key < 3; key++){
+//             console.log(name_items[key]);
+//       }
       google.charts.load("current", {packages:['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -498,7 +498,7 @@ function pie_chart(){
         var options = {
           title: "Number of each category",
           width: 600,
-          height: 200,
+          height: 500,
           bar: {groupWidth: "95%"},
           legend: { position: "none" },
         };
