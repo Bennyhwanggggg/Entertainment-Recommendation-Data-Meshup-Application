@@ -3,28 +3,26 @@
  */
 
 $(document).ready(function() {
-    const url1 = "http://127.0.0.1:5000/show/animes/genre";
-    const url2 = "http://127.0.0.1:5000/show/movies/genre";
     const url3 = "http://127.0.0.1:5000/show/books/genre";
+    var anime_genres = ["Comedy", "Shoujo Ai", "Magic", "Cars", "Mecha",
+	"Romance", "Slice of Life", "Ecchi", "School", "Demons",
+	"Psychological", "Dementia", "Horror", "Harem", "Game", "Shoujo",
+	"Thriller", "Shounen", "Kids", "Sci-Fi", "Sports", "Parody", 
+	"Shounen Ai", "Music", "Martial Arts", "Vampire", "Fantasy", "Seinen",
+	"Samurai", "Action", "Historical", "Mystery", "Police", "Military",
+	"Josei", "Space", "Supernatural", "Super Power", "Drama"];
 
-    fetch(url1, {
-        method: 'get'
-    })
-    .then((response) => response.json())
-    .then(function(data) {
-	jQuery.each(data, function() {
-	    $("#anime_genres").append("<option value='" + this + "'>" + this + "</option>");
-	});
+    var movie_genres = ["Adventure", "Musical", "Fantasy", "Drama",
+	"Animation", "Action", "Family", "Biography", "War", "Comedy",
+	"Horror", "History", "Crime", "Mystery", "Music", "Western",
+	"Thriller", "Sport", "Romance", "Sci-Fi"]
+
+    jQuery.each(anime_genres, function() {
+	$("#anime_genres").append("<option value='" + this + "'>" + this + "</option>");
     });
 
-    fetch(url2, {
-        method: 'get'
-    })
-    .then((response) => response.json())
-    .then(function(data) {
-	jQuery.each(data, function() {
-	    $("#movie_genres").append("<option value='" + this + "'>" + this + "</option>");
-	});
+    jQuery.each(movie_genres, function() {
+	$("#movie_genres").append("<option value='" + this + "'>" + this + "</option>");
     });
 
     fetch(url3, {
