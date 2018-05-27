@@ -15,7 +15,7 @@ $(document).ready(function() {
     var movie_genres = ["Adventure", "Musical", "Fantasy", "Drama",
 	"Animation", "Action", "Family", "Biography", "War", "Comedy",
 	"Horror", "History", "Crime", "Mystery", "Music", "Western",
-	"Thriller", "Sport", "Romance", "Sci-Fi"]
+	"Thriller", "Sport", "Romance", "Sci-Fi"];
 
     jQuery.each(anime_genres, function() {
 	$("#anime_genres").append("<option value='" + this + "'>" + this + "</option>");
@@ -105,8 +105,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
     var end_rate =$("#rate_end").val();
     var up_down =$("#up_down").val();
     console.log(numtoshow);
-    // var url = 'http://127.0.0.1:5000/show/animes?count='+numtoshow+'&genre='+genretoshow+'&title='+typetoshow+'&rate_start='+start_rate + '&rate_end='+end_rate+'&order='+up_down;
-    var url = 'http://127.0.0.1:5000/show/animes?'
+    var url = 'http://127.0.0.1:5000/show/animes?';
     if (numtoshow){
         url = url + 'count='+numtoshow
     }
@@ -168,7 +167,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
             }
 	    document.getElementById("search_help_msg_anime").innerHTML= "";
         }else{
-            alert("no data!!!!");
+            alert("Sorry, we do not have data!!");
         }
 
         
@@ -201,18 +200,14 @@ $("#movies_search").click(function(){
 
     var numtoshow =$("#number_of_movie").val();
     var genretoshow =$("#movie_genres").val();
-//    var typetoshow =$("#type_of_movie").val();
     var start_rate =$("#rate_start_movie").val();
     var end_rate =$("#rate_end_movie").val();
     var up_down =$("#up_down_movie").val();
     var year =$("#year_movie").val();
-//    var revenue_start =$("#revenue_start_movie").val();
-//    var revenue_rate =$("#revenue_end_movie").val();
 
     console.log(numtoshow);
-    // const url = 'http://127.0.0.1:5000/show/movies?count='+numtoshow+'&genre='+genretoshow+'&rate_start='+start_rate + '&rate_end='+end_rate+'&order='+up_down+'&year='+year;
 
-    var url = 'http://127.0.0.1:5000/show/movies?'
+    var url = 'http://127.0.0.1:5000/show/movies?';
     if (numtoshow){
         url = url + 'count='+numtoshow
     }
@@ -288,7 +283,7 @@ $("#movies_search").click(function(){
         }
 	document.getElementById("search_help_msg_movies").innerHTML= "";
         }else{
-            alert("no data")
+            alert("Sorry, we do not have data!!")
         }
 
 
@@ -325,18 +320,14 @@ $("#books_search").click(function(){
     var up_down =$("#up_down_book").val();
     var year =$("#year_book").val();
     console.log(numtoshow);
-    // const url = 'http://127.0.0.1:5000/show/books?count='+numtoshow+'&rate_start='+start_rate + '&genre='+genretoshow+'&rate_end='+end_rate+'&order='+up_down+'&year='+year;
 
-    var url = 'http://127.0.0.1:5000/show/books?'
+    var url = 'http://127.0.0.1:5000/show/books?';
     if (numtoshow){
         url = url + 'count='+numtoshow
     }
     if (genretoshow){
         url = url + '&genre='+genretoshow
     }
-    // if (typetoshow){
-    //     url = url + '&title='+typetoshow
-    // }
     if (start_rate){
         url = url + '&rate_start='+start_rate
     }
@@ -395,30 +386,20 @@ $("#books_search").click(function(){
         }else{
             alert("Sorry, we do not have data!!")
         }
-
-
         console.log(table3)
     });
 });
-
-// $(".combination").click(function(){
-//     console.log("4");
-// });
-
-
 
 function pie_chart(){
     var loading = document.getElementById('loading4');
     loading.style.display = "block";
 
       $(function(){
-      url = "http://127.0.0.1:5000/analytics/productionquality?",
-      genre = $('#genre_of_combine').val(),
-      year = $('#year_combine').val(),
-      year_start = $('#year_start_combine').val(),
-      year_end = $('#year_end_combine').val()
-      // <!--var genre = $(this).attr('genre_of_combine');-->
-      // <!--var year = $(this).attr('year_combine');-->
+      url = "http://127.0.0.1:5000/analytics/productionquality?";
+      genre = $('#genre_of_combine').val();
+      year = $('#year_combine').val();
+      year_start = $('#year_start_combine').val();
+      year_end = $('#year_end_combine').val();
       console.log(genre);
       console.log(year);
       console.log("2222222");
@@ -574,37 +555,6 @@ $("#combine_trend").click(function(){
 
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
       chart.draw(data_1, options);
-//   google.charts.load('current', {'packages':['line']});
-//   google.charts.setOnLoadCallback(draw_Chart);
-//   function draw_Chart(){
-//       var L = dataset;
-//       console.log("1234");
-//       console.log(L);
-//       var data = new google.visualization.DataTable();
-//       data.addColumn('number', 'Category');
-//       data.addColumn('number', 'Animes');
-//       data.addColumn('number', 'Movies');
-//       data.addColumn('number', 'Books');
-
-//       data.addRows(L);
-
-//       var options = {
-//         chart: {
-//           title: 'The rating comparison between anmies, movies and books',
-//           subtitle: 'number of each category'
-//         },
-//         width: 900,
-//         height: 500,
-//         axes: {
-//           x: {
-//             0: {side: 'top'}
-//           }
-//         }
-//       };
-
-//       var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
-//       chart.draw(data, google.charts.Line.convertOptions(options));
     }
 
 });
@@ -614,13 +564,10 @@ $("#combine_revenue").click(function(){
     console.log("666");
     var loading = document.getElementById('loading4');
     loading.style.display = "block";
-
     $(function(){
-      url = "http://127.0.0.1:5000/analytics/productionrevenue?",
-//      genre = $('#genre_of_combine').val(),
-      year_start = $('#year_start_combine').val(),
-      year_end = $('#year_end_combine').val()
-//      console.log(genre);
+      url = "http://127.0.0.1:5000/analytics/productionrevenue?";
+      year_start = $('#year_start_combine').val();
+      year_end = $('#year_end_combine').val();
       console.log("3333");
       console.log(year_start);
       var url = "http://127.0.0.1:5000/analytics/productionrevenue?";
@@ -645,6 +592,7 @@ $("#combine_revenue").click(function(){
 
         }
       });
+      loading.style.display = "none";
       console.log("balalalalalala");
       console.log(dataset_1);
 
@@ -669,7 +617,6 @@ $("#combine_revenue").click(function(){
               logScale: true
             }
         };
-
       var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
       chart.draw(data_1, options);
     }
