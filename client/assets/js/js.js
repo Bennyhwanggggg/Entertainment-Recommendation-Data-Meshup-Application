@@ -552,38 +552,128 @@ $("#combine_trend").click(function(){
       console.log(dataset);
 
     });
-  google.charts.load('current', {'packages':['line']});
+  google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(draw_Chart);
   function draw_Chart(){
       var L = dataset;
       console.log("1234");
       console.log(L);
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Category');
-      data.addColumn('number', 'Animes');
-      data.addColumn('number', 'Movies');
-      data.addColumn('number', 'Books');
-
-      data.addRows(L);
-
+      var data_1 = google.visualization.arrayToDataTable(L);
       var options = {
-        chart: {
-          title: 'The rating comparison between anmies, movies and books',
-          subtitle: 'number of each category'
-        },
-        width: 900,
-        height: 500,
-        axes: {
-          x: {
-            0: {side: 'top'}
-          }
-        }
-      };
+          title: 'Rating Comparison',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxis: {
+              title: 'Rating',
+              logScale: false
+            },
+          hAxis: {
+              title: 'Year',
+              logScale: true
+            }
+        };
 
-      var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
-      chart.draw(data, google.charts.Line.convertOptions(options));
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      chart.draw(data_1, options);
+//   google.charts.load('current', {'packages':['line']});
+//   google.charts.setOnLoadCallback(draw_Chart);
+//   function draw_Chart(){
+//       var L = dataset;
+//       console.log("1234");
+//       console.log(L);
+//       var data = new google.visualization.DataTable();
+//       data.addColumn('number', 'Category');
+//       data.addColumn('number', 'Animes');
+//       data.addColumn('number', 'Movies');
+//       data.addColumn('number', 'Books');
+
+//       data.addRows(L);
+
+//       var options = {
+//         chart: {
+//           title: 'The rating comparison between anmies, movies and books',
+//           subtitle: 'number of each category'
+//         },
+//         width: 900,
+//         height: 500,
+//         axes: {
+//           x: {
+//             0: {side: 'top'}
+//           }
+//         }
+//       };
+
+//       var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+//       chart.draw(data, google.charts.Line.convertOptions(options));
     }
 
 });
 
+var dataset_1 = [];
+$("#combine_revenue").click(function(){
+    console.log("666");
+    var loading = document.getElementById('loading4');
+    loading.style.display = "block";
+
+    $(function(){
+      url = "http://127.0.0.1:5000/analytics/productionrevenue?",
+//      genre = $('#genre_of_combine').val(),
+      year_start = $('#year_start_combine').val(),
+      year_end = $('#year_end_combine').val()
+//      console.log(genre);
+      console.log("3333");
+      console.log(year_start);
+      var url = "http://127.0.0.1:5000/analytics/productionrevenue?";
+      if (year_start){
+        url = url + "year_start=" + year_start
+      }
+      if (year_end){
+        url = url + "&year_end=" + year_end
+      }
+      console.log(url);
+
+      $.ajax({
+        url:url,
+        type:'get',
+        dataType:"json",
+        async:false,
+        success: function(result) {
+            loading.style.display = "none";
+          console.log("123456789");
+          //console.log(result.data);
+          dataset_1 = result.data
+
+        }
+      });
+      console.log("balalalalalala");
+      console.log(dataset_1);
+
+    });
+
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(draw_Chart_1);
+  function draw_Chart_1(){
+      var L = dataset_1;
+      console.log(L);
+      var data_1 = google.visualization.arrayToDataTable(L);
+      var options = {
+          title: 'Revenue Comparison',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxis: {
+              title: 'Revenue(million)',
+              logScale: false
+            },
+          hAxis: {
+              title: 'Year',
+              logScale: true
+            }
+        };
+
+      var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
+      chart.draw(data_1, options);
+    }
+
+});
