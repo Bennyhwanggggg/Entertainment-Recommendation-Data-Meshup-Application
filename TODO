@@ -1,8 +1,0 @@
-# Analytics:
-Yearly data analytics -> 1. sort the 3 data types by year and get average rating for each of them across the years. (call publication APIs?)
-                         2. sort the 3 data types by year then genre and get average rating for each media type's genre across the years
-                            e.g Avg rating of Action movies in 2011 = 7.5, Avg rating of Action anime in 2011 = 7.9 etc....
-                         3. Combine the 3 data source and sort by genre then year to get average rating of each genre across the years
-                            e.g avg of commedy across the 3 media types in 2015 = 8.2, avg of horror across the 3 media types = 9.2
-
-Count analytics -> Show how many movie/anime/book produced for a range of years or a specific year, can filter down by genre. To see how the production of different entertainment type has changed over the years
