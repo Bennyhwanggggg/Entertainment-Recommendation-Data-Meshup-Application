@@ -2,6 +2,42 @@
  * Created by wayne on 17/5/18.
  */
 
+$(document).ready(function() {
+    const url1 = "http://127.0.0.1:5000/show/animes/genre";
+    const url2 = "http://127.0.0.1:5000/show/movies/genre";
+    const url3 = "http://127.0.0.1:5000/show/books/genre";
+
+    fetch(url1, {
+        method: 'get'
+    })
+    .then((response) => response.json())
+    .then(function(data) {
+	jQuery.each(data, function() {
+	    $("#anime_genres").append("<option value='" + this + "'>" + this + "</option>");
+	});
+    });
+
+    fetch(url2, {
+        method: 'get'
+    })
+    .then((response) => response.json())
+    .then(function(data) {
+	jQuery.each(data, function() {
+	    $("#movie_genres").append("<option value='" + this + "'>" + this + "</option>");
+	});
+    });
+
+    fetch(url3, {
+        method: 'get'
+    })
+    .then((response) => response.json())
+    .then(function(data) {
+	jQuery.each(data, function() {
+	    $("#book_genres").append("<option value='" + this + "'>" + this + "</option>");
+	});
+    });
+});
+
 $(".home").click(function(){
     $(".content_home").show();
     $(".content1").hide();
@@ -65,7 +101,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
             }
     }
     var numtoshow =$("#number_of_animes").val();
-    var genretoshow =$("#genre_of_animes").val();
+    var genretoshow =$("#anime_genres").val();
     var typetoshow =$("#type_of_animes").val();
     var start_rate =$("#rate_start").val();
     var end_rate =$("#rate_end").val();
@@ -166,7 +202,7 @@ $("#movies_search").click(function(){
     }
 
     var numtoshow =$("#number_of_movie").val();
-    var genretoshow =$("#genre_of_movie").val();
+    var genretoshow =$("#movie_genres").val();
 //    var typetoshow =$("#type_of_movie").val();
     var start_rate =$("#rate_start_movie").val();
     var end_rate =$("#rate_end_movie").val();
@@ -285,8 +321,7 @@ $("#books_search").click(function(){
     }
 
     var numtoshow =$("#number_of_book").val();
-    var genretoshow =$("#genre_of_book").val();
-//    var typetoshow =$("#type_of_book").val();
+    var genretoshow =$("#book_genres").val();
     var start_rate =$("#rate_start_book").val();
     var end_rate =$("#rate_end_book").val();
     var up_down =$("#up_down_book").val();
