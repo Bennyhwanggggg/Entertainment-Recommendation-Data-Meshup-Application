@@ -102,8 +102,6 @@ $("#animes_search").click(function(){/* table1_Animes*/
     var start_rate =$("#rate_start").val();
     var end_rate =$("#rate_end").val();
     var up_down =$("#up_down").val();
-    console.log(numtoshow);
-    // var url = 'http://127.0.0.1:5000/show/animes?count='+numtoshow+'&genre='+genretoshow+'&title='+typetoshow+'&rate_start='+start_rate + '&rate_end='+end_rate+'&order='+up_down;
     var url = 'http://127.0.0.1:5000/show/animes?'
     if (numtoshow){
         url = url + 'count='+numtoshow
@@ -199,17 +197,10 @@ $("#movies_search").click(function(){
 
     var numtoshow =$("#number_of_movie").val();
     var genretoshow =$("#movie_genres").val();
-//    var typetoshow =$("#type_of_movie").val();
     var start_rate =$("#rate_start_movie").val();
     var end_rate =$("#rate_end_movie").val();
     var up_down =$("#up_down_movie").val();
     var year =$("#year_movie").val();
-//    var revenue_start =$("#revenue_start_movie").val();
-//    var revenue_rate =$("#revenue_end_movie").val();
-
-    console.log(numtoshow);
-    // const url = 'http://127.0.0.1:5000/show/movies?count='+numtoshow+'&genre='+genretoshow+'&rate_start='+start_rate + '&rate_end='+end_rate+'&order='+up_down+'&year='+year;
-
     var url = 'http://127.0.0.1:5000/show/movies?'
     if (numtoshow){
         url = url + 'count='+numtoshow
@@ -243,7 +234,6 @@ $("#movies_search").click(function(){
         var animes_td;
         var movies_tr;
         for (i = 0; i < data.length; i++) {
-            // text += data[i] + "<br>";
             console.log(data[i])
             movies_tr = document.createElement('tr');
             movies_tr.setAttribute('class',"table2tr");
@@ -255,7 +245,6 @@ $("#movies_search").click(function(){
             movies_td6 = document.createElement('td');
             movies_td7 = document.createElement('td');
             movies_td8 = document.createElement('td');
-            // movies_td9 = document.createElement('td');
             movies_td10 = document.createElement('td');
             movies_td11 = document.createElement('td');
 
@@ -267,7 +256,6 @@ $("#movies_search").click(function(){
             movies_td6.innerHTML = data[i]['year'];
             movies_td7.innerHTML = data[i]['runtime'];
             movies_td8.innerHTML = data[i]['rating'];
-            // movies_td9.innerHTML = data[i]['revenue'];
             movies_td10.innerHTML = data[i]['metascore'];
             movies_td11.innerHTML = data[i]['revenue'];
 
@@ -279,7 +267,6 @@ $("#movies_search").click(function(){
             movies_tr.appendChild(movies_td6)
             movies_tr.appendChild(movies_td7)
             movies_tr.appendChild(movies_td8)
-            // movies_tr.appendChild(movies_td9)
             movies_tr.appendChild(movies_td10)
             movies_tr.appendChild(movies_td11)
             table2.appendChild(movies_tr)
@@ -288,9 +275,6 @@ $("#movies_search").click(function(){
         }else{
             alert("no data")
         }
-
-
-
         console.log(table2)
     });
 });
@@ -298,14 +282,12 @@ $("#movies_search").click(function(){
 $("#books_search").click(function(){
     var loading = document.getElementById('loading3');
     loading.style.display = "block";
-    console.log("3");
     var table3 = document.getElementById('table3_tbody');
     var k;
     if(document.getElementsByClassName("table3tr").length!=0){
             table3tr = document.getElementsByClassName("table3tr");
             console.log(table3tr.length)
             var data_length = table3tr.length;
-
             var i = 0;
             while (i < data_length){
                 console.log(k);
@@ -313,7 +295,6 @@ $("#books_search").click(function(){
                 console.log(table3tr);
                 i++;
             }
-
     }
 
     var numtoshow =$("#number_of_book").val();
@@ -322,9 +303,6 @@ $("#books_search").click(function(){
     var end_rate =$("#rate_end_book").val();
     var up_down =$("#up_down_book").val();
     var year =$("#year_book").val();
-    console.log(numtoshow);
-    // const url = 'http://127.0.0.1:5000/show/books?count='+numtoshow+'&rate_start='+start_rate + '&genre='+genretoshow+'&rate_end='+end_rate+'&order='+up_down+'&year='+year;
-
     var url = 'http://127.0.0.1:5000/show/books?'
     if (numtoshow){
         url = url + 'count='+numtoshow
@@ -332,9 +310,6 @@ $("#books_search").click(function(){
     if (genretoshow){
         url = url + '&genre='+genretoshow
     }
-    // if (typetoshow){
-    //     url = url + '&title='+typetoshow
-    // }
     if (start_rate){
         url = url + '&rate_start='+start_rate
     }
@@ -399,11 +374,6 @@ $("#books_search").click(function(){
     });
 });
 
-// $(".combination").click(function(){
-//     console.log("4");
-// });
-
-
 
 function pie_chart(){
     var loading = document.getElementById('loading4');
@@ -415,15 +385,8 @@ function pie_chart(){
       year = $('#year_combine').val(),
       year_start = $('#year_start_combine').val(),
       year_end = $('#year_end_combine').val()
-      // <!--var genre = $(this).attr('genre_of_combine');-->
-      // <!--var year = $(this).attr('year_combine');-->
-      console.log(genre);
-      console.log(year);
-      console.log("2222222");
-      console.log(year_start);
       var name_items = [];
       var name_value = [];
-      test = "22222";
       var url = "http://127.0.0.1:5000/analytics/productionquality?genre="+genre;
       if (year){
         url = url + "&year="+year
@@ -436,18 +399,21 @@ function pie_chart(){
       }
       var data = [];
       $.ajax({
-
         url:url,
         type:'get',
         dataType:"json",
         async:false,
         success: function(result) {
             loading.style.display = "none";
-          console.log("yyyyyyyyy")
           name_value.push(result.Number_of_animes);
           name_value.push(result.Number_of_movies);
           name_value.push(result.Number_of_books);
-
+          name_value.push(result.Average_rating_of_animes);
+          name_value.push(result.Average_rating_of_movies);
+          name_value.push(result.Average_rating_of_books);
+          name_value.push(result.Average_earning_of_animes);
+          name_value.push(result.Average_earning_of_movies);
+          name_value.push(result.Average_earning_of_books);
           console.log(name_items);
           for (let key in result){
             name_items.push(key);
@@ -458,7 +424,7 @@ function pie_chart(){
       console.log("Number_of_animes");
       console.log(name_value);
 
-      for (let key = 0; key < 3; key++){
+      for (let key = 0; key < 6; key++){
             console.log(name_items[key]);
       }
       google.charts.load("current", {packages:['corechart']});
@@ -471,18 +437,18 @@ function pie_chart(){
         ['Books', name_value[2]]]);
 
         // Optional; add a title and set the width and height of the chart
-        var option = {'title':'The analysis of entertainment', 'width':550, 'height':500};
+        var option = {'title':'Entertainment Type Production amount', 'width':550, 'height':500};
 
         // Display the chart inside the <div> element with id="piechart"
         var pie = new google.visualization.PieChart(document.getElementById('piechart'));
         pie.draw(data1, option);
 
-
+        // graph 1
         var data = google.visualization.arrayToDataTable([
           ["Element", "Number", { role: "style" } ],
-          ["Animes", name_value[0], "#b87333"],
-          ["Movies", name_value[1], "silver"],
-          ["Books", name_value[2], "gold"]
+          ["Animes", name_value[3], "#b87333"],
+          ["Movies", name_value[4], "silver"],
+          ["Books", name_value[5], "gold"]
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -494,14 +460,42 @@ function pie_chart(){
                          2]);
 
         var options = {
-          title: "Number of each category",
-          width: 600,
+          title: "Average Rating of Each Entertainment Type",
+          width: 500,
           height: 200,
           bar: {groupWidth: "95%"},
           legend: { position: "none" },
+          vAxis: {minValue: 0}
         };
         var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
         chart.draw(view, options);
+
+        // graph2
+        var data2 = google.visualization.arrayToDataTable([
+          ["Element", "Number", { role: "style" } ],
+          ["Animes", name_value[6], "#b87333"],
+          ["Movies", name_value[7], "silver"],
+          ["Books", name_value[8], "gold"]
+        ]);
+
+        var view2 = new google.visualization.DataView(data2);
+        view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]);
+
+        var options2 = {
+          title: "Average Revenue of Each Entertainment Type",
+          width: 500,
+          height: 200,
+          bar: {groupWidth: "95%"},
+          legend: { position: "none" },
+          vAxis: {minValue: 0}
+        };
+        var chart2 = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
+        chart2.draw(view2, options2);
     }
     })
 }
