@@ -185,19 +185,49 @@ def production_and_trend():
     if year_start and year_end and year_start <= year_end:
         results = dict()
         s = []
+        s.append(['Year', 'Animes', 'Movies', 'Books'])
         for yr in range(year_start, year_end+1):
-            L = []
             ani_results = [anime for anime in anime_results if int(anime['start_date'].strftime('%Y')) == yr]
             bk_results = [book for book in book_results if yr == book['year']]
             mv_results = [movie for movie in movie_results if yr == movie['year']]
             a = mean([anime['rating'] for anime in ani_results]) if ani_results else 0
             c= mean([book['rating'] for book in bk_results]) if bk_results else 0
             b= mean([movie['rating'] for movie in mv_results]) if mv_results else 0
-            L.append(yr)
-            L.append(a)
-            L.append(b)
-            L.append(c)
-            s.append(L)
+            s.append([yr,a,b,c])
+        results['data'] = s
+        return jsonify(results), 200
+    return jsonify(message='invalid request'), 400
+
+@analytics.route('/productionrevenue', methods=['GET'])#get the revenue info from start year to end year
+def production_and_revenue():
+    parser = reqparse.RequestParser()
+    # parser.add_argument('genre', type=str)
+    parser.add_argument('year_start', type=int)
+    parser.add_argument('year_end', type=int)
+    args = parser.parse_args()
+    # genre = args.get('genre')
+    year_start = args.get('year_start')
+    year_end = args.get('year_end')
+    anime_results = get_anime_data()
+    book_results = get_book_data()
+    movie_results = get_movie_data()
+    # if genre:
+    #     anime_results = [anime for anime in anime_results if genre in anime['genre']]
+    #     book_results = [book for book in book_results if genre in book['genre']]
+    #     movie_results = [movie for movie in movie_results if genre in movie['genre']]
+
+    if year_start and year_end and year_start <= year_end:
+        results = dict()
+        s = []
+        s.append(['Year', 'Animes', 'Movies', 'Books'])
+        for yr in range(year_start, year_end+1):
+            ani_results = [anime for anime in anime_results if int(anime['start_date'].strftime('%Y')) == yr]
+            bk_results = [book for book in book_results if yr == book['year']]
+            mv_results = [movie for movie in movie_results if yr == movie['year']]
+            a = sum([anime['revenue'] for anime in ani_results]) if ani_results else 0
+            c = sum([book['revenue'] for book in bk_results]) if bk_results else 0
+            b= sum([movie['revenue'] for movie in mv_results]) if mv_results else 0
+            s.append([yr,a,b,c])
         results['data'] = s
         return jsonify(results), 200
     return jsonify(message='invalid request'), 400

@@ -56,6 +56,17 @@ def get_animes():
         results = results[:count]
     return jsonify(results), 200
 
+@publication.route("/animes/genre", methods=["GET"])
+def get_anime_genres():
+    genres = set()
+
+    anime_data = [anime["genre"] for anime in get_anime_data()]
+    for data in anime_data:
+        for genre in data:
+            genres.add(genre)
+
+    return jsonify(list(genres)), 200
+
 @publication.route('/movies', methods=['GET'])
 def get_movies():
     parser = reqparse.RequestParser()
@@ -109,6 +120,17 @@ def get_movies():
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
+
+@publication.route("/movies/genre", methods=["GET"])
+def get_movie_genres():
+    genres = set()
+
+    movies_data = [movie["genre"] for movie in get_movie_data()]
+    for data in movies_data:
+        for genre in data:
+            genres.add(genre)
+
+    return jsonify(list(genres)), 200
 
 @publication.route('/books', methods=['GET'])
 def get_books():
@@ -168,6 +190,17 @@ def get_books():
     if results and count and len(results) > count:
         results = results[:count]
     return jsonify(results), 200
+
+@publication.route("/books/genre", methods=["GET"])
+def get_book_genres():
+    genres = set()
+
+    books_data = [book["genre"] for book in get_book_data()]
+    for data in books_data:
+        for genre in data:
+            genres.add(genre)
+
+    return jsonify(list(genres)), 200
 
 @publication.route('/combined', methods=['GET'])
 def get_combined():

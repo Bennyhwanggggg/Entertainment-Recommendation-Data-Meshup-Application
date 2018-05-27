@@ -2,6 +2,40 @@
  * Created by wayne on 17/5/18.
  */
 
+$(document).ready(function() {
+    const url3 = "http://127.0.0.1:5000/show/books/genre";
+    var anime_genres = ["Comedy", "Shoujo Ai", "Magic", "Cars", "Mecha",
+	"Romance", "Slice of Life", "Ecchi", "School", "Demons",
+	"Psychological", "Dementia", "Horror", "Harem", "Game", "Shoujo",
+	"Thriller", "Shounen", "Kids", "Sci-Fi", "Sports", "Parody", 
+	"Shounen Ai", "Music", "Martial Arts", "Vampire", "Fantasy", "Seinen",
+	"Samurai", "Action", "Historical", "Mystery", "Police", "Military",
+	"Josei", "Space", "Supernatural", "Super Power", "Drama"];
+
+    var movie_genres = ["Adventure", "Musical", "Fantasy", "Drama",
+	"Animation", "Action", "Family", "Biography", "War", "Comedy",
+	"Horror", "History", "Crime", "Mystery", "Music", "Western",
+	"Thriller", "Sport", "Romance", "Sci-Fi"]
+
+    jQuery.each(anime_genres, function() {
+	$("#anime_genres").append("<option value='" + this + "'>" + this + "</option>");
+    });
+
+    jQuery.each(movie_genres, function() {
+	$("#movie_genres").append("<option value='" + this + "'>" + this + "</option>");
+    });
+
+    fetch(url3, {
+        method: 'get'
+    })
+    .then((response) => response.json())
+    .then(function(data) {
+	jQuery.each(data, function() {
+	    $("#book_genres").append("<option value='" + this + "'>" + this + "</option>");
+	});
+    });
+});
+
 $(".home").click(function(){
     $(".content_home").show();
     $(".content1").hide();
@@ -65,7 +99,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
             }
     }
     var numtoshow =$("#number_of_animes").val();
-    var genretoshow =$("#genre_of_animes").val();
+    var genretoshow =$("#anime_genres").val();
     var typetoshow =$("#type_of_animes").val();
     var start_rate =$("#rate_start").val();
     var end_rate =$("#rate_end").val();
@@ -166,7 +200,7 @@ $("#movies_search").click(function(){
     }
 
     var numtoshow =$("#number_of_movie").val();
-    var genretoshow =$("#genre_of_movie").val();
+    var genretoshow =$("#movie_genres").val();
 //    var typetoshow =$("#type_of_movie").val();
     var start_rate =$("#rate_start_movie").val();
     var end_rate =$("#rate_end_movie").val();
@@ -285,8 +319,7 @@ $("#books_search").click(function(){
     }
 
     var numtoshow =$("#number_of_book").val();
-    var genretoshow =$("#genre_of_book").val();
-//    var typetoshow =$("#type_of_book").val();
+    var genretoshow =$("#book_genres").val();
     var start_rate =$("#rate_start_book").val();
     var end_rate =$("#rate_end_book").val();
     var up_down =$("#up_down_book").val();
@@ -382,14 +415,14 @@ function pie_chart(){
       url = "http://127.0.0.1:5000/analytics/productionquality?",
       genre = $('#genre_of_combine').val(),
       year = $('#year_combine').val(),
-      year_start = $('#year_start_combine').val(),
-      year_end = $('#year_end_combine').val()
+//       year_start = $('#year_start_combine').val(),
+//       year_end = $('#year_end_combine').val()
       // <!--var genre = $(this).attr('genre_of_combine');-->
       // <!--var year = $(this).attr('year_combine');-->
       console.log(genre);
       console.log(year);
       console.log("2222222");
-      console.log(year_start);
+//       console.log(year_start);
       var name_items = [];
       var name_value = [];
       test = "22222";
@@ -397,12 +430,12 @@ function pie_chart(){
       if (year){
         url = url + "&year="+year
       }
-      if (year_start){
-        url = url + "&year_start=" + year_start
-      }
-      if (year_end){
-        url = url + "&year_end=" + year_end
-      }
+//       if (year_start){
+//         url = url + "&year_start=" + year_start
+//       }
+//       if (year_end){
+//         url = url + "&year_end=" + year_end
+//       }
       var data = [];
       $.ajax({
 
@@ -427,9 +460,9 @@ function pie_chart(){
       console.log("Number_of_animes");
       console.log(name_value);
 
-      for (let key = 0; key < 3; key++){
-            console.log(name_items[key]);
-      }
+//       for (let key = 0; key < 3; key++){
+//             console.log(name_items[key]);
+//       }
       google.charts.load("current", {packages:['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -465,7 +498,7 @@ function pie_chart(){
         var options = {
           title: "Number of each category",
           width: 600,
-          height: 200,
+          height: 500,
           bar: {groupWidth: "95%"},
           legend: { position: "none" },
         };
@@ -517,38 +550,128 @@ $("#combine_trend").click(function(){
       console.log(dataset);
 
     });
-  google.charts.load('current', {'packages':['line']});
+  google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(draw_Chart);
   function draw_Chart(){
       var L = dataset;
       console.log("1234");
       console.log(L);
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Category');
-      data.addColumn('number', 'Animes');
-      data.addColumn('number', 'Movies');
-      data.addColumn('number', 'Books');
-
-      data.addRows(L);
-
+      var data_1 = google.visualization.arrayToDataTable(L);
       var options = {
-        chart: {
-          title: 'The rating comparison between anmies, movies and books',
-          subtitle: 'number of each category'
-        },
-        width: 900,
-        height: 500,
-        axes: {
-          x: {
-            0: {side: 'top'}
-          }
-        }
-      };
+          title: 'Rating Comparison',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxis: {
+              title: 'Rating',
+              logScale: false
+            },
+          hAxis: {
+              title: 'Year',
+              logScale: true
+            }
+        };
 
-      var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
-      chart.draw(data, google.charts.Line.convertOptions(options));
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      chart.draw(data_1, options);
+//   google.charts.load('current', {'packages':['line']});
+//   google.charts.setOnLoadCallback(draw_Chart);
+//   function draw_Chart(){
+//       var L = dataset;
+//       console.log("1234");
+//       console.log(L);
+//       var data = new google.visualization.DataTable();
+//       data.addColumn('number', 'Category');
+//       data.addColumn('number', 'Animes');
+//       data.addColumn('number', 'Movies');
+//       data.addColumn('number', 'Books');
+
+//       data.addRows(L);
+
+//       var options = {
+//         chart: {
+//           title: 'The rating comparison between anmies, movies and books',
+//           subtitle: 'number of each category'
+//         },
+//         width: 900,
+//         height: 500,
+//         axes: {
+//           x: {
+//             0: {side: 'top'}
+//           }
+//         }
+//       };
+
+//       var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+//       chart.draw(data, google.charts.Line.convertOptions(options));
     }
 
 });
 
+var dataset_1 = [];
+$("#combine_revenue").click(function(){
+    console.log("666");
+    var loading = document.getElementById('loading4');
+    loading.style.display = "block";
+
+    $(function(){
+      url = "http://127.0.0.1:5000/analytics/productionrevenue?",
+//      genre = $('#genre_of_combine').val(),
+      year_start = $('#year_start_combine').val(),
+      year_end = $('#year_end_combine').val()
+//      console.log(genre);
+      console.log("3333");
+      console.log(year_start);
+      var url = "http://127.0.0.1:5000/analytics/productionrevenue?";
+      if (year_start){
+        url = url + "year_start=" + year_start
+      }
+      if (year_end){
+        url = url + "&year_end=" + year_end
+      }
+      console.log(url);
+
+      $.ajax({
+        url:url,
+        type:'get',
+        dataType:"json",
+        async:false,
+        success: function(result) {
+            loading.style.display = "none";
+          console.log("123456789");
+          //console.log(result.data);
+          dataset_1 = result.data
+
+        }
+      });
+      console.log("balalalalalala");
+      console.log(dataset_1);
+
+    });
+
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(draw_Chart_1);
+  function draw_Chart_1(){
+      var L = dataset_1;
+      console.log(L);
+      var data_1 = google.visualization.arrayToDataTable(L);
+      var options = {
+          title: 'Revenue Comparison',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxis: {
+              title: 'Revenue(million)',
+              logScale: false
+            },
+          hAxis: {
+              title: 'Year',
+              logScale: true
+            }
+        };
+
+      var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
+      chart.draw(data_1, options);
+    }
+
+});
