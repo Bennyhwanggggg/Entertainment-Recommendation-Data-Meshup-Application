@@ -129,7 +129,7 @@ def get_book_data():
             result['genre'] = data.genre.split(', ')
             result['smallimgurl'] = data.smallimgurl
             result['rating'] = data.rating
-            result['revenue'] = round(data.revenue, 4)
+            result['revenue'] = float(round(data.revenue, 4))/1000000
             results.append(result)
         except:
             continue
