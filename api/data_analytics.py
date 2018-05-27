@@ -185,6 +185,7 @@ def production_and_trend():
     if year_start and year_end and year_start <= year_end:
         results = dict()
         s = []
+        s.append(['Year', 'Animes', 'Movies', 'Books'])
         for yr in range(year_start, year_end+1):
             ani_results = [anime for anime in anime_results if int(anime['start_date'].strftime('%Y')) == yr]
             bk_results = [book for book in book_results if yr == book['year']]
