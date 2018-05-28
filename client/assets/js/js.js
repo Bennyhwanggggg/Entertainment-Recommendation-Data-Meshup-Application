@@ -16,7 +16,7 @@ $(document).ready(function() {
     var movie_genres = ["Adventure", "Musical", "Fantasy", "Drama",
 	"Animation", "Action", "Family", "Biography", "War", "Comedy",
 	"Horror", "History", "Crime", "Mystery", "Music", "Western",
-	"Thriller", "Sport", "Romance", "Sci-Fi"]
+	"Thriller", "Sport", "Romance", "Sci-Fi"];
 
     var book_genres = ["Fiction", "Thriller", "Shounen", "Literature",
 	"Military", "Drama", "Fantasy", "Comedy", "Slice of Life",
@@ -281,16 +281,16 @@ $("#movies_search").click(function(){
             movies_td10.innerHTML = data[i]['metascore'];
             movies_td11.innerHTML = data[i]['revenue'];
 
-            movies_tr.appendChild(movies_td1)
-            movies_tr.appendChild(movies_td2)
-            movies_tr.appendChild(movies_td3)
-            movies_tr.appendChild(movies_td4)
-            movies_tr.appendChild(movies_td5)
-            movies_tr.appendChild(movies_td6)
-            movies_tr.appendChild(movies_td7)
-            movies_tr.appendChild(movies_td8)
-            movies_tr.appendChild(movies_td10)
-            movies_tr.appendChild(movies_td11)
+            movies_tr.appendChild(movies_td1);
+            movies_tr.appendChild(movies_td2);
+            movies_tr.appendChild(movies_td3);
+            movies_tr.appendChild(movies_td4);
+            movies_tr.appendChild(movies_td5);
+            movies_tr.appendChild(movies_td6);
+            movies_tr.appendChild(movies_td7);
+            movies_tr.appendChild(movies_td8);
+            movies_tr.appendChild(movies_td10);
+            movies_tr.appendChild(movies_td11);
             table2.appendChild(movies_tr)
         }
 	document.getElementById("search_help_msg_movies").innerHTML= "";
@@ -321,7 +321,7 @@ $("#books_search").click(function(){
     var end_rate =$("#rate_end_book").val();
     var up_down =$("#up_down_book").val();
     var year =$("#year_book").val();
-    var url = 'http://127.0.0.1:5000/show/books?'
+    var url = 'http://127.0.0.1:5000/show/books?';
     if (numtoshow){
         url = url + 'count='+numtoshow
     }
@@ -371,13 +371,13 @@ $("#books_search").click(function(){
                 books_td6.innerHTML = data[i]['rating'];
                 books_td7.innerHTML = data[i]['revenue'];
 
-                books_tr.appendChild(books_td1)
-                books_tr.appendChild(books_td2)
-                books_tr.appendChild(books_td3)
-                books_tr.appendChild(books_td4)
-                books_tr.appendChild(books_td5)
-                books_tr.appendChild(books_td6)
-                books_tr.appendChild(books_td7)
+                books_tr.appendChild(books_td1);
+                books_tr.appendChild(books_td2);
+                books_tr.appendChild(books_td3);
+                books_tr.appendChild(books_td4);
+                books_tr.appendChild(books_td5);
+                books_tr.appendChild(books_td6);
+                books_tr.appendChild(books_td7);
                 table3.appendChild(books_tr)
             }
 	    document.getElementById("search_help_msg_books").innerHTML= "";
@@ -393,10 +393,10 @@ function pie_chart(){
     loading.style.display = "block";
       $(function(){
           url = "http://127.0.0.1:5000/analytics/productionquality?",
-          genre = $('#genre_of_combine').val(),
-          year = $('#year_combine').val(),
-          year_start = $('#year_start_combine').val(),
-          year_end = $('#year_end_combine').val()
+          genre = $('#genre_of_combine').val();
+          year = $('#year_combine').val();
+          year_start = $('#year_start_combine').val();
+          year_end = $('#year_end_combine').val();
           var name_items = [];
           var name_value = [];
           var url = "http://127.0.0.1:5000/analytics/productionquality?genre="+genre;
@@ -588,6 +588,7 @@ $("#combine_revenue").click(function(){
 
         }
       });
+      loading.style.display = "none";
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(draw_Chart_1);
       function draw_Chart_1(){
