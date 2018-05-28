@@ -119,7 +119,7 @@ $("#all_filter").click(function() {
 	jQuery.each(data, function() {
 	    var table = "<tr class='all_results'>";
 	    table += "<th>" + this.title + "</th>";
-	    table += "<th>" + this.title + "</th>";
+	    table += "<th>" + this.media_type + "</th>";
         table += "<th>" + this.genre.join(', ') + "</th>";
 	    table += "<th>" + this.year.toString() + "</th>";
 	    table += "<th>" + this.revenue.toString() + "</th>";
