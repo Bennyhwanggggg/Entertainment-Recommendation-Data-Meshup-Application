@@ -3,7 +3,8 @@
  */
 
 $(document).ready(function() {
-    const url3 = "http://127.0.0.1:5000/show/books/genre";
+    $("#loading0").hide();
+
     var anime_genres = ["Comedy", "Shoujo Ai", "Magic", "Cars", "Mecha",
 	"Romance", "Slice of Life", "Ecchi", "School", "Demons",
 	"Psychological", "Dementia", "Horror", "Harem", "Game", "Shoujo",
@@ -74,6 +75,44 @@ $(".combination").click(function(){
     $(".content3").hide();
     $(".content2").hide();
     $(".content_home").hide();
+});
+
+$("#all_filter").click(function() {
+    var url = "http://127.0.0.1:5000/show/combined?type1=Movies&type2=Animes&type3=Books";
+
+    var filter_genre = $("#all_filter_genre").val();
+    var filter_year = $("#all_filter_year").val();
+
+    if (filter_genre) {
+	url += "?genre=" + filter_genre;
+    }
+
+    if (filter_genre) {
+	url += "?year=" + filter_year;
+    }
+
+    // $("#all_results tbody tr").remove();
+
+    $("#loading0").show();
+
+    fetch(url, {
+        method: 'get'
+    })
+    .then((response)=> response.json())
+    .then(function(data){
+	$("#loading0").hide();
+	jQuery.each(data, function() {
+	    var table = "<tr class='table1tr'>";
+	    table += "<th>" + this.title + "</th>";
+	    table += "<th>" + this.title + "</th>";
+	    table += "<th>" + this.genre.toString() + "</th>";
+	    table += "<th>" + this.year.toString() + "</th>";
+	    table += "<th>" + this.revenue.toString() + "</th>";
+	    table += "<th>" + this.rating.toString() + "</th>";
+	    table += "</tr>";
+	    $("#all_results > tbody:last-child").append(table);
+	});
+    });
 });
 
 $("#animes_search").click(function(){/* table1_Animes*/
