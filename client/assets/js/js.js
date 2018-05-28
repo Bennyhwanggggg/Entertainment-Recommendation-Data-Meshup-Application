@@ -102,7 +102,7 @@ $("#all_filter").click(function() {
     .then(function(data){
 	$("#loading0").hide();
 	jQuery.each(data, function() {
-	    var table = "<tr class='table1tr'>";
+	    var table = "<tr class='all_results'>";
 	    table += "<th>" + this.title + "</th>";
 	    table += "<th>" + this.title + "</th>";
         table += "<th>" + this.genre.join(', ') + "</th>";
@@ -125,6 +125,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
     var k;
     if(document.getElementsByClassName("table1tr").length!=0){
             table1tr = document.getElementsByClassName("table1tr");
+            console.log(table1tr)
             var data_length = table1tr.length
             var i = 0;
             while (i < data_length){
