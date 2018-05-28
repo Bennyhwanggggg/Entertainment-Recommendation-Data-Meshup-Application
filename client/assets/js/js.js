@@ -46,10 +46,16 @@ $(document).ready(function() {
     });
 
     var all_years = Array.apply(0, Array(8)).map(function(_,i) { return 2010 + i; })
-    console.log(all_years);
-    // for (var i=2010; all_years=[]; i--;) all_years.push(i);
     jQuery.each(all_years, function() {
 	$("#all_filter_year").append("<option value='" + this + "'>" + this + "</option>");
+    });
+
+    var ratings = Array.apply(1, Array(11)).map(function(_,i) { return i; })
+    jQuery.each(ratings, function() {
+	$("#all_filter_rate_low").append("<option value='" + this + "'>" + this + "</option>");
+    });
+    jQuery.each(ratings, function() {
+	$("#all_filter_rate_high").append("<option value='" + this + "'>" + this + "</option>");
     });
 });
 
@@ -100,17 +106,30 @@ $("#all_filter").click(function() {
 
     var filter_genre = $("#all_filter_genre").val();
     var filter_year = $("#all_filter_year").val();
+    var filter_limit = $("#all_filter_limit").val();
+    var filter_sort = $("#all_filter_sort").val();
+    var filter_rate_low = $("#all_filter_rate_low").val();
+    var filter_rate_high = $("#all_filter_rate_high").val();
 
-    if (filter_genre) {
+    if (filter_genre && filter_genre != '-')
 	url += "&genre=" + filter_genre;
-    }
 
-    if (filter_year) {
+    if (filter_year && filter_year != '-')
 	url += "&year=" + filter_year;
-    }
+
+    if (filter_limit && filter_limit != '-')
+	url += "&count=" + filter_limit;
+
+    if (filter_sort && filter_sort != '-')
+	url += "&order=" + filter_sort;
+
+    if (filter_rate_low && filter_rate_low != '-')
+	url += "&rate_start=" + filter_rate_low;
+
+    if (filter_rate_high && filter_rate_high != '-')
+	url += "&rate_end=" + filter_rate_high;
 
     $("#all_results tbody tr").remove();
-
     $("#loading0").show();
 
     fetch(url, {
