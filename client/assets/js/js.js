@@ -391,46 +391,45 @@ $("#books_search").click(function(){
 function pie_chart(){
     var loading = document.getElementById('loading4');
     loading.style.display = "block";
-
       $(function(){
-      url = "http://127.0.0.1:5000/analytics/productionquality?",
-      genre = $('#genre_of_combine').val(),
-      year = $('#year_combine').val(),
-      year_start = $('#year_start_combine').val(),
-      year_end = $('#year_end_combine').val()
-      var name_items = [];
-      var name_value = [];
-      var url = "http://127.0.0.1:5000/analytics/productionquality?genre="+genre;
-      if (year){
-        url = url + "&year="+year
-      }
-      if (year_start){
-        url = url + "&year_start=" + year_start
-      }
-      if (year_end){
-        url = url + "&year_end=" + year_end
-      }
-      var data = [];
-      $.ajax({
-        url:url,
-        type:'get',
-        dataType:"json",
-        async:false,
-        success: function(result) {
-            loading.style.display = "none";
-          name_value.push(result.Number_of_animes);
-          name_value.push(result.Number_of_movies);
-          name_value.push(result.Number_of_books);
-          name_value.push(result.Average_rating_of_animes);
-          name_value.push(result.Average_rating_of_movies);
-          name_value.push(result.Average_rating_of_books);
-          name_value.push(result.Average_earning_of_animes);
-          name_value.push(result.Average_earning_of_movies);
-          name_value.push(result.Average_earning_of_books);
-          for (let key in result){
-            name_items.push(key);
+          url = "http://127.0.0.1:5000/analytics/productionquality?",
+          genre = $('#genre_of_combine').val(),
+          year = $('#year_combine').val(),
+          year_start = $('#year_start_combine').val(),
+          year_end = $('#year_end_combine').val()
+          var name_items = [];
+          var name_value = [];
+          var url = "http://127.0.0.1:5000/analytics/productionquality?genre="+genre;
+          if (year){
+            url = url + "&year="+year
           }
-        }
+          if (year_start){
+            url = url + "&year_start=" + year_start
+          }
+          if (year_end){
+            url = url + "&year_end=" + year_end
+          }
+          var data = [];
+          $.ajax({
+            url:url,
+            type:'get',
+            dataType:"json",
+            async:false,
+            success: function(result) {
+                loading.style.display = "none";
+              name_value.push(result.Number_of_animes);
+              name_value.push(result.Number_of_movies);
+              name_value.push(result.Number_of_books);
+              name_value.push(result.Average_rating_of_animes);
+              name_value.push(result.Average_rating_of_movies);
+              name_value.push(result.Average_rating_of_books);
+              name_value.push(result.Average_earning_of_animes);
+              name_value.push(result.Average_earning_of_movies);
+              name_value.push(result.Average_earning_of_books);
+              for (let key in result){
+                name_items.push(key);
+              }
+            }
       });
       loading.style.display = "none";
 
@@ -537,29 +536,28 @@ $("#combine_trend").click(function(){
         }
       });
       loading.style.display = "none";
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(draw_Chart);
+      function draw_Chart(){
+          var L = dataset;
+          var data_1 = google.visualization.arrayToDataTable(L);
+          var options = {
+              title: 'Rating Comparison',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              vAxis: {
+                  title: 'Rating',
+                  logScale: false
+                },
+              hAxis: {
+                  title: 'Year',
+                  logScale: true
+                }
+            };
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+          chart.draw(data_1, options);
+        }
     });
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(draw_Chart);
-  function draw_Chart(){
-      var L = dataset;
-      var data_1 = google.visualization.arrayToDataTable(L);
-      var options = {
-          title: 'Rating Comparison',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis: {
-              title: 'Rating',
-              logScale: false
-            },
-          hAxis: {
-              title: 'Year',
-              logScale: true
-            }
-        };
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-      chart.draw(data_1, options);
-    }
-
 });
 
 var dataset_1 = [];
@@ -590,31 +588,29 @@ $("#combine_revenue").click(function(){
 
         }
       });
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(draw_Chart_1);
+      function draw_Chart_1(){
+          var L = dataset_1;
+          var data_1 = google.visualization.arrayToDataTable(L);
+          var options = {
+              title: 'Revenue Comparison',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              vAxis: {
+                  title: 'Revenue(million)',
+                  logScale: false
+                },
+              hAxis: {
+                  title: 'Year',
+                  logScale: true
+                }
+            };
+
+          var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
+          chart.draw(data_1, options);
+        }
     });
-
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(draw_Chart_1);
-  function draw_Chart_1(){
-      var L = dataset_1;
-      var data_1 = google.visualization.arrayToDataTable(L);
-      var options = {
-          title: 'Revenue Comparison',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis: {
-              title: 'Revenue(million)',
-              logScale: false
-            },
-          hAxis: {
-              title: 'Year',
-              logScale: true
-            }
-        };
-
-      var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
-      chart.draw(data_1, options);
-    }
-
 });
 
 
