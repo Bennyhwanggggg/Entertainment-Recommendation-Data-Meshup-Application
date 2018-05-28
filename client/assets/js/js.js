@@ -22,6 +22,10 @@ $(document).ready(function() {
 	"Military", "Drama", "Fantasy", "Comedy", "Slice of Life",
 	"Supernatural", "Super Power", "Mecha", "Sci-Fi"];
 
+    var all_genres = anime_genres.concat(movie_genres).concat(book_genres).filter(function(elem, index, self) {
+	return index == self.indexOf(elem);
+    });
+
     jQuery.each(anime_genres, function() {
 	$("#anime_genres").append("<option value='" + this + "'>" + this + "</option>");
     });
@@ -32,6 +36,10 @@ $(document).ready(function() {
 
     jQuery.each(book_genres, function() {
 	$("#book_genres").append("<option value='" + this + "'>" + this + "</option>");
+    });
+
+    jQuery.each(all_genres, function() {
+	$("#all_filter_genre").append("<option value='" + this + "'>" + this + "</option>");
     });
 });
 
