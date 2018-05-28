@@ -498,28 +498,29 @@ $("#combine_trend").click(function(){
         }
       });
       loading.style.display = "none";
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(draw_Chart);
+      function draw_Chart(){
+          var L = dataset;
+          var data_1 = google.visualization.arrayToDataTable(L);
+          var options = {
+              title: 'Rating Comparison',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              vAxis: {
+                  title: 'Rating',
+                  logScale: false
+                },
+              hAxis: {
+                  title: 'Year',
+                  logScale: true
+                }
+            };
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+          chart.draw(data_1, options);
+        }
     });
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(draw_Chart);
-  function draw_Chart(){
-      var L = dataset;
-      var data_1 = google.visualization.arrayToDataTable(L);
-      var options = {
-          title: 'Rating Comparison',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis: {
-              title: 'Rating',
-              logScale: false
-            },
-          hAxis: {
-              title: 'Year',
-              logScale: true
-            }
-        };
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-      chart.draw(data_1, options);
-    }
+
 
 });
 
@@ -551,30 +552,31 @@ $("#combine_revenue").click(function(){
 
         }
       });
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(draw_Chart_1);
+      function draw_Chart_1(){
+          var L = dataset_1;
+          var data_1 = google.visualization.arrayToDataTable(L);
+          var options = {
+              title: 'Revenue Comparison',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              vAxis: {
+                  title: 'Revenue(million)',
+                  logScale: false
+                },
+              hAxis: {
+                  title: 'Year',
+                  logScale: true
+                }
+            };
+
+          var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
+          chart.draw(data_1, options);
+        }
     });
 
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(draw_Chart_1);
-  function draw_Chart_1(){
-      var L = dataset_1;
-      var data_1 = google.visualization.arrayToDataTable(L);
-      var options = {
-          title: 'Revenue Comparison',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis: {
-              title: 'Revenue(million)',
-              logScale: false
-            },
-          hAxis: {
-              title: 'Year',
-              logScale: true
-            }
-        };
 
-      var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
-      chart.draw(data_1, options);
-    }
 
 });
 
