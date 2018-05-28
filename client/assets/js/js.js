@@ -166,7 +166,6 @@ $("#animes_search").click(function(){/* table1_Animes*/
 $("#movies_search").click(function(){
     var loading = document.getElementById('loading2');
     loading.style.display = "block";
-    console.log("22222")
     var table2 = document.getElementById('table2_tbody');
     console.log("1");
     var k;
@@ -326,7 +325,7 @@ $("#books_search").click(function(){
                 books_td7 = document.createElement('td');
 
                 books_td1.innerHTML = data[i]['title'];
-                books_td2.innerHTML = data[i]['genre'];
+                books_td2.innerHTML = data[i]['genre'].join(', ');
                 books_td3.innerHTML = data[i]['isbn'];
                 books_td4.innerHTML = data[i]['author'];
                 books_td5.innerHTML = data[i]['year'];

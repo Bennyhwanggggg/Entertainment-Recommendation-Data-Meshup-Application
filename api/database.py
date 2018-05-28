@@ -126,7 +126,7 @@ def get_book_data():
             result['year'] = data.year
             result['author'] = data.author.split(', ')
             result['imgurl'] = data.imgurl
-            result['genre'] = data.genre.split(', ')
+            result['genre'] = list(set(data.genre.split(', ')))
             result['smallimgurl'] = data.smallimgurl
             result['rating'] = data.rating
             result['revenue'] = float(round(data.revenue, 4))/1000000
