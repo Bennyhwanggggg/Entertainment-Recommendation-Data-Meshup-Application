@@ -160,7 +160,6 @@ $("#animes_search").click(function(){/* table1_Animes*/
     var k;
     if(document.getElementsByClassName("table1tr").length!=0){
             table1tr = document.getElementsByClassName("table1tr");
-            console.log(table1tr)
             var data_length = table1tr.length
             var i = 0;
             while (i < data_length){
