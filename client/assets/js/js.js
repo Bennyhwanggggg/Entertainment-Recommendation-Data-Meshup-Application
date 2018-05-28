@@ -105,7 +105,7 @@ $("#all_filter").click(function() {
 	    var table = "<tr class='table1tr'>";
 	    table += "<th>" + this.title + "</th>";
 	    table += "<th>" + this.title + "</th>";
-	    table += "<th>" + this.genre.toString() + "</th>";
+        table += "<th>" + this.genre.join(', ') + "</th>";
 	    table += "<th>" + this.year.toString() + "</th>";
 	    table += "<th>" + this.revenue.toString() + "</th>";
 	    table += "<th>" + this.rating.toString() + "</th>";
