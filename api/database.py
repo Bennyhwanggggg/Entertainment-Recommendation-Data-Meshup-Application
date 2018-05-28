@@ -85,6 +85,7 @@ def get_anime_data():
     results = []
     for data in anime_data:
         result = dict()
+        result['media_type'] = 'Anime'
         result['title'] = data.name
         result['genre'] = data.genre.split(', ')
         result['type'] = data.type
@@ -101,6 +102,7 @@ def get_movie_data():
     results = []
     for data in movie_data:
         result = dict()
+        result['media_type'] = 'Movie'
         result['title'] = data.title
         result['genre'] = data.genre.split(',')
         result['rating'] = data.rating
@@ -120,6 +122,7 @@ def get_book_data():
     for data in book_data:
         try:
             result = dict()
+            result['media_type'] = 'Book'
             result['title'] = data.title
             result['isbn'] = int(data.isbn)
             result['isbn13'] = data.isbn13
