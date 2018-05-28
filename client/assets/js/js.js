@@ -179,7 +179,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
                 animes_td7 = document.createElement('td');
 
                 animes_td1.innerHTML = data[i]['title'];
-                animes_td2.innerHTML = data[i]['genre'];
+                animes_td2.innerHTML = data[i]['genre'].join(', ');
                 animes_td3.innerHTML = data[i]['type'];
                 animes_td4.innerHTML = data[i]['rating'];
                 animes_td5.innerHTML = data[i]['revenue'];
@@ -271,7 +271,7 @@ $("#movies_search").click(function(){
             movies_td11 = document.createElement('td');
 
             movies_td1.innerHTML = data[i]['title'];
-            movies_td2.innerHTML = data[i]['genre'];
+            movies_td2.innerHTML = data[i]['genre'].join(', ');
             movies_td3.innerHTML = data[i]['description'];
             movies_td4.innerHTML = data[i]['director'];
             movies_td5.innerHTML = data[i]['actors'];
