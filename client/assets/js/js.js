@@ -99,11 +99,11 @@ $("#all_filter").click(function() {
     var filter_year = $("#all_filter_year").val();
 
     if (filter_genre) {
-	url += "?genre=" + filter_genre;
+	url += "&genre=" + filter_genre;
     }
 
-    if (filter_genre) {
-	url += "?year=" + filter_year;
+    if (filter_year) {
+	url += "&year=" + filter_year;
     }
 
     $("#all_results tbody tr").remove();
