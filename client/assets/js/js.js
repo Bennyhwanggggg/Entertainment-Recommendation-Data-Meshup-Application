@@ -588,6 +588,7 @@ $("#combine_revenue").click(function(){
 
         }
       });
+      loading.style.display = "none";
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(draw_Chart_1);
       function draw_Chart_1(){
