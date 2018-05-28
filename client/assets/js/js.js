@@ -4,6 +4,9 @@
 
 $(document).ready(function() {
     $("#loading0").hide();
+    $("#loading1").hide();
+    $("#loading2").hide();
+    $("#loading3").hide();
 
     var anime_genres = ["Comedy", "Shoujo Ai", "Magic", "Cars", "Mecha",
 	"Romance", "Slice of Life", "Ecchi", "School", "Demons",
@@ -132,9 +135,7 @@ $("#all_filter").click(function() {
 
 $("#animes_search").click(function(){/* table1_Animes*/
 
-    var loading = document.getElementById('loading1');
-    loading.style.display = "block";
-
+    $("#loading1").show();
     var table1 = document.getElementById('table1_tbody');
     console.log("1");
     var k;
@@ -177,7 +178,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
         method: 'get'
     }).then((response)=> response.json())
       .then(function(data){
-        loading.style.display = "none";
+	$("#loading1").hide();
         if (data.length!=0){
             var i;
             var animes_td;
@@ -219,8 +220,7 @@ $("#animes_search").click(function(){/* table1_Animes*/
 });
 
 $("#movies_search").click(function(){
-    var loading = document.getElementById('loading2');
-    loading.style.display = "block";
+    $("#loading2").show();
     var table2 = document.getElementById('table2_tbody');
     console.log("1");
     var k;
@@ -264,7 +264,7 @@ $("#movies_search").click(function(){
         method: 'get'
     }).then((response)=> response.json())
       .then(function(data){
-        loading.style.display = "none";
+	$("#loading2").hide();
 
         if (data.length!=0){
             var i;
@@ -317,8 +317,7 @@ $("#movies_search").click(function(){
 });
 
 $("#books_search").click(function(){
-    var loading = document.getElementById('loading3');
-    loading.style.display = "block";
+    $("#loading3").show();
     var table3 = document.getElementById('table3_tbody');
     var k;
     if(document.getElementsByClassName("table3tr").length!=0){
@@ -361,7 +360,7 @@ $("#books_search").click(function(){
         method: 'get'
     }).then((response)=> response.json())
       .then(function(data){
-        loading.style.display = "none";
+	$("#loading3").hide();
         if (data.length!=0){
             var i;
             var animes_td;
