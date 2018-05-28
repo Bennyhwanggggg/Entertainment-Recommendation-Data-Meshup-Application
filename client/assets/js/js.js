@@ -41,6 +41,13 @@ $(document).ready(function() {
     jQuery.each(all_genres, function() {
 	$("#all_filter_genre").append("<option value='" + this + "'>" + this + "</option>");
     });
+
+    var all_years = Array.apply(0, Array(8)).map(function(_,i) { return 2010 + i; })
+    console.log(all_years);
+    // for (var i=2010; all_years=[]; i--;) all_years.push(i);
+    jQuery.each(all_years, function() {
+	$("#all_filter_year").append("<option value='" + this + "'>" + this + "</option>");
+    });
 });
 
 $(".home").click(function(){
