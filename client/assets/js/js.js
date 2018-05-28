@@ -86,13 +86,10 @@ $("#animes_search").click(function(){/* table1_Animes*/
     var k;
     if(document.getElementsByClassName("table1tr").length!=0){
             table1tr = document.getElementsByClassName("table1tr");
-            console.log(table1tr.length)
             var data_length = table1tr.length
             var i = 0;
             while (i < data_length){
-                console.log(k);
                 table1.removeChild(table1tr[0]);
-                console.log(table1tr);
                 i++;
             }
     }
@@ -125,15 +122,12 @@ $("#animes_search").click(function(){/* table1_Animes*/
         method: 'get'
     }).then((response)=> response.json())
       .then(function(data){
-        console.log("uuuuuuuuuu")
-        console.log(data)
         loading.style.display = "none";
         if (data.length!=0){
             var i;
             var animes_td;
             var animes_tr
             for (i = 0; i < data.length; i++) {
-                // text += data[i] + "<br>";
                 console.log(data[i])
                 animes_tr = document.createElement('tr');
                 animes_tr.setAttribute('class',"table1tr");
@@ -166,10 +160,6 @@ $("#animes_search").click(function(){/* table1_Animes*/
         }else{
             alert("no data!!!!");
         }
-
-        
-
-        console.log(table1)
     });
 });
 
@@ -182,17 +172,12 @@ $("#movies_search").click(function(){
     var k;
     if(document.getElementsByClassName("table2tr").length!=0){
             table2tr = document.getElementsByClassName("table2tr");
-            console.log(table2tr.length)
             var data_length = table2tr.length;
-
             var i = 0;
             while (i < data_length){
-                console.log(k);
                 table2.removeChild(table2tr[0]);
-                console.log(table2tr);
                 i++;
             }
-
     }
 
     var numtoshow =$("#number_of_movie").val();
@@ -225,7 +210,6 @@ $("#movies_search").click(function(){
         method: 'get'
     }).then((response)=> response.json())
       .then(function(data){
-        console.log(data)
         loading.style.display = "none";
 
         if (data.length!=0){
@@ -275,7 +259,6 @@ $("#movies_search").click(function(){
         }else{
             alert("no data")
         }
-        console.log(table2)
     });
 });
 
@@ -286,13 +269,10 @@ $("#books_search").click(function(){
     var k;
     if(document.getElementsByClassName("table3tr").length!=0){
             table3tr = document.getElementsByClassName("table3tr");
-            console.log(table3tr.length)
             var data_length = table3tr.length;
             var i = 0;
             while (i < data_length){
-                console.log(k);
                 table3.removeChild(table3tr[0]);
-                console.log(table3tr);
                 i++;
             }
     }
@@ -328,8 +308,6 @@ $("#books_search").click(function(){
     }).then((response)=> response.json())
       .then(function(data){
         loading.style.display = "none";
-        console.log(data)
-
         if (data.length!=0){
             var i;
             var animes_td;
@@ -368,9 +346,6 @@ $("#books_search").click(function(){
         }else{
             alert("Sorry, we do not have data!!")
         }
-
-
-        console.log(table3)
     });
 });
 
@@ -414,19 +389,13 @@ function pie_chart(){
           name_value.push(result.Average_earning_of_animes);
           name_value.push(result.Average_earning_of_movies);
           name_value.push(result.Average_earning_of_books);
-          console.log(name_items);
           for (let key in result){
             name_items.push(key);
           }
         }
       });
       loading.style.display = "none";
-      console.log("Number_of_animes");
-      console.log(name_value);
 
-      for (let key = 0; key < 6; key++){
-            console.log(name_items[key]);
-      }
       google.charts.load("current", {packages:['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -503,7 +472,6 @@ function pie_chart(){
 
 var dataset = [];
 $("#combine_trend").click(function(){
-    console.log("666");
     var loading = document.getElementById('loading4');
     loading.style.display = "block";
 
@@ -512,9 +480,6 @@ $("#combine_trend").click(function(){
       genre = $('#genre_of_combine').val(),
       year_start = $('#year_start_combine').val(),
       year_end = $('#year_end_combine').val()
-      console.log(genre);
-      console.log("3333");
-      console.log(year_start);
       var url = "http://127.0.0.1:5000/analytics/productiontrend?genre="+genre;
       if (year_start){
         url = url + "&year_start=" + year_start
@@ -522,8 +487,6 @@ $("#combine_trend").click(function(){
       if (year_end){
         url = url + "&year_end=" + year_end
       }
-      console.log(url);
-
       $.ajax({
         url:url,
         type:'get',
@@ -531,23 +494,16 @@ $("#combine_trend").click(function(){
         async:false,
         success: function(result) {
             loading.style.display = "none";
-          console.log("123456789");
-          //console.log(result.data);
           dataset = result.data
 
         }
       });
       loading.style.display = "none";
-      console.log("Number_of_animes");
-      console.log(dataset);
-
     });
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(draw_Chart);
   function draw_Chart(){
       var L = dataset;
-      console.log("1234");
-      console.log(L);
       var data_1 = google.visualization.arrayToDataTable(L);
       var options = {
           title: 'Rating Comparison',
@@ -562,59 +518,21 @@ $("#combine_trend").click(function(){
               logScale: true
             }
         };
-
-
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
       chart.draw(data_1, options);
-//   google.charts.load('current', {'packages':['line']});
-//   google.charts.setOnLoadCallback(draw_Chart);
-//   function draw_Chart(){
-//       var L = dataset;
-//       console.log("1234");
-//       console.log(L);
-//       var data = new google.visualization.DataTable();
-//       data.addColumn('number', 'Category');
-//       data.addColumn('number', 'Animes');
-//       data.addColumn('number', 'Movies');
-//       data.addColumn('number', 'Books');
-
-//       data.addRows(L);
-
-//       var options = {
-//         chart: {
-//           title: 'The rating comparison between anmies, movies and books',
-//           subtitle: 'number of each category'
-//         },
-//         width: 900,
-//         height: 500,
-//         axes: {
-//           x: {
-//             0: {side: 'top'}
-//           }
-//         }
-//       };
-
-//       var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
-//       chart.draw(data, google.charts.Line.convertOptions(options));
     }
 
 });
 
 var dataset_1 = [];
 $("#combine_revenue").click(function(){
-    console.log("666");
     var loading = document.getElementById('loading4');
     loading.style.display = "block";
 
     $(function(){
       url = "http://127.0.0.1:5000/analytics/productionrevenue?",
-//      genre = $('#genre_of_combine').val(),
       year_start = $('#year_start_combine').val(),
       year_end = $('#year_end_combine').val()
-//      console.log(genre);
-      console.log("3333");
-      console.log(year_start);
       var url = "http://127.0.0.1:5000/analytics/productionrevenue?";
       if (year_start){
         url = url + "year_start=" + year_start
@@ -622,7 +540,6 @@ $("#combine_revenue").click(function(){
       if (year_end){
         url = url + "&year_end=" + year_end
       }
-      console.log(url);
 
       $.ajax({
         url:url,
@@ -631,22 +548,16 @@ $("#combine_revenue").click(function(){
         async:false,
         success: function(result) {
             loading.style.display = "none";
-          console.log("123456789");
-          //console.log(result.data);
           dataset_1 = result.data
 
         }
       });
-      console.log("balalalalalala");
-      console.log(dataset_1);
-
     });
 
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(draw_Chart_1);
   function draw_Chart_1(){
       var L = dataset_1;
-      console.log(L);
       var data_1 = google.visualization.arrayToDataTable(L);
       var options = {
           title: 'Revenue Comparison',
@@ -667,3 +578,110 @@ $("#combine_revenue").click(function(){
     }
 
 });
+
+
+function orderbarchart(){
+    var loading = document.getElementById('loading4');
+    loading.style.display = "block";
+      $(function(){
+      var url = "http://127.0.0.1:5000/analytics/genrequality?count=10&earning=highest";
+      var year = $('#year_combine').val();
+      var name_items = [];
+      var name_value = [];
+      var name_value2 = [];
+      if (year){
+        url = url + "&year="+year
+      } else {
+        alert('No year selected');
+      }
+      var data = [];
+      $.ajax({
+        url:url,
+        type:'get',
+        dataType:"json",
+        async:false,
+        success: function(result) {
+            loading.style.display = "none";
+            var i;
+            for (i=0; i<10; i++){
+                name_items.push(result[i].genre)
+                name_value.push(result[i].average_rating)
+                name_value2.push(result[i].average_revenue)
+          }
+        }
+      });
+      loading.style.display = "none";
+      google.charts.load("current", {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        // graph 1
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Number", { role: "style" } ],
+          [name_items[0], name_value[0], "blue"],
+          [name_items[1], name_value[1], "blue"],
+          [name_items[2], name_value[2], "blue"],
+          [name_items[3], name_value[3], "blue"],
+          [name_items[4], name_value[4], "blue"],
+          [name_items[5], name_value[5], "blue"],
+          [name_items[6], name_value[6], "blue"],
+          [name_items[7], name_value[7], "blue"],
+          [name_items[8], name_value[8], "blue"],
+          [name_items[9], name_value[9], "blue"]
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]);
+
+        var options = {
+          title: "Genre vs Avg Rating",
+          width: 500,
+          height: 200,
+          bar: {groupWidth: "95%"},
+          legend: { position: "none" },
+          vAxis: {minValue: 0}
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("genrebarchart1"));
+        chart.draw(view, options);
+
+        // graph2
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Number", { role: "style" } ],
+          [name_items[0], name_value2[0], "blue"],
+          [name_items[1], name_value2[1], "blue"],
+          [name_items[2], name_value2[2], "blue"],
+          [name_items[3], name_value2[3], "blue"],
+          [name_items[4], name_value2[4], "blue"],
+          [name_items[5], name_value2[5], "blue"],
+          [name_items[6], name_value2[6], "blue"],
+          [name_items[7], name_value2[7], "blue"],
+          [name_items[8], name_value2[8], "blue"],
+          [name_items[9], name_value2[9], "blue"]
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]);
+
+        var options = {
+          title: "Genre vs Avg Revenue (mil)",
+          width: 500,
+          height: 200,
+          bar: {groupWidth: "95%"},
+          legend: { position: "none" },
+          vAxis: {minValue: 0}
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("genrebarchart2"));
+        chart.draw(view, options);
+    }
+    })
+}

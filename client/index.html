@@ -416,7 +416,7 @@
             <table class="am-table am-table-striped am-table-hover table-main" id="table2">
               <thead>
               <tr>
-                <th class="table-id">Title</th><th class="table-title">Genre</th><th class="table-type">Synopsis</th><th class="table-author am-hide-sm-only">Director</th><th class="table-date am-hide-sm-only">Starring</th><th class="table-set">Year</th><th class="table-set">Runtime (mins)</th><th class="table-set">IMBD Rating</th><th class="table-set">Revenue</th><th class="table-set">Metascore</th>
+                <th class="table-id">Title</th><th class="table-title">Genre</th><th class="table-type">Synopsis</th><th class="table-author am-hide-sm-only">Director</th><th class="table-date am-hide-sm-only">Starring</th><th class="table-set">Year</th><th class="table-set">Runtime (mins)</th><th class="table-set">IMBD Rating</th><th class="table-set">Metascore</th><th class="table-set">Revenue</th>
               </tr>
               </thead>
               <tbody id="table2_tbody">
@@ -831,9 +831,11 @@
 
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-form-group">
-          <button  id="combine_search" class="btn btn-info" onclick="pie_chart()">Single Year Comparison</button>
+          <button  id="combine_search" class="btn btn-info" onclick="pie_chart()">Single Year Production Comparison</button>
+          <button  id="combine_genre" class="btn btn-info" onclick="orderbarchart()">Single Year Genre Comparison</button>
           <button  id="combine_trend" class="btn btn-info">Rating Trend</button>
 	      <button  id="combine_revenue" class="btn btn-info">Revenue Trend</button>
+
         </div>
       </div>
 
@@ -843,11 +845,17 @@
             <table class="am-table am-table-striped am-table-hover table-main" id = "table4_tbody">
               <thead>
 
-	      <div style="width: 100%; overflow: hidden;" class="row" id="anal_g1">
+	      <div style="width: 100%; overflow: hidden;" class="row">
                     <div style="float: left; display: block;" id="piechart"></div>
                     <div style="float: left; display: inline;" id="columnchart_values"></div>
                     <div style="float: left; display: inline;" id="columnchart_values2"></div>
               </div>
+
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<div style="width: 100%; overflow: hidden;" class="row">
+                    <div style="float: left; display: inline;" id="genrebarchart1"></div>
+                    <div style="float: left; display: inline;" id="genrebarchart2"></div>
+                </div>
 
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
