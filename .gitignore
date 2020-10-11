@@ -11,3 +11,6 @@ __pycache__/
 
 # data
 raw_data/
+
+# Mac OSX
+**/.DS_Store
